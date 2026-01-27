@@ -1,0 +1,2172 @@
+{
+    "data": [
+      {
+        "id": "202601232BBC286C",
+        "numerical_id": 626951,
+        "game_id": "23675-23374-2026-03",
+        "start_date": "2026-01-23T06:55:00Z",
+        "home_competitors": [
+          {
+            "id": "493BF13DE15C",
+            "name": "Francisco Cerundolo",
+            "numerical_id": 991,
+            "base_id": 968,
+            "abbreviation": "",
+            "logo": "https://cdn.opticodds.com/team-logos/tennis/968.png"
+          }
+        ],
+        "away_competitors": [
+          {
+            "id": "8B1C0A9FED57",
+            "name": "Andrey Rublev",
+            "numerical_id": 886,
+            "base_id": 863,
+            "abbreviation": "",
+            "logo": "https://cdn.opticodds.com/team-logos/tennis/863.png"
+          }
+        ],
+        "home_team_display": "Francisco Cerundolo",
+        "away_team_display": "Andrey Rublev",
+        "status": "completed",
+        "is_live": false,
+        "season_type": "Australian Open, Melbourne, Australia",
+        "season_year": "2026",
+        "season_week": "round of 32",
+        "venue_name": "Kia Arena",
+        "venue_location": "Melbourne, Australia",
+        "venue_neutral": false,
+        "sport": {
+          "id": "tennis",
+          "name": "Tennis",
+          "numerical_id": 25
+        },
+        "league": {
+          "id": "atp",
+          "name": "ATP",
+          "numerical_id": 20
+        },
+        "home_starter": null,
+        "home_starter_id": null,
+        "home_record": null,
+        "home_seed": null,
+        "home_rotation_number": 39649,
+        "away_starter": null,
+        "away_starter_id": null,
+        "away_record": null,
+        "away_seed": null,
+        "away_rotation_number": 39648,
+        "tournament": null,
+        "tournament_stage": null,
+        "has_odds": true,
+        "broadcast": null,
+        "result": {
+          "scores": {
+            "home": {
+              "total": 3,
+              "periods": {
+                "period_1": 6,
+                "period_2": 7,
+                "period_3": 6
+              },
+              "aggregate": null
+            },
+            "away": {
+              "total": 0,
+              "periods": {
+                "period_1": 3,
+                "period_2": 6,
+                "period_3": 3
+              },
+              "aggregate": null
+            }
+          },
+          "in_play_data": {
+            "period": "3",
+            "clock": null,
+            "last_play": null
+          }
+        },
+        "lineups": {
+          "home": [],
+          "away": []
+        },
+        "weather": null,
+        "weather_temp": null,
+        "extra": null,
+        "source_ids": {}
+      },
+      {
+        "id": "20260123F99D5B54",
+        "numerical_id": 627394,
+        "game_id": "27264-15898-2026-03",
+        "start_date": "2026-01-23T08:10:00Z",
+        "home_competitors": [
+          {
+            "id": "560F5EDF4D9F",
+            "name": "Frances Tiafoe",
+            "numerical_id": 990,
+            "base_id": 967,
+            "abbreviation": "",
+            "logo": "https://cdn.opticodds.com/team-logos/tennis/967.png"
+          }
+        ],
+        "away_competitors": [
+          {
+            "id": "248A5E15339C",
+            "name": "Alex De Minaur",
+            "numerical_id": 872,
+            "base_id": 849,
+            "abbreviation": "",
+            "logo": "https://cdn.opticodds.com/team-logos/tennis/849.png"
+          }
+        ],
+        "home_team_display": "Frances Tiafoe",
+        "away_team_display": "Alex De Minaur",
+        "status": "completed",
+        "is_live": false,
+        "season_type": "Australian Open, Melbourne, Australia",
+        "season_year": "2026",
+        "season_week": "round of 32",
+        "venue_name": "Rod Laver Arena",
+        "venue_location": "Melbourne, Australia",
+        "venue_neutral": false,
+        "sport": {
+          "id": "tennis",
+          "name": "Tennis",
+          "numerical_id": 25
+        },
+        "league": {
+          "id": "atp",
+          "name": "ATP",
+          "numerical_id": 20
+        },
+        "home_starter": null,
+        "home_starter_id": null,
+        "home_record": null,
+        "home_seed": null,
+        "home_rotation_number": 39663,
+        "away_starter": null,
+        "away_starter_id": null,
+        "away_record": null,
+        "away_seed": null,
+        "away_rotation_number": 39662,
+        "tournament": null,
+        "tournament_stage": null,
+        "has_odds": true,
+        "broadcast": null,
+        "result": {
+          "scores": {
+            "home": {
+              "total": 0,
+              "periods": {
+                "period_1": 3,
+                "period_2": 4,
+                "period_3": 5
+              },
+              "aggregate": null
+            },
+            "away": {
+              "total": 3,
+              "periods": {
+                "period_1": 6,
+                "period_2": 6,
+                "period_3": 7
+              },
+              "aggregate": null
+            }
+          },
+          "in_play_data": {
+            "period": "3",
+            "clock": null,
+            "last_play": null
+          }
+        },
+        "lineups": {
+          "home": [],
+          "away": []
+        },
+        "weather": null,
+        "weather_temp": null,
+        "extra": null,
+        "source_ids": {}
+      },
+      {
+        "id": "20260123C05B2BE2",
+        "numerical_id": 627356,
+        "game_id": "29740-18401-2026-03",
+        "start_date": "2026-01-23T08:20:00Z",
+        "home_competitors": [
+          {
+            "id": "7DF27096EABA",
+            "name": "Alexander Zverev",
+            "numerical_id": 868,
+            "base_id": 845,
+            "abbreviation": "",
+            "logo": "https://cdn.opticodds.com/team-logos/tennis/845.png"
+          }
+        ],
+        "away_competitors": [
+          {
+            "id": "1E4C67B82009",
+            "name": "Cameron Norrie",
+            "numerical_id": 918,
+            "base_id": 895,
+            "abbreviation": "",
+            "logo": "https://cdn.opticodds.com/team-logos/tennis/895.png"
+          }
+        ],
+        "home_team_display": "Alexander Zverev",
+        "away_team_display": "Cameron Norrie",
+        "status": "completed",
+        "is_live": false,
+        "season_type": "Australian Open, Melbourne, Australia",
+        "season_year": "2026",
+        "season_week": "round of 32",
+        "venue_name": "John Cain Arena",
+        "venue_location": "Melbourne, Australia",
+        "venue_neutral": true,
+        "sport": {
+          "id": "tennis",
+          "name": "Tennis",
+          "numerical_id": 25
+        },
+        "league": {
+          "id": "atp",
+          "name": "ATP",
+          "numerical_id": 20
+        },
+        "home_starter": null,
+        "home_starter_id": null,
+        "home_record": null,
+        "home_seed": null,
+        "home_rotation_number": 39661,
+        "away_starter": null,
+        "away_starter_id": null,
+        "away_record": null,
+        "away_seed": null,
+        "away_rotation_number": 39660,
+        "tournament": null,
+        "tournament_stage": null,
+        "has_odds": true,
+        "broadcast": null,
+        "result": {
+          "scores": {
+            "home": {
+              "total": 3,
+              "periods": {
+                "period_1": 7,
+                "period_2": 4,
+                "period_3": 6,
+                "period_4": 6
+              },
+              "aggregate": null
+            },
+            "away": {
+              "total": 1,
+              "periods": {
+                "period_1": 5,
+                "period_2": 6,
+                "period_3": 3,
+                "period_4": 1
+              },
+              "aggregate": null
+            }
+          },
+          "in_play_data": {
+            "period": "3",
+            "clock": null,
+            "last_play": null
+          }
+        },
+        "lineups": {
+          "home": [],
+          "away": []
+        },
+        "weather": null,
+        "weather_temp": null,
+        "extra": null,
+        "source_ids": {}
+      },
+      {
+        "id": "2026012380D14488",
+        "numerical_id": 627259,
+        "game_id": "15727-27253-2026-03",
+        "start_date": "2026-01-23T10:05:00Z",
+        "home_competitors": [
+          {
+            "id": "65A11FC4EC0B",
+            "name": "Alexander Bublik",
+            "numerical_id": 862,
+            "base_id": 839,
+            "abbreviation": "",
+            "logo": "https://cdn.opticodds.com/team-logos/tennis/839.png"
+          }
+        ],
+        "away_competitors": [
+          {
+            "id": "C560E3ED1337",
+            "name": "Tomas Martin Etcheverry",
+            "numerical_id": 1260,
+            "base_id": 1237,
+            "abbreviation": "",
+            "logo": "https://cdn.opticodds.com/team-logos/tennis/1237.png"
+          }
+        ],
+        "home_team_display": "Alexander Bublik",
+        "away_team_display": "Tomas Martin Etcheverry",
+        "status": "completed",
+        "is_live": false,
+        "season_type": "Australian Open, Melbourne, Australia",
+        "season_year": "2026",
+        "season_week": "round of 32",
+        "venue_name": "Margaret Court Arena",
+        "venue_location": "Melbourne, Australia",
+        "venue_neutral": false,
+        "sport": {
+          "id": "tennis",
+          "name": "Tennis",
+          "numerical_id": 25
+        },
+        "league": {
+          "id": "atp",
+          "name": "ATP",
+          "numerical_id": 20
+        },
+        "home_starter": null,
+        "home_starter_id": null,
+        "home_record": null,
+        "home_seed": null,
+        "home_rotation_number": 39659,
+        "away_starter": null,
+        "away_starter_id": null,
+        "away_record": null,
+        "away_seed": null,
+        "away_rotation_number": 39658,
+        "tournament": null,
+        "tournament_stage": null,
+        "has_odds": true,
+        "broadcast": null,
+        "result": {
+          "scores": {
+            "home": {
+              "total": 3,
+              "periods": {
+                "period_1": 7,
+                "period_2": 7,
+                "period_3": 6
+              },
+              "aggregate": null
+            },
+            "away": {
+              "total": 0,
+              "periods": {
+                "period_1": 6,
+                "period_2": 6,
+                "period_3": 4
+              },
+              "aggregate": null
+            }
+          },
+          "in_play_data": {
+            "period": "3",
+            "clock": null,
+            "last_play": null
+          }
+        },
+        "lineups": {
+          "home": [],
+          "away": []
+        },
+        "weather": null,
+        "weather_temp": null,
+        "extra": null,
+        "source_ids": {}
+      },
+      {
+        "id": "202601233F5CDB17",
+        "numerical_id": 628068,
+        "game_id": "38245-27369-2026-03",
+        "start_date": "2026-01-23T23:30:00Z",
+        "home_competitors": [
+          {
+            "id": "AC4809AAD9FA",
+            "name": "Karen Khachanov",
+            "numerical_id": 1081,
+            "base_id": 1058,
+            "abbreviation": "",
+            "logo": "https://cdn.opticodds.com/team-logos/tennis/1058.png"
+          }
+        ],
+        "away_competitors": [
+          {
+            "id": "05B9DF6E511C",
+            "name": "Luciano Darderi",
+            "numerical_id": 1106,
+            "base_id": 1083,
+            "abbreviation": "",
+            "logo": "https://cdn.opticodds.com/team-logos/tennis/1083.png"
+          }
+        ],
+        "home_team_display": "Karen Khachanov",
+        "away_team_display": "Luciano Darderi",
+        "status": "completed",
+        "is_live": false,
+        "season_type": "Australian Open, Melbourne, Australia",
+        "season_year": "2026",
+        "season_week": "round of 32",
+        "venue_name": "Kia Arena",
+        "venue_location": "Melbourne, Australia",
+        "venue_neutral": false,
+        "sport": {
+          "id": "tennis",
+          "name": "Tennis",
+          "numerical_id": 25
+        },
+        "league": {
+          "id": "atp",
+          "name": "ATP",
+          "numerical_id": 20
+        },
+        "home_starter": null,
+        "home_starter_id": null,
+        "home_record": null,
+        "home_seed": null,
+        "home_rotation_number": 31093,
+        "away_starter": null,
+        "away_starter_id": null,
+        "away_record": null,
+        "away_seed": null,
+        "away_rotation_number": 31092,
+        "tournament": null,
+        "tournament_stage": null,
+        "has_odds": true,
+        "broadcast": null,
+        "result": {
+          "scores": {
+            "home": {
+              "total": 1,
+              "periods": {
+                "period_1": 6,
+                "period_2": 6,
+                "period_3": 3,
+                "period_4": 4
+              },
+              "aggregate": null
+            },
+            "away": {
+              "total": 3,
+              "periods": {
+                "period_1": 7,
+                "period_2": 3,
+                "period_3": 6,
+                "period_4": 6
+              },
+              "aggregate": null
+            }
+          },
+          "in_play_data": {
+            "period": "3",
+            "clock": null,
+            "last_play": null
+          }
+        },
+        "lineups": {
+          "home": [],
+          "away": []
+        },
+        "weather": null,
+        "weather_temp": null,
+        "extra": null,
+        "source_ids": {}
+      },
+      {
+        "id": "20260124DAFCE820",
+        "numerical_id": 628362,
+        "game_id": "88067-25768-2026-03",
+        "start_date": "2026-01-23T23:30:00Z",
+        "home_competitors": [
+          {
+            "id": "D845D30CAE98",
+            "name": "Lorenzo Musetti",
+            "numerical_id": 1098,
+            "base_id": 1075,
+            "abbreviation": "",
+            "logo": "https://cdn.opticodds.com/team-logos/tennis/1075.png"
+          }
+        ],
+        "away_competitors": [
+          {
+            "id": "4BE41C52B9B9",
+            "name": "Tomas Machac",
+            "numerical_id": 1259,
+            "base_id": 1236,
+            "abbreviation": "",
+            "logo": "https://cdn.opticodds.com/team-logos/tennis/1236.png"
+          }
+        ],
+        "home_team_display": "Lorenzo Musetti",
+        "away_team_display": "Tomas Machac",
+        "status": "completed",
+        "is_live": false,
+        "season_type": "Australian Open, Melbourne, Australia",
+        "season_year": "2026",
+        "season_week": "round of 32",
+        "venue_name": "John Cain Arena",
+        "venue_location": "Melbourne, Australia",
+        "venue_neutral": true,
+        "sport": {
+          "id": "tennis",
+          "name": "Tennis",
+          "numerical_id": 25
+        },
+        "league": {
+          "id": "atp",
+          "name": "ATP",
+          "numerical_id": 20
+        },
+        "home_starter": null,
+        "home_starter_id": null,
+        "home_record": null,
+        "home_seed": null,
+        "home_rotation_number": 31101,
+        "away_starter": null,
+        "away_starter_id": null,
+        "away_record": null,
+        "away_seed": null,
+        "away_rotation_number": 31100,
+        "tournament": null,
+        "tournament_stage": null,
+        "has_odds": true,
+        "broadcast": null,
+        "result": {
+          "scores": {
+            "home": {
+              "total": 3,
+              "periods": {
+                "period_1": 5,
+                "period_2": 6,
+                "period_3": 6,
+                "period_4": 5,
+                "period_5": 6
+              },
+              "aggregate": null
+            },
+            "away": {
+              "total": 2,
+              "periods": {
+                "period_1": 7,
+                "period_2": 4,
+                "period_3": 2,
+                "period_4": 7,
+                "period_5": 2
+              },
+              "aggregate": null
+            }
+          },
+          "in_play_data": {
+            "period": "3",
+            "clock": null,
+            "last_play": null
+          }
+        },
+        "lineups": {
+          "home": [],
+          "away": []
+        },
+        "weather": null,
+        "weather_temp": null,
+        "extra": null,
+        "source_ids": {}
+      },
+      {
+        "id": "20260124A233FD6A",
+        "numerical_id": 628374,
+        "game_id": "15330-10679-2026-03",
+        "start_date": "2026-01-24T01:20:00Z",
+        "home_competitors": [
+          {
+            "id": "37CF873F22EB",
+            "name": "Eliot Spizzirri",
+            "numerical_id": 966,
+            "base_id": 943,
+            "abbreviation": "",
+            "logo": "https://cdn.opticodds.com/team-logos/tennis/943.png"
+          }
+        ],
+        "away_competitors": [
+          {
+            "id": "93CA2DD0F3BF",
+            "name": "Jannik Sinner",
+            "numerical_id": 1054,
+            "base_id": 1031,
+            "abbreviation": "",
+            "logo": "https://cdn.opticodds.com/team-logos/tennis/1031.png"
+          }
+        ],
+        "home_team_display": "Eliot Spizzirri",
+        "away_team_display": "Jannik Sinner",
+        "status": "completed",
+        "is_live": false,
+        "season_type": "Australian Open, Melbourne, Australia",
+        "season_year": "2026",
+        "season_week": "round of 32",
+        "venue_name": "Rod Laver Arena",
+        "venue_location": "Melbourne, Australia",
+        "venue_neutral": false,
+        "sport": {
+          "id": "tennis",
+          "name": "Tennis",
+          "numerical_id": 25
+        },
+        "league": {
+          "id": "atp",
+          "name": "ATP",
+          "numerical_id": 20
+        },
+        "home_starter": null,
+        "home_starter_id": null,
+        "home_record": null,
+        "home_seed": null,
+        "home_rotation_number": 31105,
+        "away_starter": null,
+        "away_starter_id": null,
+        "away_record": null,
+        "away_seed": null,
+        "away_rotation_number": 31104,
+        "tournament": null,
+        "tournament_stage": null,
+        "has_odds": true,
+        "broadcast": null,
+        "result": {
+          "scores": {
+            "home": {
+              "total": 1,
+              "periods": {
+                "period_1": 6,
+                "period_2": 3,
+                "period_3": 4,
+                "period_4": 4
+              },
+              "aggregate": null
+            },
+            "away": {
+              "total": 3,
+              "periods": {
+                "period_1": 4,
+                "period_2": 6,
+                "period_3": 6,
+                "period_4": 6
+              },
+              "aggregate": null
+            }
+          },
+          "in_play_data": {
+            "period": "3",
+            "clock": null,
+            "last_play": null
+          }
+        },
+        "lineups": {
+          "home": [],
+          "away": []
+        },
+        "weather": null,
+        "weather_temp": null,
+        "extra": null,
+        "source_ids": {}
+      },
+      {
+        "id": "2026012349DCE039",
+        "numerical_id": 628197,
+        "game_id": "42135-29012-2026-03",
+        "start_date": "2026-01-24T03:45:00Z",
+        "home_competitors": [
+          {
+            "id": "167522086300",
+            "name": "Ben Shelton",
+            "numerical_id": 904,
+            "base_id": 881,
+            "abbreviation": "",
+            "logo": "https://cdn.opticodds.com/team-logos/tennis/881.png"
+          }
+        ],
+        "away_competitors": [
+          {
+            "id": "26E2938CE33C",
+            "name": "Valentin Vacherot",
+            "numerical_id": 1272,
+            "base_id": 1249,
+            "abbreviation": "",
+            "logo": "https://cdn.opticodds.com/team-logos/tennis/1249.png"
+          }
+        ],
+        "home_team_display": "Ben Shelton",
+        "away_team_display": "Valentin Vacherot",
+        "status": "completed",
+        "is_live": false,
+        "season_type": "Australian Open, Melbourne, Australia",
+        "season_year": "2026",
+        "season_week": "round of 32",
+        "venue_name": "Margaret Court Arena",
+        "venue_location": "Melbourne, Australia",
+        "venue_neutral": false,
+        "sport": {
+          "id": "tennis",
+          "name": "Tennis",
+          "numerical_id": 25
+        },
+        "league": {
+          "id": "atp",
+          "name": "ATP",
+          "numerical_id": 20
+        },
+        "home_starter": null,
+        "home_starter_id": null,
+        "home_record": null,
+        "home_seed": null,
+        "home_rotation_number": 31095,
+        "away_starter": null,
+        "away_starter_id": null,
+        "away_record": null,
+        "away_seed": null,
+        "away_rotation_number": 31094,
+        "tournament": null,
+        "tournament_stage": null,
+        "has_odds": true,
+        "broadcast": null,
+        "result": {
+          "scores": {
+            "home": {
+              "total": 3,
+              "periods": {
+                "period_1": 6,
+                "period_2": 6,
+                "period_3": 7
+              },
+              "aggregate": null
+            },
+            "away": {
+              "total": 0,
+              "periods": {
+                "period_1": 4,
+                "period_2": 4,
+                "period_3": 6
+              },
+              "aggregate": null
+            }
+          },
+          "in_play_data": {
+            "period": "3",
+            "clock": null,
+            "last_play": null
+          }
+        },
+        "lineups": {
+          "home": [],
+          "away": []
+        },
+        "weather": null,
+        "weather_temp": null,
+        "extra": null,
+        "source_ids": {}
+      },
+      {
+        "id": "20260124D1BD898F",
+        "numerical_id": 628375,
+        "game_id": "31439-82068-2026-03",
+        "start_date": "2026-01-24T06:35:00Z",
+        "home_competitors": [
+          {
+            "id": "08053B5027A9",
+            "name": "Stan Wawrinka",
+            "numerical_id": 1231,
+            "base_id": 1208,
+            "abbreviation": "",
+            "logo": "https://cdn.opticodds.com/team-logos/tennis/1208.png"
+          }
+        ],
+        "away_competitors": [
+          {
+            "id": "C51C15BB5D75",
+            "name": "Taylor Fritz",
+            "numerical_id": 1243,
+            "base_id": 1220,
+            "abbreviation": "",
+            "logo": "https://cdn.opticodds.com/team-logos/tennis/1220.png"
+          }
+        ],
+        "home_team_display": "Stan Wawrinka",
+        "away_team_display": "Taylor Fritz",
+        "status": "completed",
+        "is_live": false,
+        "season_type": "Australian Open, Melbourne, Australia",
+        "season_year": "2026",
+        "season_week": "round of 32",
+        "venue_name": "John Cain Arena",
+        "venue_location": "Melbourne, Australia",
+        "venue_neutral": true,
+        "sport": {
+          "id": "tennis",
+          "name": "Tennis",
+          "numerical_id": 25
+        },
+        "league": {
+          "id": "atp",
+          "name": "ATP",
+          "numerical_id": 20
+        },
+        "home_starter": null,
+        "home_starter_id": null,
+        "home_record": null,
+        "home_seed": null,
+        "home_rotation_number": 31103,
+        "away_starter": null,
+        "away_starter_id": null,
+        "away_record": null,
+        "away_seed": null,
+        "away_rotation_number": 31102,
+        "tournament": null,
+        "tournament_stage": null,
+        "has_odds": true,
+        "broadcast": null,
+        "result": {
+          "scores": {
+            "home": {
+              "total": 1,
+              "periods": {
+                "period_1": 6,
+                "period_2": 6,
+                "period_3": 4,
+                "period_4": 4
+              },
+              "aggregate": null
+            },
+            "away": {
+              "total": 3,
+              "periods": {
+                "period_1": 7,
+                "period_2": 2,
+                "period_3": 6,
+                "period_4": 6
+              },
+              "aggregate": null
+            }
+          },
+          "in_play_data": {
+            "period": "3",
+            "clock": null,
+            "last_play": null
+          }
+        },
+        "lineups": {
+          "home": [],
+          "away": []
+        },
+        "weather": null,
+        "weather_temp": null,
+        "extra": null,
+        "source_ids": {}
+      },
+      {
+        "id": "20260124DA47320E",
+        "numerical_id": 628279,
+        "game_id": "16760-87339-2026-03",
+        "start_date": "2026-01-24T08:10:00Z",
+        "home_competitors": [
+          {
+            "id": "AC3F2FC3D8CE",
+            "name": "Botic Van De Zandschulp",
+            "numerical_id": 914,
+            "base_id": 891,
+            "abbreviation": "",
+            "logo": "https://cdn.opticodds.com/team-logos/tennis/891.png"
+          }
+        ],
+        "away_competitors": [
+          {
+            "id": "F68827D0C66E",
+            "name": "Novak Djokovic",
+            "numerical_id": 1175,
+            "base_id": 1152,
+            "abbreviation": "",
+            "logo": "https://cdn.opticodds.com/team-logos/tennis/1152.png"
+          }
+        ],
+        "home_team_display": "Botic Van De Zandschulp",
+        "away_team_display": "Novak Djokovic",
+        "status": "completed",
+        "is_live": false,
+        "season_type": "Australian Open, Melbourne, Australia",
+        "season_year": "2026",
+        "season_week": "round of 32",
+        "venue_name": "Rod Laver Arena",
+        "venue_location": "Melbourne, Australia",
+        "venue_neutral": false,
+        "sport": {
+          "id": "tennis",
+          "name": "Tennis",
+          "numerical_id": 25
+        },
+        "league": {
+          "id": "atp",
+          "name": "ATP",
+          "numerical_id": 20
+        },
+        "home_starter": null,
+        "home_starter_id": null,
+        "home_record": null,
+        "home_seed": null,
+        "home_rotation_number": 31099,
+        "away_starter": null,
+        "away_starter_id": null,
+        "away_record": null,
+        "away_seed": null,
+        "away_rotation_number": 31098,
+        "tournament": null,
+        "tournament_stage": null,
+        "has_odds": true,
+        "broadcast": null,
+        "result": {
+          "scores": {
+            "home": {
+              "total": 0,
+              "periods": {
+                "period_1": 3,
+                "period_2": 4,
+                "period_3": 6
+              },
+              "aggregate": null
+            },
+            "away": {
+              "total": 3,
+              "periods": {
+                "period_1": 6,
+                "period_2": 6,
+                "period_3": 7
+              },
+              "aggregate": null
+            }
+          },
+          "in_play_data": {
+            "period": "3",
+            "clock": null,
+            "last_play": null
+          }
+        },
+        "lineups": {
+          "home": [],
+          "away": []
+        },
+        "weather": null,
+        "weather_temp": null,
+        "extra": null,
+        "source_ids": {}
+      },
+      {
+        "id": "2026012339B2BC6B",
+        "numerical_id": 628261,
+        "game_id": "37042-30104-2026-03",
+        "start_date": "2026-01-24T09:55:00Z",
+        "home_competitors": [
+          {
+            "id": "76317ADC22CA",
+            "name": "Jakub Mensik",
+            "numerical_id": 1047,
+            "base_id": 1024,
+            "abbreviation": "",
+            "logo": "https://cdn.opticodds.com/team-logos/tennis/1024.png"
+          }
+        ],
+        "away_competitors": [
+          {
+            "id": "30F77D95873D",
+            "name": "Ethan Quinn",
+            "numerical_id": 973,
+            "base_id": 950,
+            "abbreviation": "",
+            "logo": "https://cdn.opticodds.com/team-logos/tennis/950.png"
+          }
+        ],
+        "home_team_display": "Jakub Mensik",
+        "away_team_display": "Ethan Quinn",
+        "status": "completed",
+        "is_live": false,
+        "season_type": "Australian Open, Melbourne, Australia",
+        "season_year": "2026",
+        "season_week": "round of 32",
+        "venue_name": "Kia Arena",
+        "venue_location": "Melbourne, Australia",
+        "venue_neutral": false,
+        "sport": {
+          "id": "tennis",
+          "name": "Tennis",
+          "numerical_id": 25
+        },
+        "league": {
+          "id": "atp",
+          "name": "ATP",
+          "numerical_id": 20
+        },
+        "home_starter": null,
+        "home_starter_id": null,
+        "home_record": null,
+        "home_seed": null,
+        "home_rotation_number": 31097,
+        "away_starter": null,
+        "away_starter_id": null,
+        "away_record": null,
+        "away_seed": null,
+        "away_rotation_number": 31096,
+        "tournament": null,
+        "tournament_stage": null,
+        "has_odds": true,
+        "broadcast": null,
+        "result": {
+          "scores": {
+            "home": {
+              "total": 3,
+              "periods": {
+                "period_1": 6,
+                "period_2": 7,
+                "period_3": 7
+              },
+              "aggregate": null
+            },
+            "away": {
+              "total": 0,
+              "periods": {
+                "period_1": 2,
+                "period_2": 6,
+                "period_3": 6
+              },
+              "aggregate": null
+            }
+          },
+          "in_play_data": {
+            "period": "3",
+            "clock": null,
+            "last_play": null
+          }
+        },
+        "lineups": {
+          "home": [],
+          "away": []
+        },
+        "weather": null,
+        "weather_temp": null,
+        "extra": null,
+        "source_ids": {}
+      },
+      {
+        "id": "20260124106A84F7",
+        "numerical_id": 628487,
+        "game_id": "39640-42835-2026-03",
+        "start_date": "2026-01-24T10:20:00Z",
+        "home_competitors": [
+          {
+            "id": "3C7A2D213F4B",
+            "name": "Marin Čilić",
+            "numerical_id": 1122,
+            "base_id": 1099,
+            "abbreviation": "",
+            "logo": "https://cdn.opticodds.com/team-logos/tennis/1099.png"
+          }
+        ],
+        "away_competitors": [
+          {
+            "id": "71855D52DFFA",
+            "name": "Casper Ruud",
+            "numerical_id": 922,
+            "base_id": 899,
+            "abbreviation": "",
+            "logo": "https://cdn.opticodds.com/team-logos/tennis/899.png"
+          }
+        ],
+        "home_team_display": "Marin Čilić",
+        "away_team_display": "Casper Ruud",
+        "status": "completed",
+        "is_live": false,
+        "season_type": "Australian Open, Melbourne, Australia",
+        "season_year": "2026",
+        "season_week": "round of 32",
+        "venue_name": "Margaret Court Arena",
+        "venue_location": "Melbourne, Australia",
+        "venue_neutral": false,
+        "sport": {
+          "id": "tennis",
+          "name": "Tennis",
+          "numerical_id": 25
+        },
+        "league": {
+          "id": "atp",
+          "name": "ATP",
+          "numerical_id": 20
+        },
+        "home_starter": null,
+        "home_starter_id": null,
+        "home_record": null,
+        "home_seed": null,
+        "home_rotation_number": 31107,
+        "away_starter": null,
+        "away_starter_id": null,
+        "away_record": null,
+        "away_seed": null,
+        "away_rotation_number": 31106,
+        "tournament": null,
+        "tournament_stage": null,
+        "has_odds": true,
+        "broadcast": null,
+        "result": {
+          "scores": {
+            "home": {
+              "total": 1,
+              "periods": {
+                "period_1": 4,
+                "period_2": 4,
+                "period_3": 6,
+                "period_4": 5
+              },
+              "aggregate": null
+            },
+            "away": {
+              "total": 3,
+              "periods": {
+                "period_1": 6,
+                "period_2": 6,
+                "period_3": 3,
+                "period_4": 7
+              },
+              "aggregate": null
+            }
+          },
+          "in_play_data": {
+            "period": "3",
+            "clock": null,
+            "last_play": null
+          }
+        },
+        "lineups": {
+          "home": [],
+          "away": []
+        },
+        "weather": null,
+        "weather_temp": null,
+        "extra": null,
+        "source_ids": {}
+      },
+      {
+        "id": "202601254A1251F4",
+        "numerical_id": 629498,
+        "game_id": "27160-34839-2026-03",
+        "start_date": "2026-01-25T02:40:00Z",
+        "home_competitors": [
+          {
+            "id": "CC304F06EBFB",
+            "name": "Carlos Alcaraz",
+            "numerical_id": 920,
+            "base_id": 897,
+            "abbreviation": "",
+            "logo": "https://cdn.opticodds.com/team-logos/tennis/897.png"
+          }
+        ],
+        "away_competitors": [
+          {
+            "id": "B44BC0FBE271",
+            "name": "Tommy Paul",
+            "numerical_id": 1261,
+            "base_id": 1238,
+            "abbreviation": "",
+            "logo": "https://cdn.opticodds.com/team-logos/tennis/1238.png"
+          }
+        ],
+        "home_team_display": "Carlos Alcaraz",
+        "away_team_display": "Tommy Paul",
+        "status": "completed",
+        "is_live": false,
+        "season_type": "Australian Open, Melbourne, Australia",
+        "season_year": "2026",
+        "season_week": "round of 16",
+        "venue_name": "Rod Laver Arena",
+        "venue_location": "Melbourne, Australia",
+        "venue_neutral": false,
+        "sport": {
+          "id": "tennis",
+          "name": "Tennis",
+          "numerical_id": 25
+        },
+        "league": {
+          "id": "atp",
+          "name": "ATP",
+          "numerical_id": 20
+        },
+        "home_starter": null,
+        "home_starter_id": null,
+        "home_record": null,
+        "home_seed": null,
+        "home_rotation_number": 56563,
+        "away_starter": null,
+        "away_starter_id": null,
+        "away_record": null,
+        "away_seed": null,
+        "away_rotation_number": 56562,
+        "tournament": null,
+        "tournament_stage": null,
+        "has_odds": true,
+        "broadcast": null,
+        "result": {
+          "scores": {
+            "home": {
+              "total": 3,
+              "periods": {
+                "period_1": 7,
+                "period_2": 6,
+                "period_3": 7
+              },
+              "aggregate": null
+            },
+            "away": {
+              "total": 0,
+              "periods": {
+                "period_1": 6,
+                "period_2": 4,
+                "period_3": 5
+              },
+              "aggregate": null
+            }
+          },
+          "in_play_data": {
+            "period": "3",
+            "clock": null,
+            "last_play": null
+          }
+        },
+        "lineups": {
+          "home": [],
+          "away": []
+        },
+        "weather": null,
+        "weather_temp": null,
+        "extra": null,
+        "source_ids": {}
+      },
+      {
+        "id": "20260125B0049BF4",
+        "numerical_id": 629659,
+        "game_id": "29740-23374-2026-03",
+        "start_date": "2026-01-25T06:10:00Z",
+        "home_competitors": [
+          {
+            "id": "7DF27096EABA",
+            "name": "Alexander Zverev",
+            "numerical_id": 868,
+            "base_id": 845,
+            "abbreviation": "",
+            "logo": "https://cdn.opticodds.com/team-logos/tennis/845.png"
+          }
+        ],
+        "away_competitors": [
+          {
+            "id": "493BF13DE15C",
+            "name": "Francisco Cerundolo",
+            "numerical_id": 991,
+            "base_id": 968,
+            "abbreviation": "",
+            "logo": "https://cdn.opticodds.com/team-logos/tennis/968.png"
+          }
+        ],
+        "home_team_display": "Alexander Zverev",
+        "away_team_display": "Francisco Cerundolo",
+        "status": "completed",
+        "is_live": false,
+        "season_type": "Australian Open, Melbourne, Australia",
+        "season_year": "2026",
+        "season_week": "round of 16",
+        "venue_name": "John Cain Arena",
+        "venue_location": "Melbourne, Australia",
+        "venue_neutral": true,
+        "sport": {
+          "id": "tennis",
+          "name": "Tennis",
+          "numerical_id": 25
+        },
+        "league": {
+          "id": "atp",
+          "name": "ATP",
+          "numerical_id": 20
+        },
+        "home_starter": null,
+        "home_starter_id": null,
+        "home_record": null,
+        "home_seed": null,
+        "home_rotation_number": 56565,
+        "away_starter": null,
+        "away_starter_id": null,
+        "away_record": null,
+        "away_seed": null,
+        "away_rotation_number": 56564,
+        "tournament": null,
+        "tournament_stage": null,
+        "has_odds": true,
+        "broadcast": null,
+        "result": {
+          "scores": {
+            "home": {
+              "total": 3,
+              "periods": {
+                "period_1": 6,
+                "period_2": 6,
+                "period_3": 6
+              },
+              "aggregate": null
+            },
+            "away": {
+              "total": 0,
+              "periods": {
+                "period_1": 2,
+                "period_2": 4,
+                "period_3": 4
+              },
+              "aggregate": null
+            }
+          },
+          "in_play_data": {
+            "period": "3",
+            "clock": null,
+            "last_play": null
+          }
+        },
+        "lineups": {
+          "home": [],
+          "away": []
+        },
+        "weather": null,
+        "weather_temp": null,
+        "extra": null,
+        "source_ids": {}
+      },
+      {
+        "id": "202601259B6DC530",
+        "numerical_id": 629473,
+        "game_id": "18088-13098-2026-03",
+        "start_date": "2026-01-25T07:25:00Z",
+        "home_competitors": [
+          {
+            "id": "303173F4F422",
+            "name": "Daniil Medvedev",
+            "numerical_id": 944,
+            "base_id": 921,
+            "abbreviation": "",
+            "logo": "https://cdn.opticodds.com/team-logos/tennis/921.png"
+          }
+        ],
+        "away_competitors": [
+          {
+            "id": "A1C71BD0D4B97B00",
+            "name": "Learner Tien",
+            "numerical_id": 8210,
+            "base_id": 1773,
+            "abbreviation": "",
+            "logo": "https://cdn.opticodds.com/team-logos/tennis/1773.png"
+          }
+        ],
+        "home_team_display": "Daniil Medvedev",
+        "away_team_display": "Learner Tien",
+        "status": "completed",
+        "is_live": false,
+        "season_type": "Australian Open, Melbourne, Australia",
+        "season_year": "2026",
+        "season_week": "round of 16",
+        "venue_name": "Margaret Court Arena",
+        "venue_location": "Melbourne, Australia",
+        "venue_neutral": false,
+        "sport": {
+          "id": "tennis",
+          "name": "Tennis",
+          "numerical_id": 25
+        },
+        "league": {
+          "id": "atp",
+          "name": "ATP",
+          "numerical_id": 20
+        },
+        "home_starter": null,
+        "home_starter_id": null,
+        "home_record": null,
+        "home_seed": null,
+        "home_rotation_number": 56561,
+        "away_starter": null,
+        "away_starter_id": null,
+        "away_record": null,
+        "away_seed": null,
+        "away_rotation_number": 56560,
+        "tournament": null,
+        "tournament_stage": null,
+        "has_odds": true,
+        "broadcast": null,
+        "result": {
+          "scores": {
+            "home": {
+              "total": 0,
+              "periods": {
+                "period_1": 4,
+                "period_2": 0,
+                "period_3": 3
+              },
+              "aggregate": null
+            },
+            "away": {
+              "total": 3,
+              "periods": {
+                "period_1": 6,
+                "period_2": 6,
+                "period_3": 6
+              },
+              "aggregate": null
+            }
+          },
+          "in_play_data": {
+            "period": "3",
+            "clock": null,
+            "last_play": null
+          }
+        },
+        "lineups": {
+          "home": [],
+          "away": []
+        },
+        "weather": null,
+        "weather_temp": null,
+        "extra": null,
+        "source_ids": {}
+      },
+      {
+        "id": "20260125CFA828CE",
+        "numerical_id": 629699,
+        "game_id": "27264-15727-2026-03",
+        "start_date": "2026-01-25T08:10:00Z",
+        "home_competitors": [
+          {
+            "id": "65A11FC4EC0B",
+            "name": "Alexander Bublik",
+            "numerical_id": 862,
+            "base_id": 839,
+            "abbreviation": "",
+            "logo": "https://cdn.opticodds.com/team-logos/tennis/839.png"
+          }
+        ],
+        "away_competitors": [
+          {
+            "id": "248A5E15339C",
+            "name": "Alex De Minaur",
+            "numerical_id": 872,
+            "base_id": 849,
+            "abbreviation": "",
+            "logo": "https://cdn.opticodds.com/team-logos/tennis/849.png"
+          }
+        ],
+        "home_team_display": "Alexander Bublik",
+        "away_team_display": "Alex De Minaur",
+        "status": "completed",
+        "is_live": false,
+        "season_type": "Australian Open, Melbourne, Australia",
+        "season_year": "2026",
+        "season_week": "round of 16",
+        "venue_name": "Rod Laver Arena",
+        "venue_location": "Melbourne, Australia",
+        "venue_neutral": false,
+        "sport": {
+          "id": "tennis",
+          "name": "Tennis",
+          "numerical_id": 25
+        },
+        "league": {
+          "id": "atp",
+          "name": "ATP",
+          "numerical_id": 20
+        },
+        "home_starter": null,
+        "home_starter_id": null,
+        "home_record": null,
+        "home_seed": null,
+        "home_rotation_number": 56567,
+        "away_starter": null,
+        "away_starter_id": null,
+        "away_record": null,
+        "away_seed": null,
+        "away_rotation_number": 56566,
+        "tournament": null,
+        "tournament_stage": null,
+        "has_odds": true,
+        "broadcast": null,
+        "result": {
+          "scores": {
+            "home": {
+              "total": 0,
+              "periods": {
+                "period_1": 4,
+                "period_2": 1,
+                "period_3": 1
+              },
+              "aggregate": null
+            },
+            "away": {
+              "total": 3,
+              "periods": {
+                "period_1": 6,
+                "period_2": 6,
+                "period_3": 6
+              },
+              "aggregate": null
+            }
+          },
+          "in_play_data": {
+            "period": "3",
+            "clock": null,
+            "last_play": null
+          }
+        },
+        "lineups": {
+          "home": [],
+          "away": []
+        },
+        "weather": null,
+        "weather_temp": null,
+        "extra": null,
+        "source_ids": {}
+      },
+      {
+        "id": "20260125DEEA4681",
+        "numerical_id": 631307,
+        "game_id": "88067-82068-2026-03",
+        "start_date": "2026-01-26T03:10:00Z",
+        "home_competitors": [
+          {
+            "id": "D845D30CAE98",
+            "name": "Lorenzo Musetti",
+            "numerical_id": 1098,
+            "base_id": 1075,
+            "abbreviation": "",
+            "logo": "https://cdn.opticodds.com/team-logos/tennis/1075.png"
+          }
+        ],
+        "away_competitors": [
+          {
+            "id": "C51C15BB5D75",
+            "name": "Taylor Fritz",
+            "numerical_id": 1243,
+            "base_id": 1220,
+            "abbreviation": "",
+            "logo": "https://cdn.opticodds.com/team-logos/tennis/1220.png"
+          }
+        ],
+        "home_team_display": "Lorenzo Musetti",
+        "away_team_display": "Taylor Fritz",
+        "status": "completed",
+        "is_live": false,
+        "season_type": "Australian Open, Melbourne, Australia",
+        "season_year": "2026",
+        "season_week": "round of 16",
+        "venue_name": "Rod Laver Arena",
+        "venue_location": "Melbourne, Australia",
+        "venue_neutral": false,
+        "sport": {
+          "id": "tennis",
+          "name": "Tennis",
+          "numerical_id": 25
+        },
+        "league": {
+          "id": "atp",
+          "name": "ATP",
+          "numerical_id": 20
+        },
+        "home_starter": null,
+        "home_starter_id": null,
+        "home_record": null,
+        "home_seed": null,
+        "home_rotation_number": 49405,
+        "away_starter": null,
+        "away_starter_id": null,
+        "away_record": null,
+        "away_seed": null,
+        "away_rotation_number": 49404,
+        "tournament": null,
+        "tournament_stage": null,
+        "has_odds": true,
+        "broadcast": null,
+        "result": {
+          "scores": {
+            "home": {
+              "total": 3,
+              "periods": {
+                "period_1": 6,
+                "period_2": 7,
+                "period_3": 6
+              },
+              "aggregate": null
+            },
+            "away": {
+              "total": 0,
+              "periods": {
+                "period_1": 2,
+                "period_2": 5,
+                "period_3": 4
+              },
+              "aggregate": null
+            }
+          },
+          "in_play_data": {
+            "period": "3",
+            "clock": null,
+            "last_play": null
+          }
+        },
+        "lineups": {
+          "home": [],
+          "away": []
+        },
+        "weather": null,
+        "weather_temp": null,
+        "extra": null,
+        "source_ids": {}
+      },
+      {
+        "id": "20260125AFB0BFEB",
+        "numerical_id": 631229,
+        "game_id": "10679-27369-2026-03",
+        "start_date": "2026-01-26T07:10:00Z",
+        "home_competitors": [
+          {
+            "id": "05B9DF6E511C",
+            "name": "Luciano Darderi",
+            "numerical_id": 1106,
+            "base_id": 1083,
+            "abbreviation": "",
+            "logo": "https://cdn.opticodds.com/team-logos/tennis/1083.png"
+          }
+        ],
+        "away_competitors": [
+          {
+            "id": "93CA2DD0F3BF",
+            "name": "Jannik Sinner",
+            "numerical_id": 1054,
+            "base_id": 1031,
+            "abbreviation": "",
+            "logo": "https://cdn.opticodds.com/team-logos/tennis/1031.png"
+          }
+        ],
+        "home_team_display": "Luciano Darderi",
+        "away_team_display": "Jannik Sinner",
+        "status": "completed",
+        "is_live": false,
+        "season_type": "Australian Open, Melbourne, Australia",
+        "season_year": "2026",
+        "season_week": "round of 16",
+        "venue_name": "Margaret Court Arena",
+        "venue_location": "Melbourne, Australia",
+        "venue_neutral": false,
+        "sport": {
+          "id": "tennis",
+          "name": "Tennis",
+          "numerical_id": 25
+        },
+        "league": {
+          "id": "atp",
+          "name": "ATP",
+          "numerical_id": 20
+        },
+        "home_starter": null,
+        "home_starter_id": null,
+        "home_record": null,
+        "home_seed": null,
+        "home_rotation_number": 49403,
+        "away_starter": null,
+        "away_starter_id": null,
+        "away_record": null,
+        "away_seed": null,
+        "away_rotation_number": 49402,
+        "tournament": null,
+        "tournament_stage": null,
+        "has_odds": true,
+        "broadcast": null,
+        "result": {
+          "scores": {
+            "home": {
+              "total": 0,
+              "periods": {
+                "period_1": 1,
+                "period_2": 3,
+                "period_3": 6
+              },
+              "aggregate": null
+            },
+            "away": {
+              "total": 3,
+              "periods": {
+                "period_1": 6,
+                "period_2": 6,
+                "period_3": 7
+              },
+              "aggregate": null
+            }
+          },
+          "in_play_data": {
+            "period": "3",
+            "clock": null,
+            "last_play": null
+          }
+        },
+        "lineups": {
+          "home": [],
+          "away": []
+        },
+        "weather": null,
+        "weather_temp": null,
+        "extra": null,
+        "source_ids": {}
+      },
+      {
+        "id": "202601252C933647",
+        "numerical_id": 631410,
+        "game_id": "30104-87339-2026-04",
+        "start_date": "2026-01-26T09:10:00Z",
+        "home_competitors": [
+          {
+            "id": "76317ADC22CA",
+            "name": "Jakub Mensik",
+            "numerical_id": 1047,
+            "base_id": 1024,
+            "abbreviation": "",
+            "logo": "https://cdn.opticodds.com/team-logos/tennis/1024.png"
+          }
+        ],
+        "away_competitors": [
+          {
+            "id": "F68827D0C66E",
+            "name": "Novak Djokovic",
+            "numerical_id": 1175,
+            "base_id": 1152,
+            "abbreviation": "",
+            "logo": "https://cdn.opticodds.com/team-logos/tennis/1152.png"
+          }
+        ],
+        "home_team_display": "Jakub Mensik",
+        "away_team_display": "Novak Djokovic",
+        "status": "completed",
+        "is_live": false,
+        "season_type": "Australian Open, Melbourne, Australia",
+        "season_year": "2026",
+        "season_week": "round of 16",
+        "venue_name": "Rod Laver Arena",
+        "venue_location": "Melbourne, Australia",
+        "venue_neutral": false,
+        "sport": {
+          "id": "tennis",
+          "name": "Tennis",
+          "numerical_id": 25
+        },
+        "league": {
+          "id": "atp",
+          "name": "ATP",
+          "numerical_id": 20
+        },
+        "home_starter": null,
+        "home_starter_id": null,
+        "home_record": null,
+        "home_seed": null,
+        "home_rotation_number": 49407,
+        "away_starter": null,
+        "away_starter_id": null,
+        "away_record": null,
+        "away_seed": null,
+        "away_rotation_number": 49406,
+        "tournament": null,
+        "tournament_stage": null,
+        "has_odds": true,
+        "broadcast": null,
+        "result": null,
+        "lineups": {
+          "home": [],
+          "away": []
+        },
+        "weather": null,
+        "weather_temp": null,
+        "extra": null,
+        "source_ids": {}
+      },
+      {
+        "id": "20260125A68CB2A5",
+        "numerical_id": 631483,
+        "game_id": "42135-39640-2026-04",
+        "start_date": "2026-01-26T09:50:00Z",
+        "home_competitors": [
+          {
+            "id": "167522086300",
+            "name": "Ben Shelton",
+            "numerical_id": 904,
+            "base_id": 881,
+            "abbreviation": "",
+            "logo": "https://cdn.opticodds.com/team-logos/tennis/881.png"
+          }
+        ],
+        "away_competitors": [
+          {
+            "id": "71855D52DFFA",
+            "name": "Casper Ruud",
+            "numerical_id": 922,
+            "base_id": 899,
+            "abbreviation": "",
+            "logo": "https://cdn.opticodds.com/team-logos/tennis/899.png"
+          }
+        ],
+        "home_team_display": "Ben Shelton",
+        "away_team_display": "Casper Ruud",
+        "status": "completed",
+        "is_live": false,
+        "season_type": "Australian Open, Melbourne, Australia",
+        "season_year": "2026",
+        "season_week": "round of 16",
+        "venue_name": "Rod Laver Arena",
+        "venue_location": "Melbourne, Australia",
+        "venue_neutral": true,
+        "sport": {
+          "id": "tennis",
+          "name": "Tennis",
+          "numerical_id": 25
+        },
+        "league": {
+          "id": "atp",
+          "name": "ATP",
+          "numerical_id": 20
+        },
+        "home_starter": null,
+        "home_starter_id": null,
+        "home_record": null,
+        "home_seed": null,
+        "home_rotation_number": 49409,
+        "away_starter": null,
+        "away_starter_id": null,
+        "away_record": null,
+        "away_seed": null,
+        "away_rotation_number": 49408,
+        "tournament": null,
+        "tournament_stage": null,
+        "has_odds": true,
+        "broadcast": null,
+        "result": {
+          "scores": {
+            "home": {
+              "total": 3,
+              "periods": {
+                "period_1": 3,
+                "period_2": 6,
+                "period_3": 6,
+                "period_4": 6
+              },
+              "aggregate": null
+            },
+            "away": {
+              "total": 1,
+              "periods": {
+                "period_1": 6,
+                "period_2": 4,
+                "period_3": 3,
+                "period_4": 4
+              },
+              "aggregate": null
+            }
+          },
+          "in_play_data": {
+            "period": "3",
+            "clock": null,
+            "last_play": null
+          }
+        },
+        "lineups": {
+          "home": [],
+          "away": []
+        },
+        "weather": null,
+        "weather_temp": null,
+        "extra": null,
+        "source_ids": {}
+      },
+      {
+        "id": "202601277E077ABA",
+        "numerical_id": 632846,
+        "game_id": "29740-13098-2026-04",
+        "start_date": "2026-01-27T02:30:00Z",
+        "home_competitors": [
+          {
+            "id": "7DF27096EABA",
+            "name": "Alexander Zverev",
+            "numerical_id": 868,
+            "base_id": 845,
+            "abbreviation": "",
+            "logo": "https://cdn.opticodds.com/team-logos/tennis/845.png"
+          }
+        ],
+        "away_competitors": [
+          {
+            "id": "A1C71BD0D4B97B00",
+            "name": "Learner Tien",
+            "numerical_id": 8210,
+            "base_id": 1773,
+            "abbreviation": "",
+            "logo": "https://cdn.opticodds.com/team-logos/tennis/1773.png"
+          }
+        ],
+        "home_team_display": "Alexander Zverev",
+        "away_team_display": "Learner Tien",
+        "status": "unplayed",
+        "is_live": false,
+        "season_type": "Australian Open, Melbourne, Australia",
+        "season_year": "2026",
+        "season_week": "quarterfinals",
+        "venue_name": "Rod Laver Arena",
+        "venue_location": "Melbourne, Australia",
+        "venue_neutral": false,
+        "sport": {
+          "id": "tennis",
+          "name": "Tennis",
+          "numerical_id": 25
+        },
+        "league": {
+          "id": "atp",
+          "name": "ATP",
+          "numerical_id": 20
+        },
+        "home_starter": null,
+        "home_starter_id": null,
+        "home_record": null,
+        "home_seed": null,
+        "home_rotation_number": 33135,
+        "away_starter": null,
+        "away_starter_id": null,
+        "away_record": null,
+        "away_seed": null,
+        "away_rotation_number": 33134,
+        "tournament": null,
+        "tournament_stage": null,
+        "has_odds": true,
+        "broadcast": null,
+        "result": null,
+        "lineups": {
+          "home": [],
+          "away": []
+        },
+        "weather": null,
+        "weather_temp": null,
+        "extra": null,
+        "source_ids": {}
+      },
+      {
+        "id": "20260127CB2132D9",
+        "numerical_id": 632857,
+        "game_id": "27264-27160-2026-04",
+        "start_date": "2026-01-27T09:10:00Z",
+        "home_competitors": [
+          {
+            "id": "CC304F06EBFB",
+            "name": "Carlos Alcaraz",
+            "numerical_id": 920,
+            "base_id": 897,
+            "abbreviation": "",
+            "logo": "https://cdn.opticodds.com/team-logos/tennis/897.png"
+          }
+        ],
+        "away_competitors": [
+          {
+            "id": "248A5E15339C",
+            "name": "Alex De Minaur",
+            "numerical_id": 872,
+            "base_id": 849,
+            "abbreviation": "",
+            "logo": "https://cdn.opticodds.com/team-logos/tennis/849.png"
+          }
+        ],
+        "home_team_display": "Carlos Alcaraz",
+        "away_team_display": "Alex De Minaur",
+        "status": "unplayed",
+        "is_live": false,
+        "season_type": "Australian Open, Melbourne, Australia",
+        "season_year": "2026",
+        "season_week": "quarterfinals",
+        "venue_name": "Rod Laver Arena",
+        "venue_location": "Melbourne, Australia",
+        "venue_neutral": false,
+        "sport": {
+          "id": "tennis",
+          "name": "Tennis",
+          "numerical_id": 25
+        },
+        "league": {
+          "id": "atp",
+          "name": "ATP",
+          "numerical_id": 20
+        },
+        "home_starter": null,
+        "home_starter_id": null,
+        "home_record": null,
+        "home_seed": null,
+        "home_rotation_number": 33137,
+        "away_starter": null,
+        "away_starter_id": null,
+        "away_record": null,
+        "away_seed": null,
+        "away_rotation_number": 33136,
+        "tournament": null,
+        "tournament_stage": null,
+        "has_odds": true,
+        "broadcast": null,
+        "result": null,
+        "lineups": {
+          "home": [],
+          "away": []
+        },
+        "weather": null,
+        "weather_temp": null,
+        "extra": null,
+        "source_ids": {}
+      },
+      {
+        "id": "20260127CF5ECA5D",
+        "numerical_id": 634282,
+        "game_id": "88067-87339-2026-04",
+        "start_date": "2026-01-28T00:30:00Z",
+        "home_competitors": [
+          {
+            "id": "D845D30CAE98",
+            "name": "Lorenzo Musetti",
+            "numerical_id": 1098,
+            "base_id": 1075,
+            "abbreviation": "",
+            "logo": "https://cdn.opticodds.com/team-logos/tennis/1075.png"
+          }
+        ],
+        "away_competitors": [
+          {
+            "id": "F68827D0C66E",
+            "name": "Novak Djokovic",
+            "numerical_id": 1175,
+            "base_id": 1152,
+            "abbreviation": "",
+            "logo": "https://cdn.opticodds.com/team-logos/tennis/1152.png"
+          }
+        ],
+        "home_team_display": "Lorenzo Musetti",
+        "away_team_display": "Novak Djokovic",
+        "status": "unplayed",
+        "is_live": false,
+        "season_type": "Australian Open, Melbourne, Australia",
+        "season_year": "2026",
+        "season_week": "quarterfinals",
+        "venue_name": "Rod Laver Arena",
+        "venue_location": "Melbourne, Australia",
+        "venue_neutral": false,
+        "sport": {
+          "id": "tennis",
+          "name": "Tennis",
+          "numerical_id": 25
+        },
+        "league": {
+          "id": "atp",
+          "name": "ATP",
+          "numerical_id": 20
+        },
+        "home_starter": null,
+        "home_starter_id": null,
+        "home_record": null,
+        "home_seed": null,
+        "home_rotation_number": 54347,
+        "away_starter": null,
+        "away_starter_id": null,
+        "away_record": null,
+        "away_seed": null,
+        "away_rotation_number": 54346,
+        "tournament": null,
+        "tournament_stage": null,
+        "has_odds": true,
+        "broadcast": null,
+        "result": null,
+        "lineups": {
+          "home": [],
+          "away": []
+        },
+        "weather": null,
+        "weather_temp": null,
+        "extra": null,
+        "source_ids": {}
+      },
+      {
+        "id": "2026012839B69A9D",
+        "numerical_id": 634505,
+        "game_id": "42135-10679-2026-04",
+        "start_date": "2026-01-28T00:30:00Z",
+        "home_competitors": [
+          {
+            "id": "167522086300",
+            "name": "Ben Shelton",
+            "numerical_id": 904,
+            "base_id": 881,
+            "abbreviation": "",
+            "logo": "https://cdn.opticodds.com/team-logos/tennis/881.png"
+          }
+        ],
+        "away_competitors": [
+          {
+            "id": "93CA2DD0F3BF",
+            "name": "Jannik Sinner",
+            "numerical_id": 1054,
+            "base_id": 1031,
+            "abbreviation": "",
+            "logo": "https://cdn.opticodds.com/team-logos/tennis/1031.png"
+          }
+        ],
+        "home_team_display": "Ben Shelton",
+        "away_team_display": "Jannik Sinner",
+        "status": "unplayed",
+        "is_live": false,
+        "season_type": "Australian Open, Melbourne, Australia",
+        "season_year": "2026",
+        "season_week": "quarterfinals",
+        "venue_name": "Rod Laver Arena",
+        "venue_location": "Melbourne, Australia",
+        "venue_neutral": false,
+        "sport": {
+          "id": "tennis",
+          "name": "Tennis",
+          "numerical_id": 25
+        },
+        "league": {
+          "id": "atp",
+          "name": "ATP",
+          "numerical_id": 20
+        },
+        "home_starter": null,
+        "home_starter_id": null,
+        "home_record": null,
+        "home_seed": null,
+        "home_rotation_number": 54349,
+        "away_starter": null,
+        "away_starter_id": null,
+        "away_record": null,
+        "away_seed": null,
+        "away_rotation_number": 54348,
+        "tournament": null,
+        "tournament_stage": null,
+        "has_odds": true,
+        "broadcast": null,
+        "result": null,
+        "lineups": {
+          "home": [],
+          "away": []
+        },
+        "weather": null,
+        "weather_temp": null,
+        "extra": null,
+        "source_ids": {}
+      }
+    ],
+    "page": 1,
+    "total_pages": 1
+  }

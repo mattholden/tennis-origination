@@ -1,0 +1,394 @@
+{
+    "data": [
+      {
+        "id": "atp",
+        "name": "ATP",
+        "numerical_id": 20,
+        "sport": {
+          "id": "tennis",
+          "name": "Tennis",
+          "numerical_id": 25,
+          "main_markets": [
+            {
+              "id": "moneyline",
+              "name": "Moneyline",
+              "numerical_id": 953
+            },
+            {
+              "id": "game_spread",
+              "name": "Game Spread",
+              "numerical_id": 929
+            },
+            {
+              "id": "total_games",
+              "name": "Total Games",
+              "numerical_id": 1339
+            }
+          ]
+        },
+        "region": "INTERNATIONAL",
+        "region_code": "INT",
+        "gender": "men"
+      },
+      {
+        "id": "atp_challenger",
+        "name": "ATP Challenger",
+        "numerical_id": 21,
+        "sport": {
+          "id": "tennis",
+          "name": "Tennis",
+          "numerical_id": 25,
+          "main_markets": [
+            {
+              "id": "moneyline",
+              "name": "Moneyline",
+              "numerical_id": 953
+            },
+            {
+              "id": "game_spread",
+              "name": "Game Spread",
+              "numerical_id": 929
+            },
+            {
+              "id": "total_games",
+              "name": "Total Games",
+              "numerical_id": 1339
+            }
+          ]
+        },
+        "region": "INTERNATIONAL",
+        "region_code": "INT",
+        "gender": "men"
+      },
+      {
+        "id": "davis_cup",
+        "name": "Davis Cup",
+        "numerical_id": 812,
+        "sport": {
+          "id": "tennis",
+          "name": "Tennis",
+          "numerical_id": 25,
+          "main_markets": [
+            {
+              "id": "moneyline",
+              "name": "Moneyline",
+              "numerical_id": 953
+            },
+            {
+              "id": "game_spread",
+              "name": "Game Spread",
+              "numerical_id": 929
+            },
+            {
+              "id": "total_games",
+              "name": "Total Games",
+              "numerical_id": 1339
+            }
+          ]
+        },
+        "region": "INTERNATIONAL",
+        "region_code": "INT",
+        "gender": "men"
+      },
+      {
+        "id": "itf_men",
+        "name": "ITF Men",
+        "numerical_id": 604,
+        "sport": {
+          "id": "tennis",
+          "name": "Tennis",
+          "numerical_id": 25,
+          "main_markets": [
+            {
+              "id": "moneyline",
+              "name": "Moneyline",
+              "numerical_id": 953
+            },
+            {
+              "id": "game_spread",
+              "name": "Game Spread",
+              "numerical_id": 929
+            },
+            {
+              "id": "total_games",
+              "name": "Total Games",
+              "numerical_id": 1339
+            }
+          ]
+        },
+        "region": "INTERNATIONAL",
+        "region_code": "INT",
+        "gender": "men"
+      },
+      {
+        "id": "itf_women",
+        "name": "ITF Women",
+        "numerical_id": 605,
+        "sport": {
+          "id": "tennis",
+          "name": "Tennis",
+          "numerical_id": 25,
+          "main_markets": [
+            {
+              "id": "moneyline",
+              "name": "Moneyline",
+              "numerical_id": 953
+            },
+            {
+              "id": "game_spread",
+              "name": "Game Spread",
+              "numerical_id": 929
+            },
+            {
+              "id": "total_games",
+              "name": "Total Games",
+              "numerical_id": 1339
+            }
+          ]
+        },
+        "region": "INTERNATIONAL",
+        "region_code": "INT",
+        "gender": "women"
+      },
+      {
+        "id": "laver_cup",
+        "name": "Laver Cup",
+        "numerical_id": 820,
+        "sport": {
+          "id": "tennis",
+          "name": "Tennis",
+          "numerical_id": 25,
+          "main_markets": [
+            {
+              "id": "moneyline",
+              "name": "Moneyline",
+              "numerical_id": 953
+            },
+            {
+              "id": "game_spread",
+              "name": "Game Spread",
+              "numerical_id": 929
+            },
+            {
+              "id": "total_games",
+              "name": "Total Games",
+              "numerical_id": 1339
+            }
+          ]
+        },
+        "region": "INTERNATIONAL",
+        "region_code": "INT",
+        "gender": "men"
+      },
+      {
+        "id": "olympics_tennis_men",
+        "name": "Olympics Tennis Men",
+        "numerical_id": 402,
+        "sport": {
+          "id": "tennis",
+          "name": "Tennis",
+          "numerical_id": 25,
+          "main_markets": [
+            {
+              "id": "moneyline",
+              "name": "Moneyline",
+              "numerical_id": 953
+            },
+            {
+              "id": "game_spread",
+              "name": "Game Spread",
+              "numerical_id": 929
+            },
+            {
+              "id": "total_games",
+              "name": "Total Games",
+              "numerical_id": 1339
+            }
+          ]
+        },
+        "region": "INTERNATIONAL",
+        "region_code": "INT",
+        "gender": "men"
+      },
+      {
+        "id": "olympics_tennis_women",
+        "name": "Olympics Tennis Women",
+        "numerical_id": 403,
+        "sport": {
+          "id": "tennis",
+          "name": "Tennis",
+          "numerical_id": 25,
+          "main_markets": [
+            {
+              "id": "moneyline",
+              "name": "Moneyline",
+              "numerical_id": 953
+            },
+            {
+              "id": "game_spread",
+              "name": "Game Spread",
+              "numerical_id": 929
+            },
+            {
+              "id": "total_games",
+              "name": "Total Games",
+              "numerical_id": 1339
+            }
+          ]
+        },
+        "region": "INTERNATIONAL",
+        "region_code": "INT",
+        "gender": "women"
+      },
+      {
+        "id": "six_kings_slam",
+        "name": "Six Kings Slam",
+        "numerical_id": 846,
+        "sport": {
+          "id": "tennis",
+          "name": "Tennis",
+          "numerical_id": 25,
+          "main_markets": [
+            {
+              "id": "moneyline",
+              "name": "Moneyline",
+              "numerical_id": 953
+            },
+            {
+              "id": "game_spread",
+              "name": "Game Spread",
+              "numerical_id": 929
+            },
+            {
+              "id": "total_games",
+              "name": "Total Games",
+              "numerical_id": 1339
+            }
+          ]
+        },
+        "region": "INTERNATIONAL",
+        "region_code": "INT",
+        "gender": "men"
+      },
+      {
+        "id": "united_cup",
+        "name": "United Cup",
+        "numerical_id": 946,
+        "sport": {
+          "id": "tennis",
+          "name": "Tennis",
+          "numerical_id": 25,
+          "main_markets": [
+            {
+              "id": "moneyline",
+              "name": "Moneyline",
+              "numerical_id": 953
+            },
+            {
+              "id": "game_spread",
+              "name": "Game Spread",
+              "numerical_id": 929
+            },
+            {
+              "id": "total_games",
+              "name": "Total Games",
+              "numerical_id": 1339
+            }
+          ]
+        },
+        "region": "INTERNATIONAL",
+        "region_code": "INT",
+        "gender": "mixed"
+      },
+      {
+        "id": "utr_men",
+        "name": "UTR Men",
+        "numerical_id": 606,
+        "sport": {
+          "id": "tennis",
+          "name": "Tennis",
+          "numerical_id": 25,
+          "main_markets": [
+            {
+              "id": "moneyline",
+              "name": "Moneyline",
+              "numerical_id": 953
+            },
+            {
+              "id": "game_spread",
+              "name": "Game Spread",
+              "numerical_id": 929
+            },
+            {
+              "id": "total_games",
+              "name": "Total Games",
+              "numerical_id": 1339
+            }
+          ]
+        },
+        "region": "INTERNATIONAL",
+        "region_code": "INT",
+        "gender": "men"
+      },
+      {
+        "id": "utr_women",
+        "name": "UTR Women",
+        "numerical_id": 607,
+        "sport": {
+          "id": "tennis",
+          "name": "Tennis",
+          "numerical_id": 25,
+          "main_markets": [
+            {
+              "id": "moneyline",
+              "name": "Moneyline",
+              "numerical_id": 953
+            },
+            {
+              "id": "game_spread",
+              "name": "Game Spread",
+              "numerical_id": 929
+            },
+            {
+              "id": "total_games",
+              "name": "Total Games",
+              "numerical_id": 1339
+            }
+          ]
+        },
+        "region": "INTERNATIONAL",
+        "region_code": "INT",
+        "gender": "women"
+      },
+      {
+        "id": "wta",
+        "name": "WTA",
+        "numerical_id": 554,
+        "sport": {
+          "id": "tennis",
+          "name": "Tennis",
+          "numerical_id": 25,
+          "main_markets": [
+            {
+              "id": "moneyline",
+              "name": "Moneyline",
+              "numerical_id": 953
+            },
+            {
+              "id": "game_spread",
+              "name": "Game Spread",
+              "numerical_id": 929
+            },
+            {
+              "id": "total_games",
+              "name": "Total Games",
+              "numerical_id": 1339
+            }
+          ]
+        },
+        "region": "INTERNATIONAL",
+        "region_code": "INT",
+        "gender": "women"
+      }
+    ]
+  }

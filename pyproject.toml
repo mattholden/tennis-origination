@@ -1,0 +1,20 @@
+[project]
+name = "tennis-origination"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "prizepicks-oddsjam>=2.3.0",
+]
+
+[tool.uv]
+keyring-provider = "subprocess"
+
+[[tool.uv.index]]
+name = "prizepicks"
+url = "https://us-east4-python.pkg.dev/dataverse-analytics-kh8ff/us-east4-python/simple"
+explicit = true
+
+[tool.uv.sources]
+prizepicks-oddsjam = { path = "../prizepicks-oddsjam-python", editable = true }
