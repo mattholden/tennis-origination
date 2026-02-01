@@ -5,7 +5,9 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "matplotlib>=3.10.8",
     "prizepicks-oddsjam>=2.3.0",
+    "prizepicks-originations-models>=1.43.0",
 ]
 
 [tool.uv]
@@ -18,3 +20,4 @@ explicit = true
 
 [tool.uv.sources]
 prizepicks-oddsjam = { path = "../prizepicks-oddsjam-python", editable = true }
+prizepicks-originations-models = { path = "../prizepicks-originations-models", editable = true }
