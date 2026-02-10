@@ -1683,7 +1683,7 @@ wheels = [
 
 [[package]]
 name = "prizepicks-oddsjam"
-version = "2.3.0"
+version = "2.4.1"
 source = { editable = "../prizepicks-oddsjam-python" }
 dependencies = [
     { name = "httpx" },
@@ -1716,7 +1716,7 @@ dev = [
 
 [[package]]
 name = "prizepicks-originations-models"
-version = "1.43.0"
+version = "1.45.0"
 source = { editable = "../prizepicks-originations-models" }
 dependencies = [
     { name = "alembic" },
