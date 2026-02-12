@@ -2615,16 +2615,20 @@ name = "tennis-origination"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
+    { name = "google-cloud-bigquery" },
     { name = "matplotlib" },
     { name = "prizepicks-oddsjam" },
     { name = "prizepicks-originations-models" },
+    { name = "python-dotenv" },
 ]
 
 [package.metadata]
 requires-dist = [
+    { name = "google-cloud-bigquery", specifier = ">=3.0.0" },
     { name = "matplotlib", specifier = ">=3.10.8" },
     { name = "prizepicks-oddsjam", editable = "../prizepicks-oddsjam-python" },
     { name = "prizepicks-originations-models", editable = "../prizepicks-originations-models" },
+    { name = "python-dotenv", specifier = ">=1.0.0" },
 ]
 
 [[package]]

@@ -1,0 +1,2410 @@
+{
+    "generated_at": "2026-02-11T14:59:46+00:00",
+    "summaries": [
+      {
+        "sport_event": {
+          "id": "sr:sport_event:68659556",
+          "start_time": "2026-02-11T12:40:00+00:00",
+          "start_time_confirmed": true,
+          "sport_event_context": {
+            "sport": {
+              "id": "sr:sport:5",
+              "name": "Tennis"
+            },
+            "category": {
+              "id": "sr:category:72",
+              "name": "Challenger"
+            },
+            "competition": {
+              "id": "sr:competition:38733",
+              "name": "ATP Challenger Tenerife 2, Spain Men Singles",
+              "parent_id": "sr:competition:38729",
+              "type": "singles",
+              "gender": "men"
+            },
+            "season": {
+              "id": "sr:season:137634",
+              "name": "ATP Challenger Tenerife 2, Spain Men Singles 2026",
+              "start_date": "2026-02-08",
+              "end_date": "2026-02-15",
+              "year": "2026",
+              "competition_id": "sr:competition:38733"
+            },
+            "stage": {
+              "order": 2,
+              "type": "cup",
+              "phase": "stage_1_playoff",
+              "start_date": "2026-02-09",
+              "end_date": "2026-02-15",
+              "year": "2026"
+            },
+            "round": {
+              "name": "round_of_16"
+            },
+            "groups": [
+              {
+                "id": "sr:cup:190988",
+                "name": "2026 Tenerife 2, Spain"
+              }
+            ],
+            "mode": {
+              "best_of": 3
+            }
+          },
+          "coverage": {
+            "type": "sport_event",
+            "sport_event_properties": {
+              "enhanced_stats": false,
+              "scores": "live",
+              "detailed_serve_outcomes": true,
+              "play_by_play": true
+            }
+          },
+          "competitors": [
+            {
+              "id": "sr:competitor:450343",
+              "name": "Hussey, Giles",
+              "country": "Great Britain",
+              "country_code": "GBR",
+              "abbreviation": "HUS",
+              "qualifier": "home",
+              "bracket_number": 22
+            },
+            {
+              "id": "sr:competitor:722431",
+              "name": "Mikrut, Luka",
+              "country": "Croatia",
+              "country_code": "HRV",
+              "abbreviation": "MIK",
+              "qualifier": "away",
+              "seed": 3,
+              "bracket_number": 24
+            }
+          ],
+          "venue": {
+            "id": "sr:venue:86794",
+            "name": "Court 4",
+            "city_name": "Santa Cruz de Tenerife",
+            "country_name": "Spain",
+            "country_code": "ESP",
+            "timezone": "Europe/Madrid"
+          },
+          "estimated": true
+        },
+        "sport_event_status": {
+          "status": "live",
+          "match_status": "3rd_set",
+          "home_score": 1,
+          "away_score": 1,
+          "period_scores": [
+            {
+              "home_score": 4,
+              "away_score": 6,
+              "type": "set",
+              "number": 1
+            },
+            {
+              "home_score": 6,
+              "away_score": 4,
+              "type": "set",
+              "number": 2
+            },
+            {
+              "home_score": 0,
+              "away_score": 0,
+              "type": "set",
+              "number": 3
+            }
+          ],
+          "game_state": {
+            "home_score": 0,
+            "away_score": 30,
+            "serving": "away",
+            "last_point_result": "server_winner",
+            "tie_break": false
+          }
+        },
+        "statistics": {
+          "totals": {
+            "competitors": [
+              {
+                "id": "sr:competitor:450343",
+                "name": "Hussey, Giles",
+                "abbreviation": "HUS",
+                "qualifier": "home",
+                "statistics": {
+                  "aces": 3,
+                  "breakpoints_won": 2,
+                  "double_faults": 3,
+                  "first_serve_points_won": 43,
+                  "first_serve_successful": 67,
+                  "games_won": 10,
+                  "max_games_in_a_row": 2,
+                  "max_points_in_a_row": 4,
+                  "points_won": 80,
+                  "points_won_from_last_10": 6,
+                  "second_serve_points_won": 11,
+                  "second_serve_successful": 24,
+                  "service_games_won": 8,
+                  "service_points_lost": 40,
+                  "service_points_won": 54,
+                  "tiebreaks_won": 0,
+                  "total_breakpoints": 5
+                }
+              },
+              {
+                "id": "sr:competitor:722431",
+                "name": "Mikrut, Luka",
+                "abbreviation": "MIK",
+                "qualifier": "away",
+                "statistics": {
+                  "aces": 7,
+                  "breakpoints_won": 2,
+                  "double_faults": 1,
+                  "first_serve_points_won": 30,
+                  "first_serve_successful": 39,
+                  "games_won": 10,
+                  "max_games_in_a_row": 3,
+                  "max_points_in_a_row": 6,
+                  "points_won": 82,
+                  "points_won_from_last_10": 4,
+                  "second_serve_points_won": 12,
+                  "second_serve_successful": 28,
+                  "service_games_won": 8,
+                  "service_points_lost": 26,
+                  "service_points_won": 42,
+                  "tiebreaks_won": 0,
+                  "total_breakpoints": 15
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "sport_event": {
+          "id": "sr:sport_event:68746706",
+          "start_time": "2026-02-11T13:30:00+00:00",
+          "start_time_confirmed": true,
+          "sport_event_context": {
+            "sport": {
+              "id": "sr:sport:5",
+              "name": "Tennis"
+            },
+            "category": {
+              "id": "sr:category:3",
+              "name": "ATP"
+            },
+            "competition": {
+              "id": "sr:competition:2679",
+              "name": "ATP Rotterdam, Netherlands Men Singles",
+              "parent_id": "sr:competition:2677",
+              "type": "singles",
+              "gender": "men",
+              "level": "atp_500"
+            },
+            "season": {
+              "id": "sr:season:133607",
+              "name": "ATP Rotterdam, Netherlands Men Singles 2026",
+              "start_date": "2026-02-07",
+              "end_date": "2026-02-15",
+              "year": "2026",
+              "competition_id": "sr:competition:2679"
+            },
+            "stage": {
+              "order": 2,
+              "type": "cup",
+              "phase": "stage_1_playoff",
+              "start_date": "2026-02-09",
+              "end_date": "2026-02-15",
+              "year": "2026"
+            },
+            "round": {
+              "name": "round_of_32"
+            },
+            "groups": [
+              {
+                "id": "sr:cup:185409",
+                "name": "2026 Rotterdam, Netherlands"
+              }
+            ],
+            "mode": {
+              "best_of": 3
+            }
+          },
+          "coverage": {
+            "type": "sport_event",
+            "sport_event_properties": {
+              "enhanced_stats": false,
+              "scores": "live",
+              "detailed_serve_outcomes": true,
+              "play_by_play": true
+            }
+          },
+          "competitors": [
+            {
+              "id": "sr:competitor:158896",
+              "name": "Hurkacz, Hubert",
+              "country": "Poland",
+              "country_code": "POL",
+              "abbreviation": "HUR",
+              "qualifier": "home",
+              "bracket_number": 23
+            },
+            {
+              "id": "sr:competitor:163480",
+              "name": "Bublik, Alexander",
+              "country": "Kazakhstan",
+              "country_code": "KAZ",
+              "abbreviation": "BUB",
+              "qualifier": "away",
+              "seed": 3,
+              "bracket_number": 24
+            }
+          ],
+          "venue": {
+            "id": "sr:venue:22854",
+            "name": "Centre Court",
+            "city_name": "Rotterdam",
+            "country_name": "Netherlands",
+            "country_code": "NLD",
+            "timezone": "Europe/Brussels"
+          },
+          "channels": [
+            {
+              "name": "TV3 Sport DK - Astra 4A & SES 5 (4.9E)"
+            },
+            {
+              "name": "Sport2 HU - Thor 2/3 (1.0W)"
+            },
+            {
+              "name": "Supertennis HD - Hot Bird 1/2/3/4/6 (13.0E)"
+            },
+            {
+              "name": "EUROSPORT 1 FR - Astra 1C-1H / 2C (19.2E)"
+            },
+            {
+              "name": "EUROSPORT 2 FR - Astra 1C-1H / 2C (19.2E)"
+            },
+            {
+              "name": "Sky Sport HD 2 (D) - Astra 1C-1H / 2C (19.2E)"
+            },
+            {
+              "name": "SportKlub 1 HD SRB - Eutelsat W2 (16.0E)"
+            },
+            {
+              "name": "Sky Sport HD 3 (D) - Astra 1C-1H / 2C (19.2E)"
+            },
+            {
+              "name": "Sky Sport HD 7 (D) - Astra 1C-1H / 2C (19.2E)"
+            },
+            {
+              "name": "Eurosport Norge HD - Thor 2/3 (1.0W)"
+            },
+            {
+              "name": "Eurosport 2 HD (S/F) - Thor 2/3 (1.0W)"
+            },
+            {
+              "name": "Tennis Channel US"
+            },
+            {
+              "name": "ATP Tennis TV"
+            }
+          ],
+          "estimated": true
+        },
+        "sport_event_status": {
+          "status": "live",
+          "match_status": "2nd_set",
+          "home_score": 1,
+          "away_score": 0,
+          "period_scores": [
+            {
+              "home_score": 7,
+              "away_score": 6,
+              "type": "set",
+              "number": 1,
+              "home_tiebreak_score": 7,
+              "away_tiebreak_score": 2
+            },
+            {
+              "home_score": 3,
+              "away_score": 4,
+              "type": "set",
+              "number": 2
+            }
+          ],
+          "game_state": {
+            "home_score": 40,
+            "away_score": 40,
+            "serving": "home",
+            "last_point_result": "double_fault",
+            "tie_break": false
+          }
+        },
+        "statistics": {
+          "totals": {
+            "competitors": [
+              {
+                "id": "sr:competitor:158896",
+                "name": "Hurkacz, Hubert",
+                "abbreviation": "HUR",
+                "qualifier": "home",
+                "statistics": {
+                  "aces": 14,
+                  "breakpoints_won": 0,
+                  "double_faults": 6,
+                  "first_serve_points_won": 29,
+                  "first_serve_successful": 32,
+                  "games_won": 10,
+                  "max_games_in_a_row": 2,
+                  "max_points_in_a_row": 4,
+                  "points_won": 68,
+                  "points_won_from_last_10": 5,
+                  "second_serve_points_won": 15,
+                  "second_serve_successful": 22,
+                  "service_games_won": 9,
+                  "service_points_lost": 16,
+                  "service_points_won": 44,
+                  "tiebreaks_won": 1,
+                  "total_breakpoints": 3
+                }
+              },
+              {
+                "id": "sr:competitor:163480",
+                "name": "Bublik, Alexander",
+                "abbreviation": "BUB",
+                "qualifier": "away",
+                "statistics": {
+                  "aces": 4,
+                  "breakpoints_won": 0,
+                  "double_faults": 2,
+                  "first_serve_points_won": 32,
+                  "first_serve_successful": 42,
+                  "games_won": 10,
+                  "max_games_in_a_row": 1,
+                  "max_points_in_a_row": 4,
+                  "points_won": 62,
+                  "points_won_from_last_10": 5,
+                  "second_serve_points_won": 14,
+                  "second_serve_successful": 26,
+                  "service_games_won": 9,
+                  "service_points_lost": 24,
+                  "service_points_won": 46,
+                  "tiebreaks_won": 0,
+                  "total_breakpoints": 0
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "sport_event": {
+          "id": "sr:sport_event:68660176",
+          "start_time": "2026-02-11T13:40:00+00:00",
+          "start_time_confirmed": true,
+          "sport_event_context": {
+            "sport": {
+              "id": "sr:sport:5",
+              "name": "Tennis"
+            },
+            "category": {
+              "id": "sr:category:6",
+              "name": "WTA"
+            },
+            "competition": {
+              "id": "sr:competition:4223",
+              "name": "WTA Doha, Qatar Women Doubles",
+              "parent_id": "sr:competition:4219",
+              "type": "doubles",
+              "gender": "women",
+              "level": "wta_1000"
+            },
+            "season": {
+              "id": "sr:season:136031",
+              "name": "WTA Doha, Qatar Women Doubles 2026",
+              "start_date": "2026-02-08",
+              "end_date": "2026-02-14",
+              "year": "2026",
+              "competition_id": "sr:competition:4223"
+            },
+            "stage": {
+              "order": 1,
+              "type": "cup",
+              "phase": "stage_1_playoff",
+              "start_date": "2026-02-08",
+              "end_date": "2026-02-14",
+              "year": "2026"
+            },
+            "round": {
+              "name": "round_of_16"
+            },
+            "groups": [
+              {
+                "id": "sr:cup:188539",
+                "name": "2026 Doha, Qatar, Doubles"
+              }
+            ],
+            "mode": {
+              "best_of": 3
+            }
+          },
+          "coverage": {
+            "type": "sport_event",
+            "sport_event_properties": {
+              "enhanced_stats": false,
+              "scores": "live",
+              "detailed_serve_outcomes": true,
+              "play_by_play": true
+            }
+          },
+          "competitors": [
+            {
+              "id": "sr:competitor:1323286",
+              "name": "Fernandez L / Mladenovic K",
+              "abbreviation": "F/M",
+              "qualifier": "home",
+              "players": [
+                {
+                  "id": "sr:competitor:289507",
+                  "name": "Fernandez, Leylah",
+                  "country": "Canada",
+                  "country_code": "CAN",
+                  "abbreviation": "FER"
+                },
+                {
+                  "id": "sr:competitor:33593",
+                  "name": "Mladenovic, Kristina",
+                  "country": "France",
+                  "country_code": "FRA",
+                  "abbreviation": "MLA"
+                }
+              ],
+              "bracket_number": 21
+            },
+            {
+              "id": "sr:competitor:917879",
+              "name": "Danilina A / Krunic A",
+              "abbreviation": "DAK",
+              "qualifier": "away",
+              "players": [
+                {
+                  "id": "sr:competitor:69718",
+                  "name": "Danilina, Anna",
+                  "country": "Kazakhstan",
+                  "country_code": "KAZ",
+                  "abbreviation": "DAN"
+                },
+                {
+                  "id": "sr:competitor:41524",
+                  "name": "Krunic, Aleksandra",
+                  "country": "Serbia",
+                  "country_code": "SRB",
+                  "abbreviation": "KA"
+                }
+              ],
+              "seed": 4,
+              "bracket_number": 24
+            }
+          ],
+          "venue": {
+            "id": "sr:venue:62255",
+            "name": "Grandstand 2",
+            "city_name": "Doha",
+            "country_name": "Qatar",
+            "country_code": "QAT",
+            "timezone": "Asia/Qatar"
+          },
+          "channels": [
+            {
+              "name": "Tennis Channel US"
+            },
+            {
+              "name": "ATP Tennis TV"
+            }
+          ],
+          "estimated": true
+        },
+        "sport_event_status": {
+          "status": "live",
+          "match_status": "2nd_set",
+          "home_score": 0,
+          "away_score": 1,
+          "period_scores": [
+            {
+              "home_score": 2,
+              "away_score": 6,
+              "type": "set",
+              "number": 1
+            },
+            {
+              "home_score": 5,
+              "away_score": 4,
+              "type": "set",
+              "number": 2
+            }
+          ],
+          "game_state": {
+            "home_score": 30,
+            "away_score": 30,
+            "serving": "away",
+            "last_point_result": "double_fault",
+            "tie_break": false
+          }
+        },
+        "statistics": {
+          "totals": {
+            "competitors": [
+              {
+                "id": "sr:competitor:1323286",
+                "name": "Fernandez L / Mladenovic K",
+                "abbreviation": "F/M",
+                "qualifier": "home",
+                "statistics": {
+                  "aces": 0,
+                  "breakpoints_won": 2,
+                  "double_faults": 4,
+                  "first_serve_points_won": 20,
+                  "first_serve_successful": 41,
+                  "games_won": 7,
+                  "max_games_in_a_row": 4,
+                  "max_points_in_a_row": 6,
+                  "points_won": 44,
+                  "second_serve_points_won": 6,
+                  "second_serve_successful": 7,
+                  "service_games_won": 5,
+                  "service_points_lost": 23,
+                  "service_points_won": 26,
+                  "tiebreaks_won": 0,
+                  "total_breakpoints": 2
+                }
+              },
+              {
+                "id": "sr:competitor:917879",
+                "name": "Danilina A / Krunic A",
+                "abbreviation": "DAK",
+                "qualifier": "away",
+                "statistics": {
+                  "aces": 1,
+                  "breakpoints_won": 4,
+                  "double_faults": 1,
+                  "first_serve_points_won": 25,
+                  "first_serve_successful": 39,
+                  "games_won": 10,
+                  "max_games_in_a_row": 4,
+                  "max_points_in_a_row": 7,
+                  "points_won": 51,
+                  "second_serve_points_won": 3,
+                  "second_serve_successful": 7,
+                  "service_games_won": 6,
+                  "service_points_lost": 18,
+                  "service_points_won": 28,
+                  "tiebreaks_won": 0,
+                  "total_breakpoints": 6
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "sport_event": {
+          "id": "sr:sport_event:68824654",
+          "start_time": "2026-02-11T13:40:00+00:00",
+          "start_time_confirmed": true,
+          "sport_event_context": {
+            "sport": {
+              "id": "sr:sport:5",
+              "name": "Tennis"
+            },
+            "category": {
+              "id": "sr:category:72",
+              "name": "Challenger"
+            },
+            "competition": {
+              "id": "sr:competition:27855",
+              "name": "ATP Challenger Pau, France Men Singles",
+              "parent_id": "sr:competition:27853",
+              "type": "singles",
+              "gender": "men"
+            },
+            "season": {
+              "id": "sr:season:137626",
+              "name": "ATP Challenger Pau, France Men Singles 2026",
+              "start_date": "2026-02-08",
+              "end_date": "2026-02-15",
+              "year": "2026",
+              "competition_id": "sr:competition:27855"
+            },
+            "stage": {
+              "order": 2,
+              "type": "cup",
+              "phase": "stage_1_playoff",
+              "start_date": "2026-02-09",
+              "end_date": "2026-02-15",
+              "year": "2026"
+            },
+            "round": {
+              "name": "round_of_32"
+            },
+            "groups": [
+              {
+                "id": "sr:cup:190976",
+                "name": "2026 Pau, France"
+              }
+            ],
+            "mode": {
+              "best_of": 3
+            }
+          },
+          "coverage": {
+            "type": "sport_event",
+            "sport_event_properties": {
+              "enhanced_stats": false,
+              "scores": "live",
+              "detailed_serve_outcomes": true,
+              "play_by_play": true
+            }
+          },
+          "competitors": [
+            {
+              "id": "sr:competitor:94485",
+              "name": "Bonzi, Benjamin",
+              "country": "France",
+              "country_code": "FRA",
+              "abbreviation": "BON",
+              "qualifier": "home",
+              "seed": 7,
+              "bracket_number": 17
+            },
+            {
+              "id": "sr:competitor:16683",
+              "name": "Kukushkin, Mikhail",
+              "country": "Kazakhstan",
+              "country_code": "KAZ",
+              "abbreviation": "KUK",
+              "qualifier": "away",
+              "bracket_number": 18
+            }
+          ],
+          "venue": {
+            "id": "sr:venue:38453",
+            "name": "Central",
+            "city_name": "Pau",
+            "country_name": "France",
+            "country_code": "FRA",
+            "timezone": "Europe/Paris"
+          },
+          "estimated": true
+        },
+        "sport_event_status": {
+          "status": "live",
+          "match_status": "2nd_set",
+          "home_score": 0,
+          "away_score": 1,
+          "period_scores": [
+            {
+              "home_score": 5,
+              "away_score": 7,
+              "type": "set",
+              "number": 1
+            },
+            {
+              "home_score": 1,
+              "away_score": 2,
+              "type": "set",
+              "number": 2
+            }
+          ],
+          "game_state": {
+            "home_score": 0,
+            "away_score": 0,
+            "serving": "home",
+            "last_point_result": "server_winner",
+            "tie_break": false
+          }
+        },
+        "statistics": {
+          "totals": {
+            "competitors": [
+              {
+                "id": "sr:competitor:94485",
+                "name": "Bonzi, Benjamin",
+                "abbreviation": "BON",
+                "qualifier": "home",
+                "statistics": {
+                  "aces": 8,
+                  "breakpoints_won": 0,
+                  "double_faults": 1,
+                  "first_serve_points_won": 20,
+                  "first_serve_successful": 30,
+                  "games_won": 6,
+                  "max_games_in_a_row": 1,
+                  "max_points_in_a_row": 4,
+                  "points_won": 44,
+                  "points_won_from_last_10": 5,
+                  "second_serve_points_won": 7,
+                  "second_serve_successful": 13,
+                  "service_games_won": 6,
+                  "service_points_lost": 17,
+                  "service_points_won": 27,
+                  "tiebreaks_won": 0,
+                  "total_breakpoints": 1
+                }
+              },
+              {
+                "id": "sr:competitor:16683",
+                "name": "Kukushkin, Mikhail",
+                "abbreviation": "KUK",
+                "qualifier": "away",
+                "statistics": {
+                  "aces": 0,
+                  "breakpoints_won": 1,
+                  "double_faults": 0,
+                  "first_serve_points_won": 25,
+                  "first_serve_successful": 37,
+                  "games_won": 9,
+                  "max_games_in_a_row": 3,
+                  "max_points_in_a_row": 8,
+                  "points_won": 52,
+                  "points_won_from_last_10": 5,
+                  "second_serve_points_won": 10,
+                  "second_serve_successful": 15,
+                  "service_games_won": 8,
+                  "service_points_lost": 17,
+                  "service_points_won": 35,
+                  "tiebreaks_won": 0,
+                  "total_breakpoints": 2
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "sport_event": {
+          "id": "sr:sport_event:68659580",
+          "start_time": "2026-02-11T14:00:00+00:00",
+          "start_time_confirmed": true,
+          "sport_event_context": {
+            "sport": {
+              "id": "sr:sport:5",
+              "name": "Tennis"
+            },
+            "category": {
+              "id": "sr:category:72",
+              "name": "Challenger"
+            },
+            "competition": {
+              "id": "sr:competition:38733",
+              "name": "ATP Challenger Tenerife 2, Spain Men Singles",
+              "parent_id": "sr:competition:38729",
+              "type": "singles",
+              "gender": "men"
+            },
+            "season": {
+              "id": "sr:season:137634",
+              "name": "ATP Challenger Tenerife 2, Spain Men Singles 2026",
+              "start_date": "2026-02-08",
+              "end_date": "2026-02-15",
+              "year": "2026",
+              "competition_id": "sr:competition:38733"
+            },
+            "stage": {
+              "order": 2,
+              "type": "cup",
+              "phase": "stage_1_playoff",
+              "start_date": "2026-02-09",
+              "end_date": "2026-02-15",
+              "year": "2026"
+            },
+            "round": {
+              "name": "round_of_16"
+            },
+            "groups": [
+              {
+                "id": "sr:cup:190988",
+                "name": "2026 Tenerife 2, Spain"
+              }
+            ],
+            "mode": {
+              "best_of": 3
+            }
+          },
+          "coverage": {
+            "type": "sport_event",
+            "sport_event_properties": {
+              "enhanced_stats": false,
+              "scores": "live",
+              "detailed_serve_outcomes": true,
+              "play_by_play": true
+            }
+          },
+          "competitors": [
+            {
+              "id": "sr:competitor:603106",
+              "name": "Samuel, Toby",
+              "country": "Great Britain",
+              "country_code": "GBR",
+              "abbreviation": "SAM",
+              "qualifier": "home",
+              "bracket_number": 6
+            },
+            {
+              "id": "sr:competitor:673479",
+              "name": "Merida, Daniel",
+              "country": "Spain",
+              "country_code": "ESP",
+              "abbreviation": "MER",
+              "qualifier": "away",
+              "seed": 5,
+              "bracket_number": 8
+            }
+          ],
+          "venue": {
+            "id": "sr:venue:86792",
+            "name": "Abama Arena",
+            "city_name": "Santa Cruz de Tenerife",
+            "country_name": "Spain",
+            "country_code": "ESP",
+            "timezone": "Europe/Madrid"
+          },
+          "estimated": true
+        },
+        "sport_event_status": {
+          "status": "live",
+          "match_status": "1st_set",
+          "home_score": 0,
+          "away_score": 0,
+          "period_scores": [
+            {
+              "home_score": 5,
+              "away_score": 6,
+              "type": "set",
+              "number": 1
+            }
+          ],
+          "game_state": {
+            "home_score": 40,
+            "away_score": 40,
+            "serving": "home",
+            "last_point_result": "receiver_winner",
+            "tie_break": false
+          }
+        },
+        "statistics": {
+          "totals": {
+            "competitors": [
+              {
+                "id": "sr:competitor:603106",
+                "name": "Samuel, Toby",
+                "abbreviation": "SAM",
+                "qualifier": "home",
+                "statistics": {
+                  "aces": 2,
+                  "breakpoints_won": 2,
+                  "double_faults": 0,
+                  "first_serve_points_won": 16,
+                  "first_serve_successful": 29,
+                  "games_won": 5,
+                  "max_games_in_a_row": 3,
+                  "max_points_in_a_row": 5,
+                  "points_won": 41,
+                  "points_won_from_last_10": 6,
+                  "second_serve_points_won": 5,
+                  "second_serve_successful": 10,
+                  "service_games_won": 3,
+                  "service_points_lost": 18,
+                  "service_points_won": 21,
+                  "tiebreaks_won": 0,
+                  "total_breakpoints": 4
+                }
+              },
+              {
+                "id": "sr:competitor:673479",
+                "name": "Merida, Daniel",
+                "abbreviation": "MER",
+                "qualifier": "away",
+                "statistics": {
+                  "aces": 0,
+                  "breakpoints_won": 2,
+                  "double_faults": 1,
+                  "first_serve_points_won": 17,
+                  "first_serve_successful": 30,
+                  "games_won": 6,
+                  "max_games_in_a_row": 2,
+                  "max_points_in_a_row": 6,
+                  "points_won": 41,
+                  "points_won_from_last_10": 4,
+                  "second_serve_points_won": 6,
+                  "second_serve_successful": 12,
+                  "service_games_won": 4,
+                  "service_points_lost": 20,
+                  "service_points_won": 23,
+                  "tiebreaks_won": 0,
+                  "total_breakpoints": 5
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "sport_event": {
+          "id": "sr:sport_event:68660180",
+          "start_time": "2026-02-11T14:15:00+00:00",
+          "start_time_confirmed": true,
+          "sport_event_context": {
+            "sport": {
+              "id": "sr:sport:5",
+              "name": "Tennis"
+            },
+            "category": {
+              "id": "sr:category:6",
+              "name": "WTA"
+            },
+            "competition": {
+              "id": "sr:competition:4223",
+              "name": "WTA Doha, Qatar Women Doubles",
+              "parent_id": "sr:competition:4219",
+              "type": "doubles",
+              "gender": "women",
+              "level": "wta_1000"
+            },
+            "season": {
+              "id": "sr:season:136031",
+              "name": "WTA Doha, Qatar Women Doubles 2026",
+              "start_date": "2026-02-08",
+              "end_date": "2026-02-14",
+              "year": "2026",
+              "competition_id": "sr:competition:4223"
+            },
+            "stage": {
+              "order": 1,
+              "type": "cup",
+              "phase": "stage_1_playoff",
+              "start_date": "2026-02-08",
+              "end_date": "2026-02-14",
+              "year": "2026"
+            },
+            "round": {
+              "name": "round_of_16"
+            },
+            "groups": [
+              {
+                "id": "sr:cup:188539",
+                "name": "2026 Doha, Qatar, Doubles"
+              }
+            ],
+            "mode": {
+              "best_of": 3
+            }
+          },
+          "coverage": {
+            "type": "sport_event",
+            "sport_event_properties": {
+              "enhanced_stats": false,
+              "scores": "live",
+              "detailed_serve_outcomes": true,
+              "play_by_play": true
+            }
+          },
+          "competitors": [
+            {
+              "id": "sr:competitor:1144273",
+              "name": "Mihalikova T / Nicholls O",
+              "abbreviation": "MIN",
+              "qualifier": "home",
+              "players": [
+                {
+                  "id": "sr:competitor:142996",
+                  "name": "Mihalikova, Tereza",
+                  "country": "Slovakia",
+                  "country_code": "SVK",
+                  "abbreviation": "MIH"
+                },
+                {
+                  "id": "sr:competitor:129714",
+                  "name": "Nicholls, Olivia",
+                  "country": "Great Britain",
+                  "country_code": "GBR",
+                  "abbreviation": "NIC"
+                }
+              ],
+              "bracket_number": 14
+            },
+            {
+              "id": "sr:competitor:112601",
+              "name": "Krejcikova B / Siniakova K",
+              "country": "Czechia",
+              "country_code": "CZE",
+              "abbreviation": "KRS",
+              "qualifier": "away",
+              "players": [
+                {
+                  "id": "sr:competitor:60398",
+                  "name": "Krejcikova, Barbora",
+                  "country": "Czechia",
+                  "country_code": "CZE",
+                  "abbreviation": "KRE"
+                },
+                {
+                  "id": "sr:competitor:72376",
+                  "name": "Siniakova, Katerina",
+                  "country": "Czechia",
+                  "country_code": "CZE",
+                  "abbreviation": "SIN"
+                }
+              ],
+              "bracket_number": 15
+            }
+          ],
+          "venue": {
+            "id": "sr:venue:62257",
+            "name": "Grandstand 3",
+            "city_name": "Doha",
+            "country_name": "Qatar",
+            "country_code": "QAT",
+            "timezone": "Asia/Qatar"
+          },
+          "channels": [
+            {
+              "name": "Tennis Channel US"
+            },
+            {
+              "name": "ATP Tennis TV"
+            }
+          ],
+          "estimated": true
+        },
+        "sport_event_status": {
+          "status": "live",
+          "match_status": "1st_set",
+          "home_score": 0,
+          "away_score": 0,
+          "period_scores": [
+            {
+              "home_score": 5,
+              "away_score": 4,
+              "type": "set",
+              "number": 1
+            }
+          ],
+          "game_state": {
+            "home_score": 30,
+            "away_score": 30,
+            "serving": "away",
+            "last_point_result": "receiver_winner",
+            "tie_break": false
+          }
+        },
+        "statistics": {
+          "totals": {
+            "competitors": [
+              {
+                "id": "sr:competitor:1144273",
+                "name": "Mihalikova T / Nicholls O",
+                "abbreviation": "MIN",
+                "qualifier": "home",
+                "statistics": {
+                  "aces": 1,
+                  "breakpoints_won": 1,
+                  "double_faults": 1,
+                  "first_serve_points_won": 11,
+                  "first_serve_successful": 17,
+                  "games_won": 5,
+                  "max_games_in_a_row": 3,
+                  "max_points_in_a_row": 5,
+                  "points_won": 25,
+                  "second_serve_points_won": 5,
+                  "second_serve_successful": 7,
+                  "service_games_won": 4,
+                  "service_points_lost": 9,
+                  "service_points_won": 16,
+                  "tiebreaks_won": 0,
+                  "total_breakpoints": 1
+                }
+              },
+              {
+                "id": "sr:competitor:112601",
+                "name": "Krejcikova B / Siniakova K",
+                "abbreviation": "KRS",
+                "qualifier": "away",
+                "statistics": {
+                  "aces": 2,
+                  "breakpoints_won": 1,
+                  "double_faults": 1,
+                  "first_serve_points_won": 13,
+                  "first_serve_successful": 19,
+                  "games_won": 4,
+                  "max_games_in_a_row": 3,
+                  "max_points_in_a_row": 7,
+                  "points_won": 25,
+                  "second_serve_points_won": 3,
+                  "second_serve_successful": 5,
+                  "service_games_won": 3,
+                  "service_points_lost": 9,
+                  "service_points_won": 16,
+                  "total_breakpoints": 2
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "sport_event": {
+          "id": "sr:sport_event:68660108",
+          "start_time": "2026-02-11T14:25:00+00:00",
+          "start_time_confirmed": true,
+          "sport_event_context": {
+            "sport": {
+              "id": "sr:sport:5",
+              "name": "Tennis"
+            },
+            "category": {
+              "id": "sr:category:6",
+              "name": "WTA"
+            },
+            "competition": {
+              "id": "sr:competition:4221",
+              "name": "WTA Doha, Qatar Women Singles",
+              "parent_id": "sr:competition:4219",
+              "type": "singles",
+              "gender": "women",
+              "level": "wta_1000"
+            },
+            "season": {
+              "id": "sr:season:136029",
+              "name": "WTA Doha, Qatar Women Singles 2026",
+              "start_date": "2026-02-06",
+              "end_date": "2026-02-14",
+              "year": "2026",
+              "competition_id": "sr:competition:4221"
+            },
+            "stage": {
+              "order": 2,
+              "type": "cup",
+              "phase": "stage_1_playoff",
+              "start_date": "2026-02-08",
+              "end_date": "2026-02-14",
+              "year": "2026"
+            },
+            "round": {
+              "name": "round_of_16"
+            },
+            "groups": [
+              {
+                "id": "sr:cup:188535",
+                "name": "2026 Doha, Qatar"
+              }
+            ],
+            "mode": {
+              "best_of": 3
+            }
+          },
+          "coverage": {
+            "type": "sport_event",
+            "sport_event_properties": {
+              "enhanced_stats": false,
+              "scores": "live",
+              "detailed_serve_outcomes": true,
+              "play_by_play": true
+            }
+          },
+          "competitors": [
+            {
+              "id": "sr:competitor:274013",
+              "name": "Swiatek, Iga",
+              "country": "Poland",
+              "country_code": "POL",
+              "abbreviation": "SWI",
+              "qualifier": "home",
+              "seed": 1,
+              "bracket_number": 1
+            },
+            {
+              "id": "sr:competitor:132370",
+              "name": "Kasatkina, Daria",
+              "country": "Australia",
+              "country_code": "AUS",
+              "abbreviation": "KAS",
+              "qualifier": "away",
+              "bracket_number": 5
+            }
+          ],
+          "venue": {
+            "id": "sr:venue:1503",
+            "name": "Centre Court",
+            "city_name": "Doha",
+            "country_name": "Qatar",
+            "country_code": "QAT",
+            "timezone": "Asia/Qatar"
+          },
+          "channels": [
+            {
+              "name": "Supertennis HD - Hot Bird 1/2/3/4/6 (13.0E)"
+            },
+            {
+              "name": "beIN SPORT Max10 HD FR - Astra 1C-1H / 2C (19.2E)"
+            },
+            {
+              "name": "TNT Sports 2 - Eurobird 1 / Astra 2A/2B/2D (28.2E)"
+            },
+            {
+              "name": "BT Sport 2 - Eurobird 1 / Astra 2A/2B/2D (28.2E) - BSkyB - 492"
+            },
+            {
+              "name": "BT Sport//ESPN - Eurobird 1 / Astra 2A/2B/2D (28.2E)"
+            },
+            {
+              "name": "TNT Sports 4 - Eurobird 1 / Astra 2A/2B/2D (28.2E)"
+            },
+            {
+              "name": "beIN Sports 3 HD FR - Astra 1C-1H / 2C (19.2E)"
+            },
+            {
+              "name": "SportKlub 2 HD SRB - Eutelsat W2 (16.0E)"
+            },
+            {
+              "name": "Tennis Channel US"
+            },
+            {
+              "name": "ATP Tennis TV"
+            }
+          ],
+          "estimated": true
+        },
+        "sport_event_status": {
+          "status": "live",
+          "match_status": "1st_set",
+          "home_score": 0,
+          "away_score": 0,
+          "period_scores": [
+            {
+              "home_score": 1,
+              "away_score": 2,
+              "type": "set",
+              "number": 1
+            }
+          ],
+          "game_state": {
+            "home_score": 0,
+            "away_score": 15,
+            "serving": "away",
+            "last_point_result": "server_winner",
+            "tie_break": false
+          }
+        },
+        "statistics": {
+          "totals": {
+            "competitors": [
+              {
+                "id": "sr:competitor:274013",
+                "name": "Swiatek, Iga",
+                "abbreviation": "SWI",
+                "qualifier": "home",
+                "statistics": {
+                  "aces": 1,
+                  "breakpoints_won": 0,
+                  "double_faults": 2,
+                  "first_serve_points_won": 7,
+                  "first_serve_successful": 12,
+                  "games_won": 1,
+                  "max_games_in_a_row": 1,
+                  "max_points_in_a_row": 2,
+                  "points_won": 13,
+                  "second_serve_points_won": 3,
+                  "second_serve_successful": 6,
+                  "service_games_won": 1,
+                  "service_points_lost": 10,
+                  "service_points_won": 10,
+                  "tiebreaks_won": 0,
+                  "total_breakpoints": 2
+                }
+              },
+              {
+                "id": "sr:competitor:132370",
+                "name": "Kasatkina, Daria",
+                "abbreviation": "KAS",
+                "qualifier": "away",
+                "statistics": {
+                  "aces": 0,
+                  "breakpoints_won": 1,
+                  "double_faults": 0,
+                  "first_serve_points_won": 3,
+                  "first_serve_successful": 5,
+                  "games_won": 2,
+                  "max_games_in_a_row": 2,
+                  "max_points_in_a_row": 4,
+                  "points_won": 16,
+                  "second_serve_points_won": 3,
+                  "second_serve_successful": 4,
+                  "service_games_won": 1,
+                  "service_points_lost": 3,
+                  "service_points_won": 6,
+                  "tiebreaks_won": 0,
+                  "total_breakpoints": 4
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "sport_event": {
+          "id": "sr:sport_event:68660290",
+          "start_time": "2026-02-11T14:25:00+00:00",
+          "start_time_confirmed": true,
+          "sport_event_context": {
+            "sport": {
+              "id": "sr:sport:5",
+              "name": "Tennis"
+            },
+            "category": {
+              "id": "sr:category:871",
+              "name": "WTA 125K"
+            },
+            "competition": {
+              "id": "sr:competition:42157",
+              "name": "WTA 125K Oeiras, Portugal Women Doubles",
+              "parent_id": "sr:competition:42155",
+              "type": "doubles",
+              "gender": "women",
+              "level": "wta_125"
+            },
+            "season": {
+              "id": "sr:season:138120",
+              "name": "WTA 125K Oeiras, Portugal Women Doubles 2026",
+              "start_date": "2026-02-09",
+              "end_date": "2026-02-14",
+              "year": "2026",
+              "competition_id": "sr:competition:42157"
+            },
+            "stage": {
+              "order": 1,
+              "type": "cup",
+              "phase": "stage_1_playoff",
+              "start_date": "2026-02-09",
+              "end_date": "2026-02-14",
+              "year": "2026"
+            },
+            "round": {
+              "name": "quarterfinal"
+            },
+            "groups": [
+              {
+                "id": "sr:cup:191598",
+                "name": "2026 Oeiras, Portugal, Doubles"
+              }
+            ],
+            "mode": {
+              "best_of": 3
+            }
+          },
+          "coverage": {
+            "type": "sport_event",
+            "sport_event_properties": {
+              "enhanced_stats": false,
+              "scores": "live",
+              "detailed_serve_outcomes": true,
+              "play_by_play": true
+            }
+          },
+          "competitors": [
+            {
+              "id": "sr:competitor:1273452",
+              "name": "Cascino E / Feng S",
+              "abbreviation": "C/F",
+              "qualifier": "home",
+              "players": [
+                {
+                  "id": "sr:competitor:67430",
+                  "name": "Cascino, Estelle",
+                  "country": "France",
+                  "country_code": "FRA",
+                  "abbreviation": "CAS"
+                },
+                {
+                  "id": "sr:competitor:245673",
+                  "name": "Feng, Shuo",
+                  "country": "China",
+                  "country_code": "CHN",
+                  "abbreviation": "FEN"
+                }
+              ],
+              "bracket_number": 6
+            },
+            {
+              "id": "sr:competitor:1326482",
+              "name": "Jimenez Kasintseva V / Salkova D",
+              "abbreviation": "J/S",
+              "qualifier": "away",
+              "players": [
+                {
+                  "id": "sr:competitor:675191",
+                  "name": "Jimenez Kasintseva, Victoria",
+                  "country": "Andorra",
+                  "country_code": "AND",
+                  "abbreviation": "JIM"
+                },
+                {
+                  "id": "sr:competitor:662615",
+                  "name": "Salkova, Dominika",
+                  "country": "Czechia",
+                  "country_code": "CZE",
+                  "abbreviation": "SAL"
+                }
+              ],
+              "bracket_number": 7
+            }
+          ],
+          "venue": {
+            "id": "sr:venue:29610",
+            "name": "Court 4",
+            "city_name": "Oeiras",
+            "country_name": "Portugal",
+            "country_code": "PRT",
+            "timezone": "Europe/Lisbon"
+          },
+          "estimated": false
+        },
+        "sport_event_status": {
+          "status": "live",
+          "match_status": "1st_set",
+          "home_score": 0,
+          "away_score": 0,
+          "period_scores": [
+            {
+              "home_score": 5,
+              "away_score": 2,
+              "type": "set",
+              "number": 1
+            }
+          ],
+          "game_state": {
+            "home_score": 30,
+            "away_score": 40,
+            "serving": "home",
+            "last_point_result": "receiver_winner",
+            "tie_break": false,
+            "point_type": "set"
+          }
+        },
+        "statistics": {
+          "totals": {
+            "competitors": [
+              {
+                "id": "sr:competitor:1273452",
+                "name": "Cascino E / Feng S",
+                "abbreviation": "C/F",
+                "qualifier": "home",
+                "statistics": {
+                  "aces": 0,
+                  "breakpoints_won": 3,
+                  "double_faults": 1,
+                  "first_serve_points_won": 8,
+                  "first_serve_successful": 17,
+                  "games_won": 5,
+                  "max_games_in_a_row": 3,
+                  "max_points_in_a_row": 7,
+                  "points_won": 24,
+                  "second_serve_points_won": 3,
+                  "second_serve_successful": 6,
+                  "service_games_won": 2,
+                  "service_points_lost": 13,
+                  "service_points_won": 11,
+                  "tiebreaks_won": 0,
+                  "total_breakpoints": 3
+                }
+              },
+              {
+                "id": "sr:competitor:1326482",
+                "name": "Jimenez Kasintseva V / Salkova D",
+                "abbreviation": "J/S",
+                "qualifier": "away",
+                "statistics": {
+                  "aces": 2,
+                  "breakpoints_won": 1,
+                  "double_faults": 0,
+                  "first_serve_points_won": 7,
+                  "first_serve_successful": 16,
+                  "games_won": 2,
+                  "max_games_in_a_row": 2,
+                  "max_points_in_a_row": 5,
+                  "points_won": 21,
+                  "second_serve_points_won": 1,
+                  "second_serve_successful": 5,
+                  "service_games_won": 1,
+                  "service_points_lost": 13,
+                  "service_points_won": 8,
+                  "tiebreaks_won": 0,
+                  "total_breakpoints": 5
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "sport_event": {
+          "id": "sr:sport_event:68746218",
+          "start_time": "2026-02-11T14:40:00+00:00",
+          "start_time_confirmed": true,
+          "sport_event_context": {
+            "sport": {
+              "id": "sr:sport:5",
+              "name": "Tennis"
+            },
+            "category": {
+              "id": "sr:category:72",
+              "name": "Challenger"
+            },
+            "competition": {
+              "id": "sr:competition:27857",
+              "name": "ATP Challenger Pau, France Men Doubles",
+              "parent_id": "sr:competition:27853",
+              "type": "doubles",
+              "gender": "men"
+            },
+            "season": {
+              "id": "sr:season:137624",
+              "name": "ATP Challenger Pau, France Men Doubles 2026",
+              "start_date": "2026-02-09",
+              "end_date": "2026-02-15",
+              "year": "2026",
+              "competition_id": "sr:competition:27857"
+            },
+            "stage": {
+              "order": 1,
+              "type": "cup",
+              "phase": "stage_1_playoff",
+              "start_date": "2026-02-09",
+              "end_date": "2026-02-15",
+              "year": "2026"
+            },
+            "round": {
+              "name": "round_of_16"
+            },
+            "groups": [
+              {
+                "id": "sr:cup:190974",
+                "name": "2026 Pau, France, Doubles"
+              }
+            ],
+            "mode": {
+              "best_of": 3
+            }
+          },
+          "coverage": {
+            "type": "sport_event",
+            "sport_event_properties": {
+              "enhanced_stats": false,
+              "scores": "live",
+              "detailed_serve_outcomes": true,
+              "play_by_play": true
+            }
+          },
+          "competitors": [
+            {
+              "id": "sr:competitor:137046",
+              "name": "Nedunchezhiyan J / Ramanathan R",
+              "abbreviation": "N/R",
+              "qualifier": "home",
+              "players": [
+                {
+                  "id": "sr:competitor:60920",
+                  "name": "Nedunchezhiyan, Jeevan",
+                  "country": "India",
+                  "country_code": "IND",
+                  "abbreviation": "NED"
+                },
+                {
+                  "id": "sr:competitor:58877",
+                  "name": "Ramanathan, Ramkumar",
+                  "country": "India",
+                  "country_code": "IND",
+                  "abbreviation": "RAM"
+                }
+              ],
+              "bracket_number": 7
+            },
+            {
+              "id": "sr:competitor:1321374",
+              "name": "Damm M / Vrbensky M",
+              "abbreviation": "D/V",
+              "qualifier": "away",
+              "players": [
+                {
+                  "id": "sr:competitor:51345",
+                  "name": "Damm Jr, Martin",
+                  "country": "USA",
+                  "country_code": "USA",
+                  "abbreviation": "DAM"
+                },
+                {
+                  "id": "sr:competitor:295508",
+                  "name": "Vrbensky, Michael",
+                  "country": "Czechia",
+                  "country_code": "CZE",
+                  "abbreviation": "VRB"
+                }
+              ],
+              "bracket_number": 8
+            }
+          ],
+          "venue": {
+            "id": "sr:venue:62265",
+            "name": "Court 1",
+            "city_name": "Pau",
+            "country_name": "France",
+            "country_code": "FRA",
+            "timezone": "Europe/Paris"
+          },
+          "estimated": true
+        },
+        "sport_event_status": {
+          "status": "live",
+          "match_status": "1st_set",
+          "home_score": 0,
+          "away_score": 0,
+          "period_scores": [
+            {
+              "home_score": 0,
+              "away_score": 3,
+              "type": "set",
+              "number": 1
+            }
+          ],
+          "game_state": {
+            "home_score": 0,
+            "away_score": 0,
+            "serving": "home",
+            "last_point_result": "server_winner",
+            "tie_break": false
+          }
+        },
+        "statistics": {
+          "totals": {
+            "competitors": [
+              {
+                "id": "sr:competitor:137046",
+                "name": "Nedunchezhiyan J / Ramanathan R",
+                "abbreviation": "N/R",
+                "qualifier": "home",
+                "statistics": {
+                  "aces": 0,
+                  "breakpoints_won": 0,
+                  "double_faults": 0,
+                  "first_serve_points_won": 3,
+                  "first_serve_successful": 5,
+                  "games_won": 0,
+                  "max_games_in_a_row": 0,
+                  "max_points_in_a_row": 2,
+                  "points_won": 6,
+                  "points_won_from_last_10": 4,
+                  "second_serve_points_won": 0,
+                  "second_serve_successful": 2,
+                  "service_games_won": 0,
+                  "service_points_lost": 4,
+                  "service_points_won": 3,
+                  "tiebreaks_won": 0,
+                  "total_breakpoints": 1
+                }
+              },
+              {
+                "id": "sr:competitor:1321374",
+                "name": "Damm M / Vrbensky M",
+                "abbreviation": "D/V",
+                "qualifier": "away",
+                "statistics": {
+                  "aces": 1,
+                  "breakpoints_won": 1,
+                  "double_faults": 1,
+                  "first_serve_points_won": 4,
+                  "first_serve_successful": 4,
+                  "games_won": 3,
+                  "max_games_in_a_row": 3,
+                  "max_points_in_a_row": 4,
+                  "points_won": 12,
+                  "points_won_from_last_10": 6,
+                  "second_serve_points_won": 4,
+                  "second_serve_successful": 6,
+                  "service_games_won": 2,
+                  "service_points_lost": 3,
+                  "service_points_won": 8,
+                  "tiebreaks_won": 0,
+                  "total_breakpoints": 2
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "sport_event": {
+          "id": "sr:sport_event:68660266",
+          "start_time": "2026-02-11T14:50:00+00:00",
+          "start_time_confirmed": true,
+          "sport_event_context": {
+            "sport": {
+              "id": "sr:sport:5",
+              "name": "Tennis"
+            },
+            "category": {
+              "id": "sr:category:871",
+              "name": "WTA 125K"
+            },
+            "competition": {
+              "id": "sr:competition:42159",
+              "name": "WTA 125K Oeiras, Portugal Women Singles",
+              "parent_id": "sr:competition:42155",
+              "type": "singles",
+              "gender": "women",
+              "level": "wta_125"
+            },
+            "season": {
+              "id": "sr:season:138118",
+              "name": "WTA 125K Oeiras, Portugal Women Singles 2026",
+              "start_date": "2026-02-08",
+              "end_date": "2026-02-15",
+              "year": "2026",
+              "competition_id": "sr:competition:42159"
+            },
+            "stage": {
+              "order": 2,
+              "type": "cup",
+              "phase": "stage_1_playoff",
+              "start_date": "2026-02-09",
+              "end_date": "2026-02-15",
+              "year": "2026"
+            },
+            "round": {
+              "name": "round_of_16"
+            },
+            "groups": [
+              {
+                "id": "sr:cup:191594",
+                "name": "2026 Oeiras, Portugal"
+              }
+            ],
+            "mode": {
+              "best_of": 3
+            }
+          },
+          "coverage": {
+            "type": "sport_event",
+            "sport_event_properties": {
+              "enhanced_stats": false,
+              "scores": "live",
+              "detailed_serve_outcomes": true,
+              "play_by_play": true
+            }
+          },
+          "competitors": [
+            {
+              "id": "sr:competitor:90664",
+              "name": "Kalinina, Anhelina",
+              "country": "Ukraine",
+              "country_code": "UKR",
+              "abbreviation": "KAL",
+              "qualifier": "home",
+              "bracket_number": 30
+            },
+            {
+              "id": "sr:competitor:97995",
+              "name": "Galfi, Dalma",
+              "country": "Hungary",
+              "country_code": "HUN",
+              "abbreviation": "GAL",
+              "qualifier": "away",
+              "seed": 2,
+              "bracket_number": 32
+            }
+          ],
+          "venue": {
+            "id": "sr:venue:11741",
+            "name": "Court 1",
+            "city_name": "Oeiras",
+            "country_name": "Portugal",
+            "country_code": "PRT",
+            "timezone": "Europe/Lisbon"
+          },
+          "estimated": true
+        },
+        "sport_event_status": {
+          "status": "live",
+          "match_status": "1st_set",
+          "home_score": 0,
+          "away_score": 0,
+          "period_scores": [
+            {
+              "home_score": 1,
+              "away_score": 2,
+              "type": "set",
+              "number": 1
+            }
+          ],
+          "game_state": {
+            "home_score": 0,
+            "away_score": 0,
+            "serving": "home",
+            "last_point_result": "server_winner",
+            "tie_break": false
+          }
+        },
+        "statistics": {
+          "totals": {
+            "competitors": [
+              {
+                "id": "sr:competitor:90664",
+                "name": "Kalinina, Anhelina",
+                "abbreviation": "KAL",
+                "qualifier": "home",
+                "statistics": {
+                  "aces": 0,
+                  "breakpoints_won": 1,
+                  "double_faults": 1,
+                  "first_serve_points_won": 2,
+                  "first_serve_successful": 5,
+                  "games_won": 1,
+                  "max_games_in_a_row": 1,
+                  "max_points_in_a_row": 2,
+                  "points_won": 9,
+                  "second_serve_points_won": 0,
+                  "second_serve_successful": 1,
+                  "service_games_won": 0,
+                  "service_points_lost": 4,
+                  "service_points_won": 2,
+                  "tiebreaks_won": 0,
+                  "total_breakpoints": 4
+                }
+              },
+              {
+                "id": "sr:competitor:97995",
+                "name": "Galfi, Dalma",
+                "abbreviation": "GAL",
+                "qualifier": "away",
+                "statistics": {
+                  "aces": 0,
+                  "breakpoints_won": 1,
+                  "double_faults": 2,
+                  "first_serve_points_won": 6,
+                  "first_serve_successful": 7,
+                  "games_won": 2,
+                  "max_games_in_a_row": 2,
+                  "max_points_in_a_row": 5,
+                  "points_won": 11,
+                  "second_serve_points_won": 1,
+                  "second_serve_successful": 5,
+                  "service_games_won": 1,
+                  "service_points_lost": 7,
+                  "service_points_won": 7,
+                  "tiebreaks_won": 0,
+                  "total_breakpoints": 1
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "sport_event": {
+          "id": "sr:sport_event:68622924",
+          "start_time": "2026-02-11T14:55:00+00:00",
+          "start_time_confirmed": true,
+          "sport_event_context": {
+            "sport": {
+              "id": "sr:sport:5",
+              "name": "Tennis"
+            },
+            "category": {
+              "id": "sr:category:3",
+              "name": "ATP"
+            },
+            "competition": {
+              "id": "sr:competition:2679",
+              "name": "ATP Rotterdam, Netherlands Men Singles",
+              "parent_id": "sr:competition:2677",
+              "type": "singles",
+              "gender": "men",
+              "level": "atp_500"
+            },
+            "season": {
+              "id": "sr:season:133607",
+              "name": "ATP Rotterdam, Netherlands Men Singles 2026",
+              "start_date": "2026-02-07",
+              "end_date": "2026-02-15",
+              "year": "2026",
+              "competition_id": "sr:competition:2679"
+            },
+            "stage": {
+              "order": 2,
+              "type": "cup",
+              "phase": "stage_1_playoff",
+              "start_date": "2026-02-09",
+              "end_date": "2026-02-15",
+              "year": "2026"
+            },
+            "round": {
+              "name": "round_of_16"
+            },
+            "groups": [
+              {
+                "id": "sr:cup:185409",
+                "name": "2026 Rotterdam, Netherlands"
+              }
+            ],
+            "mode": {
+              "best_of": 3
+            }
+          },
+          "coverage": {
+            "type": "sport_event",
+            "sport_event_properties": {
+              "enhanced_stats": false,
+              "scores": "live",
+              "detailed_serve_outcomes": true,
+              "play_by_play": true
+            }
+          },
+          "competitors": [
+            {
+              "id": "sr:competitor:58221",
+              "name": "O'Connell, Christopher",
+              "country": "Australia",
+              "country_code": "AUS",
+              "abbreviation": "OCO",
+              "qualifier": "home",
+              "bracket_number": 14
+            },
+            {
+              "id": "sr:competitor:95935",
+              "name": "Norrie, Cameron",
+              "country": "Great Britain",
+              "country_code": "GBR",
+              "abbreviation": "NOR",
+              "qualifier": "away",
+              "seed": 6,
+              "bracket_number": 16
+            }
+          ],
+          "venue": {
+            "id": "sr:venue:1648",
+            "name": "Court 1",
+            "city_name": "Rotterdam",
+            "country_name": "Netherlands",
+            "country_code": "NLD",
+            "timezone": "Europe/Brussels"
+          },
+          "channels": [
+            {
+              "name": "TV3 Sport DK - Astra 4A & SES 5 (4.9E)"
+            },
+            {
+              "name": "Sport2 HU - Thor 2/3 (1.0W)"
+            },
+            {
+              "name": "Supertennis HD - Hot Bird 1/2/3/4/6 (13.0E)"
+            },
+            {
+              "name": "EUROSPORT 1 FR - Astra 1C-1H / 2C (19.2E)"
+            },
+            {
+              "name": "EUROSPORT 2 FR - Astra 1C-1H / 2C (19.2E)"
+            },
+            {
+              "name": "Sky Sport HD 2 (D) - Astra 1C-1H / 2C (19.2E)"
+            },
+            {
+              "name": "SportKlub 1 HD SRB - Eutelsat W2 (16.0E)"
+            },
+            {
+              "name": "Sky Sport HD 3 (D) - Astra 1C-1H / 2C (19.2E)"
+            },
+            {
+              "name": "Sky Sport HD 7 (D) - Astra 1C-1H / 2C (19.2E)"
+            },
+            {
+              "name": "Eurosport Norge HD - Thor 2/3 (1.0W)"
+            },
+            {
+              "name": "Eurosport 2 HD (S/F) - Thor 2/3 (1.0W)"
+            },
+            {
+              "name": "Tennis Channel US"
+            },
+            {
+              "name": "ATP Tennis TV"
+            }
+          ],
+          "estimated": true
+        },
+        "sport_event_status": {
+          "status": "not_started",
+          "match_status": "match_about_to_start",
+          "period_scores": [
+            {
+              "home_score": 0,
+              "away_score": 0,
+              "type": "set"
+            }
+          ]
+        }
+      },
+      {
+        "sport_event": {
+          "id": "sr:sport_event:68746646",
+          "start_time": "2026-02-11T14:55:00+00:00",
+          "start_time_confirmed": true,
+          "sport_event_context": {
+            "sport": {
+              "id": "sr:sport:5",
+              "name": "Tennis"
+            },
+            "category": {
+              "id": "sr:category:72",
+              "name": "Challenger"
+            },
+            "competition": {
+              "id": "sr:competition:38731",
+              "name": "ATP Challenger Tenerife 2, Spain Men Doubles",
+              "parent_id": "sr:competition:38729",
+              "type": "doubles",
+              "gender": "men"
+            },
+            "season": {
+              "id": "sr:season:137632",
+              "name": "ATP Challenger Tenerife 2, Spain Men Doubles 2026",
+              "start_date": "2026-02-09",
+              "end_date": "2026-02-15",
+              "year": "2026",
+              "competition_id": "sr:competition:38731"
+            },
+            "stage": {
+              "order": 1,
+              "type": "cup",
+              "phase": "stage_1_playoff",
+              "start_date": "2026-02-09",
+              "end_date": "2026-02-15",
+              "year": "2026"
+            },
+            "round": {
+              "name": "round_of_16"
+            },
+            "groups": [
+              {
+                "id": "sr:cup:190986",
+                "name": "2026 Tenerife 2, Spain, Doubles"
+              }
+            ],
+            "mode": {
+              "best_of": 3
+            }
+          },
+          "coverage": {
+            "type": "sport_event",
+            "sport_event_properties": {
+              "enhanced_stats": false,
+              "scores": "live",
+              "detailed_serve_outcomes": true,
+              "play_by_play": true
+            }
+          },
+          "competitors": [
+            {
+              "id": "sr:competitor:1326244",
+              "name": "Forcano Aparicio I / Marrero Curbelo I",
+              "abbreviation": "F/M",
+              "qualifier": "home",
+              "players": [
+                {
+                  "id": "sr:competitor:200873",
+                  "name": "Forcano Aparicio, Ignasi",
+                  "country": "Spain",
+                  "country_code": "ESP",
+                  "abbreviation": "FOR"
+                },
+                {
+                  "id": "sr:competitor:202681",
+                  "name": "Marrero Curbelo, Ivan",
+                  "country": "Spain",
+                  "country_code": "ESP",
+                  "abbreviation": "MAR"
+                }
+              ],
+              "bracket_number": 11
+            },
+            {
+              "id": "sr:competitor:1289547",
+              "name": "Cornea V / Walkow S",
+              "abbreviation": "C/W",
+              "qualifier": "away",
+              "players": [
+                {
+                  "id": "sr:competitor:77653",
+                  "name": "Cornea, Victor Vlad",
+                  "country": "Romania",
+                  "country_code": "ROU",
+                  "abbreviation": "COR"
+                },
+                {
+                  "id": "sr:competitor:112061",
+                  "name": "Walkow, Szymon",
+                  "country": "Poland",
+                  "country_code": "POL",
+                  "abbreviation": "WAL"
+                }
+              ],
+              "seed": 3,
+              "bracket_number": 12
+            }
+          ],
+          "venue": {
+            "id": "sr:venue:69563",
+            "name": "Court 5",
+            "city_name": "Santa Cruz de Tenerife",
+            "country_name": "Spain",
+            "country_code": "ESP",
+            "timezone": "Europe/Madrid"
+          },
+          "estimated": true
+        },
+        "sport_event_status": {
+          "status": "not_started",
+          "match_status": "match_about_to_start",
+          "period_scores": [
+            {
+              "home_score": 0,
+              "away_score": 0,
+              "type": "set"
+            }
+          ]
+        }
+      },
+      {
+        "sport_event": {
+          "id": "sr:sport_event:68660104",
+          "start_time": "2026-02-11T15:00:00+00:00",
+          "start_time_confirmed": true,
+          "sport_event_context": {
+            "sport": {
+              "id": "sr:sport:5",
+              "name": "Tennis"
+            },
+            "category": {
+              "id": "sr:category:6",
+              "name": "WTA"
+            },
+            "competition": {
+              "id": "sr:competition:4221",
+              "name": "WTA Doha, Qatar Women Singles",
+              "parent_id": "sr:competition:4219",
+              "type": "singles",
+              "gender": "women",
+              "level": "wta_1000"
+            },
+            "season": {
+              "id": "sr:season:136029",
+              "name": "WTA Doha, Qatar Women Singles 2026",
+              "start_date": "2026-02-06",
+              "end_date": "2026-02-14",
+              "year": "2026",
+              "competition_id": "sr:competition:4221"
+            },
+            "stage": {
+              "order": 2,
+              "type": "cup",
+              "phase": "stage_1_playoff",
+              "start_date": "2026-02-08",
+              "end_date": "2026-02-14",
+              "year": "2026"
+            },
+            "round": {
+              "name": "round_of_16"
+            },
+            "groups": [
+              {
+                "id": "sr:cup:188535",
+                "name": "2026 Doha, Qatar"
+              }
+            ],
+            "mode": {
+              "best_of": 3
+            }
+          },
+          "coverage": {
+            "type": "sport_event",
+            "sport_event_properties": {
+              "enhanced_stats": false,
+              "scores": "live",
+              "detailed_serve_outcomes": true,
+              "play_by_play": true
+            }
+          },
+          "competitors": [
+            {
+              "id": "sr:competitor:20732",
+              "name": "Pliskova, Karolina",
+              "country": "Czechia",
+              "country_code": "CZE",
+              "abbreviation": "PLI",
+              "qualifier": "home",
+              "bracket_number": 20
+            },
+            {
+              "id": "sr:competitor:85077",
+              "name": "Muchova, Karolina",
+              "country": "Czechia",
+              "country_code": "CZE",
+              "abbreviation": "MUC",
+              "qualifier": "away",
+              "seed": 14,
+              "bracket_number": 24
+            }
+          ],
+          "venue": {
+            "id": "sr:venue:62253",
+            "name": "Grandstand 1",
+            "city_name": "Doha",
+            "country_name": "Qatar",
+            "country_code": "QAT",
+            "timezone": "Asia/Qatar"
+          },
+          "channels": [
+            {
+              "name": "Supertennis HD - Hot Bird 1/2/3/4/6 (13.0E)"
+            },
+            {
+              "name": "beIN SPORT Max10 HD FR - Astra 1C-1H / 2C (19.2E)"
+            },
+            {
+              "name": "TNT Sports 2 - Eurobird 1 / Astra 2A/2B/2D (28.2E)"
+            },
+            {
+              "name": "BT Sport 2 - Eurobird 1 / Astra 2A/2B/2D (28.2E) - BSkyB - 492"
+            },
+            {
+              "name": "BT Sport//ESPN - Eurobird 1 / Astra 2A/2B/2D (28.2E)"
+            },
+            {
+              "name": "TNT Sports 4 - Eurobird 1 / Astra 2A/2B/2D (28.2E)"
+            },
+            {
+              "name": "beIN Sports 3 HD FR - Astra 1C-1H / 2C (19.2E)"
+            },
+            {
+              "name": "SportKlub 2 HD SRB - Eutelsat W2 (16.0E)"
+            },
+            {
+              "name": "Tennis Channel US"
+            },
+            {
+              "name": "ATP Tennis TV"
+            }
+          ],
+          "estimated": true
+        },
+        "sport_event_status": {
+          "status": "not_started",
+          "match_status": "not_started"
+        }
+      },
+      {
+        "sport_event": {
+          "id": "sr:sport_event:68660256",
+          "start_time": "2026-02-11T15:00:00+00:00",
+          "start_time_confirmed": true,
+          "sport_event_context": {
+            "sport": {
+              "id": "sr:sport:5",
+              "name": "Tennis"
+            },
+            "category": {
+              "id": "sr:category:871",
+              "name": "WTA 125K"
+            },
+            "competition": {
+              "id": "sr:competition:42159",
+              "name": "WTA 125K Oeiras, Portugal Women Singles",
+              "parent_id": "sr:competition:42155",
+              "type": "singles",
+              "gender": "women",
+              "level": "wta_125"
+            },
+            "season": {
+              "id": "sr:season:138118",
+              "name": "WTA 125K Oeiras, Portugal Women Singles 2026",
+              "start_date": "2026-02-08",
+              "end_date": "2026-02-15",
+              "year": "2026",
+              "competition_id": "sr:competition:42159"
+            },
+            "stage": {
+              "order": 2,
+              "type": "cup",
+              "phase": "stage_1_playoff",
+              "start_date": "2026-02-09",
+              "end_date": "2026-02-15",
+              "year": "2026"
+            },
+            "round": {
+              "name": "round_of_16"
+            },
+            "groups": [
+              {
+                "id": "sr:cup:191594",
+                "name": "2026 Oeiras, Portugal"
+              }
+            ],
+            "mode": {
+              "best_of": 3
+            }
+          },
+          "coverage": {
+            "type": "sport_event",
+            "sport_event_properties": {
+              "enhanced_stats": false,
+              "scores": "live",
+              "detailed_serve_outcomes": true,
+              "play_by_play": true
+            }
+          },
+          "competitors": [
+            {
+              "id": "sr:competitor:49171",
+              "name": "Parrizas Diaz, Nuria",
+              "country": "Spain",
+              "country_code": "ESP",
+              "abbreviation": "PAR",
+              "qualifier": "home",
+              "bracket_number": 18
+            },
+            {
+              "id": "sr:competitor:235260",
+              "name": "Chwalinska, Maja",
+              "country": "Poland",
+              "country_code": "POL",
+              "abbreviation": "CHW",
+              "qualifier": "away",
+              "bracket_number": 19
+            }
+          ],
+          "venue": {
+            "id": "sr:venue:57910",
+            "name": "Court 6",
+            "city_name": "Oeiras",
+            "country_name": "Portugal",
+            "country_code": "PRT",
+            "timezone": "Europe/Lisbon"
+          },
+          "estimated": true
+        },
+        "sport_event_status": {
+          "status": "not_started",
+          "match_status": "not_started"
+        }
+      }
+    ]
+  }
