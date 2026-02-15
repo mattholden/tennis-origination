@@ -208,3 +208,6 @@ __marimo__/
 
 # Sportradar fetch output (sample data)
 sportradar/output/
+
+# Raw API responses saved by pipelines for schema review
+raw_data/

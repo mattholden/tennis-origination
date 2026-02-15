@@ -1,30 +1,19 @@
 """
 Sportradar Tennis API client.
 
-Uses SPORTRADAR_API_KEY from .env (project root). Optional: SPORTRADAR_BASE_URL.
+Uses SPORTRADAR_API_KEY and optional SPORTRADAR_BASE_URL from environment.
+Ensure the entry point (e.g. runner) calls core.env.load_env() so .env is loaded.
 """
 
 import json
 import os
-from pathlib import Path
 from typing import Optional
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 
 
-def _load_dotenv() -> None:
-    try:
-        import dotenv
-        # injestion/sportradar/fetch/client.py -> project root is 4 levels up
-        root = Path(__file__).resolve().parent.parent.parent.parent
-        dotenv.load_dotenv(root / ".env")
-    except ImportError:
-        pass
-
-
 def get_api_key() -> str:
     """Return Sportradar API key from environment. Raises if missing."""
-    _load_dotenv()
     key = os.environ.get("SPORTRADAR_API_KEY")
     if not key:
         raise ValueError(
@@ -35,7 +24,6 @@ def get_api_key() -> str:
 
 def get_base_url() -> str:
     """Base URL for Sportradar Tennis API (trial v3 by default)."""
-    _load_dotenv()
     return os.environ.get(
         "SPORTRADAR_BASE_URL",
         "https://api.sportradar.com/tennis/trial/v3/en",
