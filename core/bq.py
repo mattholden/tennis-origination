@@ -42,3 +42,15 @@ def get_param_list(table_id: str, column: str) -> list[Any]:
     sql = f'SELECT DISTINCT `{column}` FROM `{table_id}`'
     job = client.query(sql)
     return [row[column] for row in job.result() if row[column] is not None]
+
+
+def get_competition_ids_from_competitions_table(competitions_table_id: str) -> frozenset[str]:
+    """
+    Return the set of competition ids stored in the competitions table.
+    Used by the seasons pipeline to filter seasons to only those whose
+    competition_id exists in our competitions table (ATP, WTA, Davis Cup, BJK Cup).
+    """
+    client = get_client()
+    sql = f'SELECT DISTINCT id FROM `{competitions_table_id}`'
+    job = client.query(sql)
+    return frozenset(row["id"] for row in job.result() if row["id"] is not None)

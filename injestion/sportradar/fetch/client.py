@@ -23,11 +23,13 @@ def get_api_key() -> str:
 
 
 def get_base_url() -> str:
-    """Base URL for Sportradar Tennis API (trial v3 by default)."""
-    return os.environ.get(
-        "SPORTRADAR_BASE_URL",
-        "https://api.sportradar.com/tennis/trial/v3/en",
-    ).rstrip("/")
+    """Base URL for Sportradar Tennis API."""
+    base_url = os.environ.get("SPORTRADAR_BASE_URL")
+    if not base_url:
+        raise ValueError(
+            "SPORTRADAR_BASE_URL not set. Add it to .env in the project root."
+        )
+    return base_url.rstrip("/")
 
 
 class SportradarClient:

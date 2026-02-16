@@ -3,10 +3,12 @@ Registry of pipeline names to run functions. Each pipeline is a closed loop.
 """
 
 from injestion.sportradar.pipelines import competitions as competitions_pipeline
+from injestion.sportradar.pipelines import seasons as seasons_pipeline
 
 # name -> run(client, manager, bq)
 PIPELINES = {
     "competitions": competitions_pipeline.run,
+    "seasons": seasons_pipeline.run,
 }
 
 

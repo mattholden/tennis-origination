@@ -10,7 +10,7 @@ import os
 # Env var names for each resource's BigQuery table
 TABLE_ID_ENV = {
     "competitions": "BIGQUERY_SR_COMPETITIONS_TABLE_ID",
-    # "seasons": "BIGQUERY_SR_SEASONS_TABLE_ID",
+    "seasons": "BIGQUERY_SR_SEASONS_TABLE_ID",
 }
 
 
