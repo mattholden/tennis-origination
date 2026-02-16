@@ -54,3 +54,38 @@ def get_competition_ids_from_competitions_table(competitions_table_id: str) -> f
     sql = f'SELECT DISTINCT id FROM `{competitions_table_id}`'
     job = client.query(sql)
     return frozenset(row["id"] for row in job.result() if row["id"] is not None)
+
+def get_major_competition_ids() -> frozenset[str]:
+    """
+    Return the set of competition ids for the major tournaments (Grand Slams, ATP Finals, WTA Finals, Davis Cup, BJK Cup).
+    Used by the seasons pipeline to filter seasons to only those whose
+    competition_id exists in our competitions table (ATP, WTA, Davis Cup, BJK Cup).
+    """
+    return frozenset({
+        "sr:competition:2567", # Australian Open
+        "sr:competition:2579", # French Open
+        "sr:competition:2555", # Wimbledon
+        "sr:competition:2591", # US Open
+    })
+
+def get_season_ids_for_major_competitions(seasons_table_id: str) -> list[str]:
+    """
+    Return the list of season ids for the major tournaments (Grand Slams only for now).
+    Used by the season competitors pipeline to fetch competitors for a test subset.
+    """
+    major_ids = get_major_competition_ids()
+    major_ids_list = ", ".join(repr(cid) for cid in major_ids)  # e.g. 'sr:competition:2567', ...
+    client = get_client()
+    sql = f"SELECT DISTINCT id FROM `{seasons_table_id}` WHERE competition_id IN ({major_ids_list})"
+    job = client.query(sql)
+    return [row["id"] for row in job.result() if row["id"] is not None]
+
+def get_competitor_ids_from_season_competitors_table(season_competitors_table_id: str) -> list[str]:
+    """
+    Return the list of competitor ids stored in the season competitors table.
+    Used by the competitors pipeline to fetch competitors for a test subset.
+    """
+    client = get_client()
+    sql = f'SELECT DISTINCT competitor_id FROM `{season_competitors_table_id}`'
+    job = client.query(sql)
+    return [row["competitor_id"] for row in job.result() if row["competitor_id"] is not None]

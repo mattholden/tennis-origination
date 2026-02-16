@@ -50,11 +50,18 @@ class SportradarClient:
         sep = "&" if "?" in path else "?"
         return f"{self._base_url}/{path}{sep}api_key={self._api_key}"
 
-    def get(self, path: str) -> dict:
+    def get(self, path: str, **path_params: str) -> dict:
         """
-        GET a path (e.g. 'competitions.json') and return parsed JSON.
-        The .json suffix is the response format (Sportradar also supports .xml).
+        GET a path and return parsed JSON.
+
+        path: URL path relative to base (e.g. 'competitions.json' or
+              'seasons/{season_id}/competitors.json'). Use {param_name}
+              placeholders for path parameters.
+        path_params: Values to substitute into path. E.g. season_id="sr:season:12345".
+                     Omit for endpoints with no path parameters.
         """
+        if path_params:
+            path = path.format(**path_params)
         url = self._url(path)
         req = Request(url, headers={"Accept": "application/json"})
         try:

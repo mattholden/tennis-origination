@@ -7,9 +7,11 @@ from injestion.sportradar.fetch import competitions as fetch_competitions
 from injestion.sportradar.schema import competitions as schema_competitions
 from injestion.sportradar.schema import seasons as schema_seasons
 from injestion.sportradar.fetch import seasons as fetch_seasons
+from injestion.sportradar.fetch import season_competitors as fetch_season_competitors
+from injestion.sportradar.schema import season_competitors as schema_season_competitors
+from injestion.sportradar.schema import competitors as schema_competitors
+from injestion.sportradar.fetch import competitors as fetch_competitors
 
-
-RESOURCES = ["competitions", "seasons"]
 
 _REGISTRY = {
     "competitions": {
@@ -20,7 +22,17 @@ _REGISTRY = {
     "seasons": {
         "fetch": fetch_seasons.fetch_seasons,
         "payload_to_rows": schema_seasons.payload_to_rows,
-        "get_schema": schema_seasons.get_schema,
+        "get_schema": schema_seasons.get_schema,    
+    },
+    "season_competitors": {
+        "fetch": fetch_season_competitors.fetch_season_competitors,
+        "payload_to_rows": schema_season_competitors.payload_to_rows,
+        "get_schema": schema_season_competitors.get_schema,
+    },
+    "competitors": {
+        "fetch": fetch_competitors.fetch_competitors,
+        "payload_to_rows": schema_competitors.payload_to_rows,
+        "get_schema": schema_competitors.get_schema,
     },
 }
 
@@ -32,8 +44,8 @@ class SportradarManager:
     """
 
     def list_resources(self) -> list[str]:
-        """Resource names this manager supports."""
-        return list(RESOURCES)
+        """Resource names this manager supports (derived from registry)."""
+        return list(_REGISTRY.keys())
 
     def get_schema(self, name: str):
         """BigQuery schema for the given resource."""
