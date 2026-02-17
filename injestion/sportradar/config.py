@@ -13,6 +13,7 @@ TABLE_ID_ENV = {
     "seasons": "BIGQUERY_SR_SEASONS_TABLE_ID",
     "season_competitors": "BIGQUERY_SR_SEASON_COMPETITORS_TABLE_ID",
     "competitors": "BIGQUERY_SR_COMPETITORS_TABLE_ID",
+    "surface_stats": "BIGQUERY_SR_SURFACE_STATS_TABLE_ID",
 }
 
 

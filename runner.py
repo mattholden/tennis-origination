@@ -2,8 +2,10 @@
 Entry point: load .env once, then run resource pipelines.
 
 Each pipeline is a closed loop: (optional) pull params from BigQuery -> fetch -> transform -> upload.
-Run one pipeline in isolation with Runner.run(name).
+Run one pipeline in isolation with Runner.run(name). All pipelines are async and run under asyncio.
 """
+
+import asyncio
 
 from core.env import load_env
 
@@ -19,17 +21,17 @@ class Runner:
 
     def __init__(self, client, manager, bq):
         """
-        client: API client (e.g. SportradarClient).
-        manager: Source manager (e.g. SportradarManager) for load_resource, get_table_id.
-        bq: BigQuery interface with write_rows(table_id, rows) and get_param_list(table_id, column).
+        client: API client (e.g. SportradarClient). Pipelines use client.get_async() for fetch.
+        manager: Source manager (e.g. SportradarManager).
+        bq: BigQuery interface.
         """
         self._client = client
         self._manager = manager
         self._bq = bq
-        self._pipelines = {}  # name -> run(client, manager, bq)
+        self._pipelines = {}  # name -> async run(client, manager, bq)
 
     def register(self, name: str, pipeline_fn) -> None:
-        """Register a pipeline. pipeline_fn(client, manager, bq) -> None."""
+        """Register a pipeline. pipeline_fn must be async (client, manager, bq) -> None."""
         self._pipelines[name] = pipeline_fn
 
     def run(self, name: str) -> None:
@@ -38,7 +40,8 @@ class Runner:
             raise ValueError(
                 f"Unknown pipeline: {name!r}. Known: {list(self._pipelines.keys())}"
             )
-        self._pipelines[name](self._client, self._manager, self._bq)
+        fn = self._pipelines[name]
+        asyncio.run(fn(self._client, self._manager, self._bq))
 
     def list_pipelines(self) -> list[str]:
         """Return registered pipeline names."""

@@ -5,9 +5,9 @@ Seasons resource: API endpoint and fetch.
 ENDPOINT_PATH = "seasons.json"
 
 
-def fetch_seasons(client) -> dict:
+async def fetch_seasons(client) -> dict:
     """
     Fetch seasons from the Sportradar API.
     Returns full response: {"generated_at": "...", "seasons": [...]}.
     """
-    return client.get(ENDPOINT_PATH)
+    return await client.get_async(ENDPOINT_PATH)

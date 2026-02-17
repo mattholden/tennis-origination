@@ -6,6 +6,7 @@ readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "google-cloud-bigquery>=3.0.0",
+    "httpx>=0.27.0",
     "matplotlib>=3.10.8",
     "prizepicks-oddsjam>=2.3.0",
     "prizepicks-originations-models>=1.43.0",

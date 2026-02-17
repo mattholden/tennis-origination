@@ -2,6 +2,8 @@
 Sportradar manager: single entry point for schema, table_id, fetch, and load_resource.
 """
 
+import asyncio
+
 from injestion.sportradar import config
 from injestion.sportradar.fetch import competitions as fetch_competitions
 from injestion.sportradar.schema import competitions as schema_competitions
@@ -11,6 +13,7 @@ from injestion.sportradar.fetch import season_competitors as fetch_season_compet
 from injestion.sportradar.schema import season_competitors as schema_season_competitors
 from injestion.sportradar.schema import competitors as schema_competitors
 from injestion.sportradar.fetch import competitors as fetch_competitors
+from injestion.sportradar.schema import surface_stats as schema_surface_stats
 
 
 _REGISTRY = {
@@ -33,6 +36,10 @@ _REGISTRY = {
         "fetch": fetch_competitors.fetch_competitors,
         "payload_to_rows": schema_competitors.payload_to_rows,
         "get_schema": schema_competitors.get_schema,
+    },
+    "surface_stats": {
+        "payload_to_rows": schema_surface_stats.payload_to_rows,
+        "get_schema": schema_surface_stats.get_schema,
     },
 }
 
@@ -58,12 +65,21 @@ class SportradarManager:
 
     def get_raw(self, name: str, client, **kwargs) -> dict:
         """
-        Fetch from API and return raw payload. Use when saving raw to JSON for review
-        before defining schema, or when pipeline does fetch -> save_raw -> transform -> write.
+        Fetch from API and return raw payload (sync). Use for sync pipelines.
         """
         self._check(name)
         fetch_fn = _REGISTRY[name]["fetch"]
         return fetch_fn(client, **kwargs)
+
+    async def get_raw_async(self, name: str, client, **kwargs) -> dict:
+        """
+        Fetch from API and return raw payload (async). Use for async pipelines
+        so many requests can run concurrently. Resource must have an async fetch.
+        """
+        self._check(name)
+        fetch_fn = _REGISTRY[name]["fetch"]
+        result = fetch_fn(client, **kwargs)
+        return await result if asyncio.iscoroutine(result) else result
 
     def raw_to_rows(self, name: str, raw: dict, **kwargs) -> list[dict]:
         """Transform raw payload to rows. Pass **kwargs (e.g. allowed_competition_ids) for resources that need them."""
