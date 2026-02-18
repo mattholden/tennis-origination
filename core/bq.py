@@ -62,10 +62,14 @@ def get_major_competition_ids() -> frozenset[str]:
     competition_id exists in our competitions table (ATP, WTA, Davis Cup, BJK Cup).
     """
     return frozenset({
-        "sr:competition:2567", # Australian Open
-        "sr:competition:2579", # French Open
-        "sr:competition:2555", # Wimbledon
-        "sr:competition:2591", # US Open
+        "sr:competition:2567", # Australian Open men's singles
+        "sr:competition:2579", # French Open men's singles
+        "sr:competition:2555", # Wimbledon men's singles
+        "sr:competition:2591", # US Open men's singles
+        "sr:competition:2571", # Australian Open women's singles
+        "sr:competition:2583", # French Open women's singles
+        "sr:competition:2559", # Wimbledon women's singles
+        "sr:competition:2595", # US Open women's singles
     })
 
 def get_season_ids_for_major_competitions(seasons_table_id: str) -> list[str]:
