@@ -1,18 +1,23 @@
 """
 Registry of pipeline names to run functions. Each pipeline is a closed loop.
+
+Imports run from each pipeline module directly to avoid circular import
+(pipelines/__init__.py imports this registry).
 """
 
-from injestion.sportradar.pipelines import competitions as competitions_pipeline
-from injestion.sportradar.pipelines import seasons as seasons_pipeline
-from injestion.sportradar.pipelines import season_competitors as season_competitors_pipeline
-from injestion.sportradar.pipelines import competitors as competitors_pipeline
+from injestion.sportradar.pipelines.competitions import run as competitions_run
+from injestion.sportradar.pipelines.seasons import run as seasons_run
+from injestion.sportradar.pipelines.season_competitors import run as season_competitors_run
+from injestion.sportradar.pipelines.competitors import run as competitors_run
+from injestion.sportradar.pipelines.season_brackets import run as season_brackets_run
 
 # name -> run(client, manager, bq)
 PIPELINES = {
-    "competitions": competitions_pipeline.run,
-    "seasons": seasons_pipeline.run,
-    "season_competitors": season_competitors_pipeline.run,
-    "competitors": competitors_pipeline.run,
+    "competitions": competitions_run,
+    "seasons": seasons_run,
+    "season_competitors": season_competitors_run,
+    "competitors": competitors_run,
+    "season_brackets": season_brackets_run,
 }
 
 

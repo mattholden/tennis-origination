@@ -10,8 +10,7 @@ Subsample: set SUBSAMPLE_COMPETITORS=10 in env to process only the first 10 (for
 import asyncio
 import os
 
-max_concurrent_requests = 8
-semaphore = asyncio.Semaphore(max_concurrent_requests)
+from injestion.sportradar.pipelines.concurrency import semaphore
 
 
 async def run(client, manager, bq) -> None:
