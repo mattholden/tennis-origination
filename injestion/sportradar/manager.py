@@ -20,6 +20,8 @@ from injestion.sportradar.fetch import event_summary as fetch_event_summary
 from injestion.sportradar.schema import event_summary as schema_event_summary
 from injestion.sportradar.schema import event_statistics as schema_event_statistics
 from injestion.sportradar.schema import event_timeline as schema_event_timeline
+from injestion.sportradar.fetch import rankings as fetch_rankings
+from injestion.sportradar.schema import rankings as schema_rankings
 
 _REGISTRY = {
     "competitions": {
@@ -63,6 +65,11 @@ _REGISTRY = {
     "event_timeline": {
         "payload_to_rows": schema_event_timeline.payload_to_rows,
         "get_schema": schema_event_timeline.get_schema,
+    },
+    "rankings": {
+        "fetch": fetch_rankings.fetch_rankings,
+        "payload_to_rows": schema_rankings.payload_to_rows,
+        "get_schema": schema_rankings.get_schema,
     },
 }
 

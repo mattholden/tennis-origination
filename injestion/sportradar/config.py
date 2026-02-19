@@ -18,6 +18,7 @@ TABLE_ID_ENV = {
     "event_summary": "BIGQUERY_SR_EVENT_SUMMARY_TABLE_ID",
     "event_statistics": "BIGQUERY_SR_EVENT_STATISTICS_TABLE_ID",
     "event_timeline": "BIGQUERY_SR_EVENT_TIMELINE_TABLE_ID",
+    "rankings": "BIGQUERY_SR_RANKINGS_TABLE_ID",
 }
 
 

@@ -67,4 +67,4 @@ if __name__ == "__main__":
     runner = create_sportradar_runner()
     print("Pipelines:", runner.list_pipelines())
     # Run one in isolation, e.g.:
-    runner.run("event_summary")
+    runner.run("rankings")
