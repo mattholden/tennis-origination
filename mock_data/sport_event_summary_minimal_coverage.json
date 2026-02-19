@@ -1,0 +1,188 @@
+{
+    "generated_at": "2026-02-18T19:17:09+00:00",
+    "sport_event": {
+      "id": "sr:sport_event:50198949",
+      "start_time": "2024-05-21T09:45:00+00:00",
+      "start_time_confirmed": true,
+      "sport_event_context": {
+        "sport": {
+          "id": "sr:sport:5",
+          "name": "Tennis"
+        },
+        "category": {
+          "id": "sr:category:6",
+          "name": "WTA"
+        },
+        "competition": {
+          "id": "sr:competition:2583",
+          "name": "French Open Women Singles",
+          "parent_id": "sr:competition:2577",
+          "type": "singles",
+          "gender": "women",
+          "level": "grand_slam"
+        },
+        "season": {
+          "id": "sr:season:106269",
+          "name": "French Open Women Singles 2024",
+          "start_date": "2024-05-20",
+          "end_date": "2024-06-09",
+          "year": "2024",
+          "competition_id": "sr:competition:2583"
+        },
+        "stage": {
+          "order": 1,
+          "type": "cup",
+          "phase": "qualification",
+          "start_date": "2024-05-20",
+          "end_date": "2024-05-24",
+          "year": "2024"
+        },
+        "round": {
+          "number": 1,
+          "name": "qualification_round_1"
+        },
+        "groups": [
+          {
+            "id": "sr:cup:157086",
+            "name": "2024 French Open, Paris, France, Qualifying"
+          }
+        ],
+        "mode": {
+          "best_of": 3
+        }
+      },
+      "coverage": {
+        "type": "sport_event",
+        "sport_event_properties": {
+          "enhanced_stats": false,
+          "detailed_serve_outcomes": false,
+          "play_by_play": false
+        }
+      },
+      "competitors": [
+        {
+          "id": "sr:competitor:211262",
+          "name": "Danilovic, Olga",
+          "country": "Serbia",
+          "country_code": "SRB",
+          "abbreviation": "DAN",
+          "qualifier": "home",
+          "seed": 11,
+          "bracket_number": 81
+        },
+        {
+          "id": "sr:competitor:755469",
+          "name": "Todoni, Anca Alexia",
+          "country": "Romania",
+          "country_code": "ROU",
+          "abbreviation": "TOD",
+          "qualifier": "away",
+          "bracket_number": 82
+        }
+      ],
+      "venue": {
+        "id": "sr:venue:1829",
+        "name": "Court 4",
+        "city_name": "Paris",
+        "country_name": "France",
+        "country_code": "FRA",
+        "timezone": "Europe/Paris"
+      },
+      "channels": [
+        {
+          "name": "SRF zwei HD - Hot Bird 1/2/3/4/6 (13.0E)"
+        },
+        {
+          "name": "Eurosport 2 UK HD - Eurobird 1 / Astra 2A/2B/2D (28.2E)"
+        },
+        {
+          "name": "RSI La 2 HD - Hot Bird 1/2/3/4/6 (13.0E)"
+        },
+        {
+          "name": "ITV4 - Eurobird 1 / Astra 2A/2B/2D (28.2E) - BSkyB - 3688"
+        },
+        {
+          "name": "ITV4 - Eurobird 1 / Astra 2A/2B/2D (28.2E) - BSkyB - 1820"
+        },
+        {
+          "name": "ORF Sport Plus - Astra 1C-1H / 2C (19.2E)"
+        },
+        {
+          "name": "EUROSPORT 1 FR - Astra 1C-1H / 2C (19.2E)"
+        },
+        {
+          "name": "EUROSPORT 2 FR - Astra 1C-1H / 2C (19.2E)"
+        },
+        {
+          "name": "EUROSPORT 1 DE - Astra 1C-1H / 2C (19.2E)"
+        },
+        {
+          "name": "EUROSPORT 2 DE HD - Astra 1C-1H / 2C (19.2E)"
+        },
+        {
+          "name": "CT Sport CZ - Thor 2/3 (1.0W)"
+        },
+        {
+          "name": "M+ DEPORTES1 - Astra 1C-1H / 2C (19.2E)"
+        },
+        {
+          "name": "ORF Sport+ HD - Astra 1C-1H / 2C (19.2E)"
+        },
+        {
+          "name": "Eurosport 1 HD (F) - Thor 2/3 (1.0W)"
+        },
+        {
+          "name": "Eurosport Norge HD - Thor 2/3 (1.0W)"
+        },
+        {
+          "name": "Eurosport 1 SE HD - Thor 2/3 (1.0W)"
+        },
+        {
+          "name": "CT Sport HD - Thor 2/3 (1.0W)"
+        },
+        {
+          "name": "EUROSPORT 1 DE HD - Astra 1C-1H / 2C (19.2E)"
+        },
+        {
+          "name": "TNT"
+        },
+        {
+          "name": "Tennis Channel US"
+        },
+        {
+          "name": "Max US"
+        },
+        {
+          "name": "TruTV US"
+        }
+      ],
+      "estimated": true
+    },
+    "sport_event_status": {
+      "status": "closed",
+      "match_status": "ended",
+      "home_score": 2,
+      "away_score": 1,
+      "period_scores": [
+        {
+          "home_score": 6,
+          "away_score": 1,
+          "type": "set",
+          "number": 1
+        },
+        {
+          "home_score": 4,
+          "away_score": 6,
+          "type": "set",
+          "number": 2
+        },
+        {
+          "home_score": 6,
+          "away_score": 1,
+          "type": "set",
+          "number": 3
+        }
+      ],
+      "winner_id": "sr:competitor:211262"
+    }
+  }

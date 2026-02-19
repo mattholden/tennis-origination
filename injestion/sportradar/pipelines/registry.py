@@ -10,7 +10,7 @@ from injestion.sportradar.pipelines.seasons import run as seasons_run
 from injestion.sportradar.pipelines.season_competitors import run as season_competitors_run
 from injestion.sportradar.pipelines.competitors import run as competitors_run
 from injestion.sportradar.pipelines.season_brackets import run as season_brackets_run
-
+from injestion.sportradar.pipelines.event_summary import run as event_summary_run
 # name -> run(client, manager, bq)
 PIPELINES = {
     "competitions": competitions_run,
@@ -18,6 +18,7 @@ PIPELINES = {
     "season_competitors": season_competitors_run,
     "competitors": competitors_run,
     "season_brackets": season_brackets_run,
+    "event_summary": event_summary_run,
 }
 
 

@@ -1,0 +1,2458 @@
+{
+    "generated_at": "2026-02-18T19:28:18+00:00",
+    "sport_event": {
+      "id": "sr:sport_event:63100845",
+      "start_time": "2025-09-07T18:30:00+00:00",
+      "start_time_confirmed": true,
+      "sport_event_context": {
+        "sport": {
+          "id": "sr:sport:5",
+          "name": "Tennis"
+        },
+        "category": {
+          "id": "sr:category:3",
+          "name": "ATP"
+        },
+        "competition": {
+          "id": "sr:competition:2591",
+          "name": "US Open Men Singles",
+          "parent_id": "sr:competition:2589",
+          "type": "singles",
+          "gender": "men",
+          "level": "grand_slam"
+        },
+        "season": {
+          "id": "sr:season:123561",
+          "name": "US Open Men Singles 2025",
+          "start_date": "2025-08-18",
+          "end_date": "2025-09-07",
+          "year": "2025",
+          "competition_id": "sr:competition:2591"
+        },
+        "stage": {
+          "order": 2,
+          "type": "cup",
+          "phase": "stage_1_playoff",
+          "start_date": "2025-08-24",
+          "end_date": "2025-09-07",
+          "year": "2025"
+        },
+        "round": {
+          "name": "final"
+        },
+        "groups": [
+          {
+            "id": "sr:cup:172353",
+            "name": "2025 US Open, New York, USA"
+          }
+        ],
+        "mode": {
+          "best_of": 5
+        }
+      },
+      "coverage": {
+        "type": "sport_event",
+        "sport_event_properties": {
+          "enhanced_stats": true,
+          "scores": "live",
+          "detailed_serve_outcomes": true,
+          "play_by_play": true
+        }
+      },
+      "competitors": [
+        {
+          "id": "sr:competitor:225050",
+          "name": "Sinner, Jannik",
+          "country": "Italy",
+          "country_code": "ITA",
+          "abbreviation": "SIN",
+          "qualifier": "home",
+          "seed": 1,
+          "bracket_number": 1
+        },
+        {
+          "id": "sr:competitor:407573",
+          "name": "Alcaraz, Carlos",
+          "country": "Spain",
+          "country_code": "ESP",
+          "abbreviation": "ALC",
+          "qualifier": "away",
+          "seed": 2,
+          "bracket_number": 128
+        }
+      ],
+      "venue": {
+        "id": "sr:venue:1310",
+        "name": "Arthur Ashe Stadium",
+        "capacity": 22547,
+        "city_name": "New York, NY",
+        "country_name": "USA",
+        "country_code": "USA",
+        "timezone": "America/New_York"
+      },
+      "channels": [
+        {
+          "name": "SRF zwei HD - Hot Bird 1/2/3/4/6 (13.0E)"
+        },
+        {
+          "name": "Sky Sports NFL HD - Astra 2A/2B/2D (28.2E)"
+        },
+        {
+          "name": "Sky Sports Main Event HD - Astra 2A/2B/2D (28.2E)"
+        },
+        {
+          "name": "Eurosport 2 UK HD - Eurobird 1 / Astra 2A/2B/2D (28.2E)"
+        },
+        {
+          "name": "Eurosport 1 UK HD - Eurobird 1 / Astra 2A/2B/2D (28.2E)"
+        },
+        {
+          "name": "Eurosport 1 IT HD - Hot Bird 1/2/3/4/6 (13.0E)"
+        },
+        {
+          "name": "ORF Sport Plus - Astra 1C-1H / 2C (19.2E)"
+        },
+        {
+          "name": "RTS Deux HD - Hot Bird 1/2/3/4/6 (13.0E)"
+        },
+        {
+          "name": "EUROSPORT 1 FR - Astra 1C-1H / 2C (19.2E)"
+        },
+        {
+          "name": "EUROSPORT 2 FR - Astra 1C-1H / 2C (19.2E)"
+        },
+        {
+          "name": "EUROSPORT 1 DE - Astra 1C-1H / 2C (19.2E)"
+        },
+        {
+          "name": "EUROSPORT 2 DE HD - Astra 1C-1H / 2C (19.2E)"
+        },
+        {
+          "name": "EUROSPORT Norway - (1.0W)"
+        },
+        {
+          "name": "EUROSPORT 2 NO - (1.0W)"
+        },
+        {
+          "name": "Eurosport 360 HD (chose option) - (19.2E)"
+        },
+        {
+          "name": "Sky Sports Arena HD - Astra 2A/2B/2D (28.2E)"
+        },
+        {
+          "name": "M+ DEPORTES1 - Astra 1C-1H / 2C (19.2E)"
+        },
+        {
+          "name": "ORF Sport+ HD - Astra 1C-1H / 2C (19.2E)"
+        },
+        {
+          "name": "Eurosport 1 HD (F) - Thor 2/3 (1.0W)"
+        },
+        {
+          "name": "Eurosport Norge HD - Thor 2/3 (1.0W)"
+        },
+        {
+          "name": "Eurosport 2 IT HD - Hot Bird 1/2/3/4/6 (13.0E)"
+        },
+        {
+          "name": "Eurosport 1 SE HD - Thor 2/3 (1.0W)"
+        },
+        {
+          "name": "EUROSPORT 1 DE HD - Astra 1C-1H / 2C (19.2E)"
+        },
+        {
+          "name": "Eurosport 2 HD (S/F) - Thor 2/3 (1.0W)"
+        },
+        {
+          "name": "Eurosport 1 HD (N) - Thor 2/3 (1.0W)"
+        },
+        {
+          "name": "ESPN Deportes"
+        },
+        {
+          "name": "ESPN US (DirecTV SAT (DVB-S))"
+        },
+        {
+          "name": "ESPN+"
+        },
+        {
+          "name": "ESPN 2"
+        }
+      ],
+      "estimated": false
+    },
+    "sport_event_status": {
+      "status": "closed",
+      "match_status": "ended",
+      "home_score": 1,
+      "away_score": 3,
+      "period_scores": [
+        {
+          "home_score": 2,
+          "away_score": 6,
+          "type": "set",
+          "number": 1
+        },
+        {
+          "home_score": 6,
+          "away_score": 3,
+          "type": "set",
+          "number": 2
+        },
+        {
+          "home_score": 1,
+          "away_score": 6,
+          "type": "set",
+          "number": 3
+        },
+        {
+          "home_score": 4,
+          "away_score": 6,
+          "type": "set",
+          "number": 4
+        }
+      ],
+      "winner_id": "sr:competitor:407573"
+    },
+    "statistics": {
+      "totals": {
+        "competitors": [
+          {
+            "id": "sr:competitor:225050",
+            "name": "Sinner, Jannik",
+            "abbreviation": "SIN",
+            "qualifier": "home",
+            "statistics": {
+              "aces": 2,
+              "backhand_errors": 24,
+              "backhand_unforced_errors": 8,
+              "backhand_winners": 6,
+              "breakpoints_won": 1,
+              "double_faults": 4,
+              "drop_shot_unforced_errors": 0,
+              "drop_shot_winners": 0,
+              "first_serve_points_won": 37,
+              "first_serve_successful": 54,
+              "forehand_errors": 18,
+              "forehand_unforced_errors": 16,
+              "forehand_winners": 9,
+              "games_won": 13,
+              "groundstroke_errors": 42,
+              "groundstroke_unforced_errors": 23,
+              "groundstroke_winners": 9,
+              "lob_unforced_errors": 0,
+              "lob_winners": 0,
+              "max_games_in_a_row": 3,
+              "max_points_in_a_row": 8,
+              "overhead_stroke_errors": 0,
+              "overhead_stroke_unforced_errors": 0,
+              "overhead_stroke_winners": 0,
+              "points_won": 89,
+              "points_won_from_last_10": 4,
+              "return_errors": 0,
+              "return_winners": 0,
+              "second_serve_points_won": 28,
+              "second_serve_successful": 54,
+              "service_games_won": 12,
+              "service_points_lost": 47,
+              "service_points_won": 65,
+              "tiebreaks_won": 0,
+              "total_breakpoints": 1,
+              "volley_unforced_errors": 1,
+              "volley_winners": 6
+            }
+          },
+          {
+            "id": "sr:competitor:407573",
+            "name": "Alcaraz, Carlos",
+            "abbreviation": "ALC",
+            "qualifier": "away",
+            "statistics": {
+              "aces": 10,
+              "backhand_errors": 15,
+              "backhand_unforced_errors": 9,
+              "backhand_winners": 7,
+              "breakpoints_won": 5,
+              "double_faults": 0,
+              "drop_shot_unforced_errors": 0,
+              "drop_shot_winners": 0,
+              "first_serve_points_won": 45,
+              "first_serve_successful": 54,
+              "forehand_errors": 29,
+              "forehand_unforced_errors": 15,
+              "forehand_winners": 19,
+              "games_won": 21,
+              "groundstroke_errors": 43,
+              "groundstroke_unforced_errors": 22,
+              "groundstroke_winners": 18,
+              "lob_unforced_errors": 0,
+              "lob_winners": 0,
+              "max_games_in_a_row": 5,
+              "max_points_in_a_row": 7,
+              "overhead_stroke_errors": 0,
+              "overhead_stroke_unforced_errors": 0,
+              "overhead_stroke_winners": 3,
+              "points_won": 112,
+              "points_won_from_last_10": 6,
+              "return_errors": 0,
+              "return_winners": 0,
+              "second_serve_points_won": 20,
+              "second_serve_successful": 35,
+              "service_games_won": 16,
+              "service_points_lost": 24,
+              "service_points_won": 65,
+              "tiebreaks_won": 0,
+              "total_breakpoints": 11,
+              "volley_unforced_errors": 2,
+              "volley_winners": 8
+            }
+          }
+        ]
+      }
+    },
+    "timeline": [
+      {
+        "id": 2134615739,
+        "type": "first_serve",
+        "time": "2025-09-07T18:43:45+00:00",
+        "competitor": "home"
+      },
+      {
+        "id": 2134620785,
+        "type": "match_started",
+        "time": "2025-09-07T18:48:51+00:00"
+      },
+      {
+        "id": 2134620791,
+        "type": "period_start",
+        "time": "2025-09-07T18:48:51+00:00",
+        "period_name": "1st_set"
+      },
+      {
+        "id": 2134620863,
+        "type": "point",
+        "time": "2025-09-07T18:48:55+00:00",
+        "competitor": "home",
+        "home_score": 15,
+        "away_score": 0,
+        "server": "home",
+        "result": "server_won"
+      },
+      {
+        "id": 2134621399,
+        "type": "point",
+        "time": "2025-09-07T18:49:28+00:00",
+        "competitor": "home",
+        "home_score": 30,
+        "away_score": 0,
+        "server": "home",
+        "result": "server_won"
+      },
+      {
+        "id": 2134622129,
+        "type": "point",
+        "time": "2025-09-07T18:50:16+00:00",
+        "competitor": "away",
+        "home_score": 30,
+        "away_score": 15,
+        "server": "home",
+        "result": "receiver_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134622773,
+        "type": "point",
+        "time": "2025-09-07T18:51:03+00:00",
+        "competitor": "away",
+        "home_score": 30,
+        "away_score": 30,
+        "server": "home",
+        "result": "receiver_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134623459,
+        "type": "point",
+        "time": "2025-09-07T18:51:53+00:00",
+        "competitor": "away",
+        "home_score": 30,
+        "away_score": 40,
+        "server": "home",
+        "result": "receiver_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134623861,
+        "type": "point",
+        "time": "2025-09-07T18:52:23+00:00",
+        "competitor": "home",
+        "home_score": 40,
+        "away_score": 40,
+        "server": "home",
+        "result": "server_won"
+      },
+      {
+        "id": 2134624729,
+        "type": "point",
+        "time": "2025-09-07T18:53:22+00:00",
+        "competitor": "home",
+        "home_score": 50,
+        "away_score": 40,
+        "server": "home",
+        "result": "server_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134625277,
+        "type": "point",
+        "time": "2025-09-07T18:54:02+00:00",
+        "competitor": "away",
+        "home_score": 40,
+        "away_score": 40,
+        "server": "home",
+        "result": "receiver_won"
+      },
+      {
+        "id": 2134625767,
+        "type": "point",
+        "time": "2025-09-07T18:54:40+00:00",
+        "competitor": "home",
+        "home_score": 50,
+        "away_score": 40,
+        "server": "home",
+        "result": "ace"
+      },
+      {
+        "id": 2134626353,
+        "type": "point",
+        "time": "2025-09-07T18:55:22+00:00",
+        "competitor": "away",
+        "home_score": 40,
+        "away_score": 40,
+        "server": "home",
+        "result": "receiver_won"
+      },
+      {
+        "id": 2134626935,
+        "type": "point",
+        "time": "2025-09-07T18:56:10+00:00",
+        "competitor": "away",
+        "home_score": 40,
+        "away_score": 50,
+        "server": "home",
+        "result": "receiver_won"
+      },
+      {
+        "id": 2134627607,
+        "type": "period_score",
+        "time": "2025-09-07T18:57:03+00:00",
+        "period": "1",
+        "home_score": 0,
+        "away_score": 1,
+        "server": "home",
+        "result": "receiver_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134628561,
+        "type": "point",
+        "time": "2025-09-07T18:58:30+00:00",
+        "competitor": "home",
+        "home_score": 15,
+        "away_score": 0,
+        "server": "away",
+        "result": "receiver_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134629029,
+        "type": "point",
+        "time": "2025-09-07T18:59:12+00:00",
+        "competitor": "away",
+        "home_score": 15,
+        "away_score": 15,
+        "server": "away",
+        "result": "server_won"
+      },
+      {
+        "id": 2134629583,
+        "type": "point",
+        "time": "2025-09-07T18:59:58+00:00",
+        "competitor": "away",
+        "home_score": 15,
+        "away_score": 30,
+        "server": "away",
+        "result": "server_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134630263,
+        "type": "point",
+        "time": "2025-09-07T19:00:35+00:00",
+        "competitor": "away",
+        "home_score": 15,
+        "away_score": 40,
+        "server": "away",
+        "result": "server_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134630719,
+        "type": "period_score",
+        "time": "2025-09-07T19:01:05+00:00",
+        "period": "1",
+        "home_score": 0,
+        "away_score": 2,
+        "server": "away",
+        "result": "server_won"
+      },
+      {
+        "id": 2134631411,
+        "type": "point",
+        "time": "2025-09-07T19:01:52+00:00",
+        "competitor": "home",
+        "home_score": 15,
+        "away_score": 0,
+        "server": "home",
+        "result": "server_won"
+      },
+      {
+        "id": 2134632095,
+        "type": "point",
+        "time": "2025-09-07T19:02:39+00:00",
+        "competitor": "away",
+        "home_score": 15,
+        "away_score": 15,
+        "server": "home",
+        "result": "receiver_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134632503,
+        "type": "point",
+        "time": "2025-09-07T19:03:06+00:00",
+        "competitor": "home",
+        "home_score": 30,
+        "away_score": 15,
+        "server": "home",
+        "result": "server_won"
+      },
+      {
+        "id": 2134633195,
+        "type": "point",
+        "time": "2025-09-07T19:03:49+00:00",
+        "competitor": "away",
+        "home_score": 30,
+        "away_score": 30,
+        "server": "home",
+        "result": "receiver_won"
+      },
+      {
+        "id": 2134633923,
+        "type": "point",
+        "time": "2025-09-07T19:04:41+00:00",
+        "competitor": "home",
+        "home_score": 40,
+        "away_score": 30,
+        "server": "home",
+        "result": "server_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134634439,
+        "type": "period_score",
+        "time": "2025-09-07T19:05:17+00:00",
+        "period": "1",
+        "home_score": 1,
+        "away_score": 2,
+        "server": "home",
+        "result": "server_won"
+      },
+      {
+        "id": 2134636421,
+        "type": "point",
+        "time": "2025-09-07T19:07:28+00:00",
+        "competitor": "home",
+        "home_score": 15,
+        "away_score": 0,
+        "server": "away",
+        "result": "receiver_won"
+      },
+      {
+        "id": 2134636861,
+        "type": "point",
+        "time": "2025-09-07T19:08:01+00:00",
+        "competitor": "away",
+        "home_score": 15,
+        "away_score": 15,
+        "server": "away",
+        "result": "server_won"
+      },
+      {
+        "id": 2134637325,
+        "type": "point",
+        "time": "2025-09-07T19:08:29+00:00",
+        "competitor": "away",
+        "home_score": 15,
+        "away_score": 30,
+        "server": "away",
+        "result": "server_won"
+      },
+      {
+        "id": 2134638005,
+        "type": "point",
+        "time": "2025-09-07T19:09:10+00:00",
+        "competitor": "away",
+        "home_score": 15,
+        "away_score": 40,
+        "server": "away",
+        "result": "server_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134638521,
+        "type": "point",
+        "time": "2025-09-07T19:09:47+00:00",
+        "competitor": "home",
+        "home_score": 30,
+        "away_score": 40,
+        "server": "away",
+        "result": "receiver_won"
+      },
+      {
+        "id": 2134639133,
+        "type": "period_score",
+        "time": "2025-09-07T19:10:27+00:00",
+        "period": "1",
+        "home_score": 1,
+        "away_score": 3,
+        "server": "away",
+        "result": "server_won"
+      },
+      {
+        "id": 2134639967,
+        "type": "point",
+        "time": "2025-09-07T19:11:16+00:00",
+        "competitor": "away",
+        "home_score": 0,
+        "away_score": 15,
+        "server": "home",
+        "result": "receiver_won"
+      },
+      {
+        "id": 2134640847,
+        "type": "point",
+        "time": "2025-09-07T19:12:06+00:00",
+        "competitor": "away",
+        "home_score": 0,
+        "away_score": 30,
+        "server": "home",
+        "result": "receiver_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134641623,
+        "type": "point",
+        "time": "2025-09-07T19:12:53+00:00",
+        "competitor": "home",
+        "home_score": 15,
+        "away_score": 30,
+        "server": "home",
+        "result": "server_won"
+      },
+      {
+        "id": 2134642561,
+        "type": "point",
+        "time": "2025-09-07T19:13:47+00:00",
+        "competitor": "home",
+        "home_score": 30,
+        "away_score": 30,
+        "server": "home",
+        "result": "server_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134643231,
+        "type": "point",
+        "time": "2025-09-07T19:14:26+00:00",
+        "competitor": "home",
+        "home_score": 40,
+        "away_score": 30,
+        "server": "home",
+        "result": "server_won"
+      },
+      {
+        "id": 2134643775,
+        "type": "period_score",
+        "time": "2025-09-07T19:15:00+00:00",
+        "period": "1",
+        "home_score": 2,
+        "away_score": 3,
+        "server": "home",
+        "result": "server_won"
+      },
+      {
+        "id": 2134646115,
+        "type": "point",
+        "time": "2025-09-07T19:17:15+00:00",
+        "competitor": "away",
+        "home_score": 0,
+        "away_score": 15,
+        "server": "away",
+        "result": "server_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134646471,
+        "type": "point",
+        "time": "2025-09-07T19:17:38+00:00",
+        "competitor": "away",
+        "home_score": 0,
+        "away_score": 30,
+        "server": "away",
+        "result": "server_won"
+      },
+      {
+        "id": 2134646873,
+        "type": "point",
+        "time": "2025-09-07T19:18:05+00:00",
+        "competitor": "away",
+        "home_score": 0,
+        "away_score": 40,
+        "server": "away",
+        "result": "server_won"
+      },
+      {
+        "id": 2134647265,
+        "type": "period_score",
+        "time": "2025-09-07T19:18:34+00:00",
+        "period": "1",
+        "home_score": 2,
+        "away_score": 4,
+        "server": "away",
+        "result": "ace"
+      },
+      {
+        "id": 2134647991,
+        "type": "point",
+        "time": "2025-09-07T19:19:24+00:00",
+        "competitor": "away",
+        "home_score": 0,
+        "away_score": 15,
+        "server": "home",
+        "result": "receiver_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134648411,
+        "type": "point",
+        "time": "2025-09-07T19:19:51+00:00",
+        "competitor": "home",
+        "home_score": 15,
+        "away_score": 15,
+        "server": "home",
+        "result": "server_won"
+      },
+      {
+        "id": 2134648843,
+        "type": "point",
+        "time": "2025-09-07T19:20:24+00:00",
+        "competitor": "away",
+        "home_score": 15,
+        "away_score": 30,
+        "server": "home",
+        "result": "receiver_won"
+      },
+      {
+        "id": 2134649749,
+        "type": "point",
+        "time": "2025-09-07T19:21:20+00:00",
+        "competitor": "away",
+        "home_score": 15,
+        "away_score": 40,
+        "server": "home",
+        "result": "receiver_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134650391,
+        "type": "point",
+        "time": "2025-09-07T19:22:05+00:00",
+        "competitor": "home",
+        "home_score": 30,
+        "away_score": 40,
+        "server": "home",
+        "result": "server_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134650987,
+        "type": "period_score",
+        "time": "2025-09-07T19:22:42+00:00",
+        "period": "1",
+        "home_score": 2,
+        "away_score": 5,
+        "server": "home",
+        "result": "receiver_won"
+      },
+      {
+        "id": 2134652967,
+        "type": "point",
+        "time": "2025-09-07T19:24:50+00:00",
+        "competitor": "away",
+        "home_score": 0,
+        "away_score": 15,
+        "server": "away",
+        "result": "server_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134653449,
+        "type": "point",
+        "time": "2025-09-07T19:25:20+00:00",
+        "competitor": "away",
+        "home_score": 0,
+        "away_score": 30,
+        "server": "away",
+        "result": "server_won"
+      },
+      {
+        "id": 2134653795,
+        "type": "point",
+        "time": "2025-09-07T19:25:46+00:00",
+        "competitor": "away",
+        "home_score": 0,
+        "away_score": 40,
+        "server": "away",
+        "result": "server_won"
+      },
+      {
+        "id": 2134654255,
+        "type": "period_score",
+        "time": "2025-09-07T19:26:23+00:00",
+        "period": "1",
+        "home_score": 2,
+        "away_score": 6,
+        "server": "away",
+        "result": "server_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134654259,
+        "type": "period_start",
+        "time": "2025-09-07T19:26:23+00:00",
+        "period_name": "2nd_set"
+      },
+      {
+        "id": 2134656651,
+        "type": "point",
+        "time": "2025-09-07T19:29:24+00:00",
+        "competitor": "home",
+        "home_score": 15,
+        "away_score": 0,
+        "server": "home",
+        "result": "server_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134657051,
+        "type": "point",
+        "time": "2025-09-07T19:29:51+00:00",
+        "competitor": "home",
+        "home_score": 30,
+        "away_score": 0,
+        "server": "home",
+        "result": "server_won"
+      },
+      {
+        "id": 2134657755,
+        "type": "point",
+        "time": "2025-09-07T19:30:28+00:00",
+        "competitor": "away",
+        "home_score": 30,
+        "away_score": 15,
+        "server": "home",
+        "result": "receiver_won"
+      },
+      {
+        "id": 2134658493,
+        "type": "point",
+        "time": "2025-09-07T19:31:15+00:00",
+        "competitor": "away",
+        "home_score": 30,
+        "away_score": 30,
+        "server": "home",
+        "result": "double_fault",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134659025,
+        "type": "point",
+        "time": "2025-09-07T19:31:56+00:00",
+        "competitor": "away",
+        "home_score": 30,
+        "away_score": 40,
+        "server": "home",
+        "result": "receiver_won"
+      },
+      {
+        "id": 2134659773,
+        "type": "point",
+        "time": "2025-09-07T19:32:47+00:00",
+        "competitor": "home",
+        "home_score": 40,
+        "away_score": 40,
+        "server": "home",
+        "result": "server_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134660251,
+        "type": "point",
+        "time": "2025-09-07T19:33:16+00:00",
+        "competitor": "home",
+        "home_score": 50,
+        "away_score": 40,
+        "server": "home",
+        "result": "server_won"
+      },
+      {
+        "id": 2134661415,
+        "type": "period_score",
+        "time": "2025-09-07T19:33:49+00:00",
+        "period": "2",
+        "home_score": 1,
+        "away_score": 0,
+        "server": "home",
+        "result": "server_won"
+      },
+      {
+        "id": 2134662159,
+        "type": "point",
+        "time": "2025-09-07T19:34:43+00:00",
+        "competitor": "away",
+        "home_score": 0,
+        "away_score": 15,
+        "server": "away",
+        "result": "server_won"
+      },
+      {
+        "id": 2134662513,
+        "type": "point",
+        "time": "2025-09-07T19:35:05+00:00",
+        "competitor": "away",
+        "home_score": 0,
+        "away_score": 30,
+        "server": "away",
+        "result": "server_won"
+      },
+      {
+        "id": 2134662865,
+        "type": "point",
+        "time": "2025-09-07T19:35:30+00:00",
+        "competitor": "away",
+        "home_score": 0,
+        "away_score": 40,
+        "server": "away",
+        "result": "server_won"
+      },
+      {
+        "id": 2134663369,
+        "type": "period_score",
+        "time": "2025-09-07T19:36:02+00:00",
+        "period": "2",
+        "home_score": 1,
+        "away_score": 1,
+        "server": "away",
+        "result": "server_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134664453,
+        "type": "point",
+        "time": "2025-09-07T19:37:07+00:00",
+        "competitor": "away",
+        "home_score": 0,
+        "away_score": 15,
+        "server": "home",
+        "result": "receiver_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134665587,
+        "type": "point",
+        "time": "2025-09-07T19:38:17+00:00",
+        "competitor": "home",
+        "home_score": 15,
+        "away_score": 15,
+        "server": "home",
+        "result": "server_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134666293,
+        "type": "point",
+        "time": "2025-09-07T19:38:56+00:00",
+        "competitor": "home",
+        "home_score": 30,
+        "away_score": 15,
+        "server": "home",
+        "result": "ace"
+      },
+      {
+        "id": 2134666791,
+        "type": "point",
+        "time": "2025-09-07T19:39:31+00:00",
+        "competitor": "home",
+        "home_score": 40,
+        "away_score": 15,
+        "server": "home",
+        "result": "server_won"
+      },
+      {
+        "id": 2134667585,
+        "type": "period_score",
+        "time": "2025-09-07T19:40:27+00:00",
+        "period": "2",
+        "home_score": 2,
+        "away_score": 1,
+        "server": "home",
+        "result": "server_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134669479,
+        "type": "point",
+        "time": "2025-09-07T19:42:32+00:00",
+        "competitor": "home",
+        "home_score": 15,
+        "away_score": 0,
+        "server": "away",
+        "result": "receiver_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134670175,
+        "type": "point",
+        "time": "2025-09-07T19:43:20+00:00",
+        "competitor": "home",
+        "home_score": 30,
+        "away_score": 0,
+        "server": "away",
+        "result": "receiver_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134670931,
+        "type": "point",
+        "time": "2025-09-07T19:44:07+00:00",
+        "competitor": "home",
+        "home_score": 40,
+        "away_score": 0,
+        "server": "away",
+        "result": "receiver_won"
+      },
+      {
+        "id": 2134671671,
+        "type": "period_score",
+        "time": "2025-09-07T19:44:52+00:00",
+        "period": "2",
+        "home_score": 3,
+        "away_score": 1,
+        "server": "away",
+        "result": "receiver_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134672819,
+        "type": "point",
+        "time": "2025-09-07T19:45:52+00:00",
+        "competitor": "away",
+        "home_score": 0,
+        "away_score": 15,
+        "server": "home",
+        "result": "double_fault",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134673233,
+        "type": "point",
+        "time": "2025-09-07T19:46:20+00:00",
+        "competitor": "home",
+        "home_score": 15,
+        "away_score": 15,
+        "server": "home",
+        "result": "server_won"
+      },
+      {
+        "id": 2134674067,
+        "type": "point",
+        "time": "2025-09-07T19:47:09+00:00",
+        "competitor": "home",
+        "home_score": 30,
+        "away_score": 15,
+        "server": "home",
+        "result": "server_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134674675,
+        "type": "point",
+        "time": "2025-09-07T19:47:53+00:00",
+        "competitor": "home",
+        "home_score": 40,
+        "away_score": 15,
+        "server": "home",
+        "result": "server_won"
+      },
+      {
+        "id": 2134675401,
+        "type": "point",
+        "time": "2025-09-07T19:48:37+00:00",
+        "competitor": "away",
+        "home_score": 40,
+        "away_score": 30,
+        "server": "home",
+        "result": "receiver_won"
+      },
+      {
+        "id": 2134676307,
+        "type": "period_score",
+        "time": "2025-09-07T19:49:38+00:00",
+        "period": "2",
+        "home_score": 4,
+        "away_score": 1,
+        "server": "home",
+        "result": "server_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134678459,
+        "type": "point",
+        "time": "2025-09-07T19:52:09+00:00",
+        "competitor": "away",
+        "home_score": 0,
+        "away_score": 15,
+        "server": "away",
+        "result": "server_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134679081,
+        "type": "point",
+        "time": "2025-09-07T19:52:54+00:00",
+        "competitor": "home",
+        "home_score": 15,
+        "away_score": 15,
+        "server": "away",
+        "result": "receiver_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134679801,
+        "type": "point",
+        "time": "2025-09-07T19:53:54+00:00",
+        "competitor": "away",
+        "home_score": 15,
+        "away_score": 30,
+        "server": "away",
+        "result": "server_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134680111,
+        "type": "point",
+        "time": "2025-09-07T19:54:19+00:00",
+        "competitor": "away",
+        "home_score": 15,
+        "away_score": 40,
+        "server": "away",
+        "result": "server_won"
+      },
+      {
+        "id": 2134680367,
+        "type": "period_score",
+        "time": "2025-09-07T19:54:38+00:00",
+        "period": "2",
+        "home_score": 4,
+        "away_score": 2,
+        "server": "away",
+        "result": "server_won"
+      },
+      {
+        "id": 2134680931,
+        "type": "point",
+        "time": "2025-09-07T19:55:26+00:00",
+        "competitor": "away",
+        "home_score": 0,
+        "away_score": 15,
+        "server": "home",
+        "result": "receiver_won"
+      },
+      {
+        "id": 2134681507,
+        "type": "point",
+        "time": "2025-09-07T19:56:17+00:00",
+        "competitor": "home",
+        "home_score": 15,
+        "away_score": 15,
+        "server": "home",
+        "result": "server_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134682105,
+        "type": "point",
+        "time": "2025-09-07T19:57:08+00:00",
+        "competitor": "away",
+        "home_score": 15,
+        "away_score": 30,
+        "server": "home",
+        "result": "receiver_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134682765,
+        "type": "point",
+        "time": "2025-09-07T19:57:59+00:00",
+        "competitor": "home",
+        "home_score": 30,
+        "away_score": 30,
+        "server": "home",
+        "result": "server_won"
+      },
+      {
+        "id": 2134683463,
+        "type": "point",
+        "time": "2025-09-07T19:58:57+00:00",
+        "competitor": "home",
+        "home_score": 40,
+        "away_score": 30,
+        "server": "home",
+        "result": "server_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134683953,
+        "type": "period_score",
+        "time": "2025-09-07T19:59:39+00:00",
+        "period": "2",
+        "home_score": 5,
+        "away_score": 2,
+        "server": "home",
+        "result": "server_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134685963,
+        "type": "point",
+        "time": "2025-09-07T20:02:04+00:00",
+        "competitor": "home",
+        "home_score": 15,
+        "away_score": 0,
+        "server": "away",
+        "result": "receiver_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134686265,
+        "type": "point",
+        "time": "2025-09-07T20:02:26+00:00",
+        "competitor": "away",
+        "home_score": 15,
+        "away_score": 15,
+        "server": "away",
+        "result": "server_won"
+      },
+      {
+        "id": 2134686465,
+        "type": "point",
+        "time": "2025-09-07T20:02:43+00:00",
+        "competitor": "away",
+        "home_score": 15,
+        "away_score": 30,
+        "server": "away",
+        "result": "ace"
+      },
+      {
+        "id": 2134686809,
+        "type": "point",
+        "time": "2025-09-07T20:03:10+00:00",
+        "competitor": "away",
+        "home_score": 15,
+        "away_score": 40,
+        "server": "away",
+        "result": "server_won"
+      },
+      {
+        "id": 2134687257,
+        "type": "point",
+        "time": "2025-09-07T20:03:45+00:00",
+        "competitor": "home",
+        "home_score": 30,
+        "away_score": 40,
+        "server": "away",
+        "result": "receiver_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134687579,
+        "type": "period_score",
+        "time": "2025-09-07T20:04:11+00:00",
+        "period": "2",
+        "home_score": 5,
+        "away_score": 3,
+        "server": "away",
+        "result": "server_won"
+      },
+      {
+        "id": 2134688107,
+        "type": "point",
+        "time": "2025-09-07T20:04:58+00:00",
+        "competitor": "home",
+        "home_score": 15,
+        "away_score": 0,
+        "server": "home",
+        "result": "server_won"
+      },
+      {
+        "id": 2134688655,
+        "type": "point",
+        "time": "2025-09-07T20:05:41+00:00",
+        "competitor": "away",
+        "home_score": 15,
+        "away_score": 15,
+        "server": "home",
+        "result": "receiver_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134689579,
+        "type": "point",
+        "time": "2025-09-07T20:06:48+00:00",
+        "competitor": "home",
+        "home_score": 30,
+        "away_score": 15,
+        "server": "home",
+        "result": "server_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134690155,
+        "type": "point",
+        "time": "2025-09-07T20:07:32+00:00",
+        "competitor": "home",
+        "home_score": 40,
+        "away_score": 15,
+        "server": "home",
+        "result": "server_won"
+      },
+      {
+        "id": 2134690819,
+        "type": "period_score",
+        "time": "2025-09-07T20:08:18+00:00",
+        "period": "2",
+        "home_score": 6,
+        "away_score": 3,
+        "server": "home",
+        "result": "server_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134690821,
+        "type": "period_start",
+        "time": "2025-09-07T20:08:18+00:00",
+        "period_name": "3rd_set"
+      },
+      {
+        "id": 2134693055,
+        "type": "point",
+        "time": "2025-09-07T20:11:10+00:00",
+        "competitor": "away",
+        "home_score": 0,
+        "away_score": 15,
+        "server": "away",
+        "result": "server_won"
+      },
+      {
+        "id": 2134693339,
+        "type": "point",
+        "time": "2025-09-07T20:11:30+00:00",
+        "competitor": "home",
+        "home_score": 15,
+        "away_score": 15,
+        "server": "away",
+        "result": "receiver_won"
+      },
+      {
+        "id": 2134693631,
+        "type": "point",
+        "time": "2025-09-07T20:11:51+00:00",
+        "competitor": "away",
+        "home_score": 15,
+        "away_score": 30,
+        "server": "away",
+        "result": "ace"
+      },
+      {
+        "id": 2134694143,
+        "type": "point",
+        "time": "2025-09-07T20:12:27+00:00",
+        "competitor": "home",
+        "home_score": 30,
+        "away_score": 30,
+        "server": "away",
+        "result": "receiver_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134694791,
+        "type": "point",
+        "time": "2025-09-07T20:13:19+00:00",
+        "competitor": "away",
+        "home_score": 30,
+        "away_score": 40,
+        "server": "away",
+        "result": "server_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134695431,
+        "type": "period_score",
+        "time": "2025-09-07T20:14:05+00:00",
+        "period": "3",
+        "home_score": 0,
+        "away_score": 1,
+        "server": "away",
+        "result": "server_won"
+      },
+      {
+        "id": 2134696163,
+        "type": "point",
+        "time": "2025-09-07T20:14:59+00:00",
+        "competitor": "away",
+        "home_score": 0,
+        "away_score": 15,
+        "server": "home",
+        "result": "receiver_won"
+      },
+      {
+        "id": 2134696901,
+        "type": "point",
+        "time": "2025-09-07T20:15:47+00:00",
+        "competitor": "away",
+        "home_score": 0,
+        "away_score": 30,
+        "server": "home",
+        "result": "receiver_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134697309,
+        "type": "point",
+        "time": "2025-09-07T20:16:24+00:00",
+        "competitor": "home",
+        "home_score": 15,
+        "away_score": 30,
+        "server": "home",
+        "result": "server_won"
+      },
+      {
+        "id": 2134697837,
+        "type": "point",
+        "time": "2025-09-07T20:17:06+00:00",
+        "competitor": "home",
+        "home_score": 30,
+        "away_score": 30,
+        "server": "home",
+        "result": "server_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134698621,
+        "type": "point",
+        "time": "2025-09-07T20:18:03+00:00",
+        "competitor": "away",
+        "home_score": 30,
+        "away_score": 40,
+        "server": "home",
+        "result": "receiver_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134699155,
+        "type": "period_score",
+        "time": "2025-09-07T20:18:47+00:00",
+        "period": "3",
+        "home_score": 0,
+        "away_score": 2,
+        "server": "home",
+        "result": "receiver_won"
+      },
+      {
+        "id": 2134699739,
+        "type": "point",
+        "time": "2025-09-07T20:19:38+00:00",
+        "competitor": "home",
+        "home_score": 15,
+        "away_score": 0,
+        "server": "away",
+        "result": "receiver_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134700345,
+        "type": "point",
+        "time": "2025-09-07T20:20:21+00:00",
+        "competitor": "home",
+        "home_score": 30,
+        "away_score": 0,
+        "server": "away",
+        "result": "receiver_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134701045,
+        "type": "point",
+        "time": "2025-09-07T20:21:10+00:00",
+        "competitor": "away",
+        "home_score": 30,
+        "away_score": 15,
+        "server": "away",
+        "result": "server_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134701453,
+        "type": "point",
+        "time": "2025-09-07T20:21:42+00:00",
+        "competitor": "away",
+        "home_score": 30,
+        "away_score": 30,
+        "server": "away",
+        "result": "ace"
+      },
+      {
+        "id": 2134702001,
+        "type": "point",
+        "time": "2025-09-07T20:22:22+00:00",
+        "competitor": "away",
+        "home_score": 30,
+        "away_score": 40,
+        "server": "away",
+        "result": "server_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134702529,
+        "type": "period_score",
+        "time": "2025-09-07T20:23:03+00:00",
+        "period": "3",
+        "home_score": 0,
+        "away_score": 3,
+        "server": "away",
+        "result": "server_won"
+      },
+      {
+        "id": 2134704331,
+        "type": "point",
+        "time": "2025-09-07T20:25:26+00:00",
+        "competitor": "away",
+        "home_score": 0,
+        "away_score": 15,
+        "server": "home",
+        "result": "receiver_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134704831,
+        "type": "point",
+        "time": "2025-09-07T20:26:02+00:00",
+        "competitor": "away",
+        "home_score": 0,
+        "away_score": 30,
+        "server": "home",
+        "result": "receiver_won"
+      },
+      {
+        "id": 2134705297,
+        "type": "point",
+        "time": "2025-09-07T20:26:37+00:00",
+        "competitor": "away",
+        "home_score": 0,
+        "away_score": 40,
+        "server": "home",
+        "result": "receiver_won"
+      },
+      {
+        "id": 2134705769,
+        "type": "point",
+        "time": "2025-09-07T20:27:17+00:00",
+        "competitor": "home",
+        "home_score": 15,
+        "away_score": 40,
+        "server": "home",
+        "result": "server_won"
+      },
+      {
+        "id": 2134706371,
+        "type": "period_score",
+        "time": "2025-09-07T20:28:04+00:00",
+        "period": "3",
+        "home_score": 0,
+        "away_score": 4,
+        "server": "home",
+        "result": "receiver_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134707211,
+        "type": "point",
+        "time": "2025-09-07T20:29:05+00:00",
+        "competitor": "home",
+        "home_score": 15,
+        "away_score": 0,
+        "server": "away",
+        "result": "receiver_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134707563,
+        "type": "point",
+        "time": "2025-09-07T20:29:35+00:00",
+        "competitor": "away",
+        "home_score": 15,
+        "away_score": 15,
+        "server": "away",
+        "result": "ace"
+      },
+      {
+        "id": 2134707833,
+        "type": "point",
+        "time": "2025-09-07T20:29:59+00:00",
+        "competitor": "away",
+        "home_score": 15,
+        "away_score": 30,
+        "server": "away",
+        "result": "ace"
+      },
+      {
+        "id": 2134708355,
+        "type": "point",
+        "time": "2025-09-07T20:30:31+00:00",
+        "competitor": "away",
+        "home_score": 15,
+        "away_score": 40,
+        "server": "away",
+        "result": "server_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134708829,
+        "type": "period_score",
+        "time": "2025-09-07T20:31:13+00:00",
+        "period": "3",
+        "home_score": 0,
+        "away_score": 5,
+        "server": "away",
+        "result": "server_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134710409,
+        "type": "point",
+        "time": "2025-09-07T20:33:29+00:00",
+        "competitor": "home",
+        "home_score": 15,
+        "away_score": 0,
+        "server": "home",
+        "result": "server_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134710947,
+        "type": "point",
+        "time": "2025-09-07T20:34:15+00:00",
+        "competitor": "away",
+        "home_score": 15,
+        "away_score": 15,
+        "server": "home",
+        "result": "receiver_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134711373,
+        "type": "point",
+        "time": "2025-09-07T20:34:51+00:00",
+        "competitor": "home",
+        "home_score": 30,
+        "away_score": 15,
+        "server": "home",
+        "result": "server_won"
+      },
+      {
+        "id": 2134711725,
+        "type": "point",
+        "time": "2025-09-07T20:35:22+00:00",
+        "competitor": "home",
+        "home_score": 40,
+        "away_score": 15,
+        "server": "home",
+        "result": "server_won"
+      },
+      {
+        "id": 2134711997,
+        "type": "period_score",
+        "time": "2025-09-07T20:35:48+00:00",
+        "period": "3",
+        "home_score": 1,
+        "away_score": 5,
+        "server": "home",
+        "result": "server_won"
+      },
+      {
+        "id": 2134712405,
+        "type": "point",
+        "time": "2025-09-07T20:36:26+00:00",
+        "competitor": "away",
+        "home_score": 0,
+        "away_score": 15,
+        "server": "away",
+        "result": "ace"
+      },
+      {
+        "id": 2134712707,
+        "type": "point",
+        "time": "2025-09-07T20:36:50+00:00",
+        "competitor": "away",
+        "home_score": 0,
+        "away_score": 30,
+        "server": "away",
+        "result": "server_won"
+      },
+      {
+        "id": 2134713053,
+        "type": "point",
+        "time": "2025-09-07T20:37:27+00:00",
+        "competitor": "home",
+        "home_score": 15,
+        "away_score": 30,
+        "server": "away",
+        "result": "receiver_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134713575,
+        "type": "point",
+        "time": "2025-09-07T20:38:08+00:00",
+        "competitor": "away",
+        "home_score": 15,
+        "away_score": 40,
+        "server": "away",
+        "result": "server_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134713907,
+        "type": "period_score",
+        "time": "2025-09-07T20:38:37+00:00",
+        "period": "3",
+        "home_score": 1,
+        "away_score": 6,
+        "server": "away",
+        "result": "server_won"
+      },
+      {
+        "id": 2134713909,
+        "type": "period_start",
+        "time": "2025-09-07T20:38:37+00:00",
+        "period_name": "4th_set"
+      },
+      {
+        "id": 2134715777,
+        "type": "point",
+        "time": "2025-09-07T20:41:28+00:00",
+        "competitor": "away",
+        "home_score": 0,
+        "away_score": 15,
+        "server": "home",
+        "result": "receiver_won"
+      },
+      {
+        "id": 2134716175,
+        "type": "point",
+        "time": "2025-09-07T20:42:10+00:00",
+        "competitor": "home",
+        "home_score": 15,
+        "away_score": 15,
+        "server": "home",
+        "result": "server_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134716549,
+        "type": "point",
+        "time": "2025-09-07T20:42:47+00:00",
+        "competitor": "home",
+        "home_score": 30,
+        "away_score": 15,
+        "server": "home",
+        "result": "server_won"
+      },
+      {
+        "id": 2134717087,
+        "type": "point",
+        "time": "2025-09-07T20:43:37+00:00",
+        "competitor": "away",
+        "home_score": 30,
+        "away_score": 30,
+        "server": "home",
+        "result": "receiver_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134717809,
+        "type": "point",
+        "time": "2025-09-07T20:44:41+00:00",
+        "competitor": "away",
+        "home_score": 30,
+        "away_score": 40,
+        "server": "home",
+        "result": "receiver_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134718417,
+        "type": "point",
+        "time": "2025-09-07T20:45:27+00:00",
+        "competitor": "home",
+        "home_score": 40,
+        "away_score": 40,
+        "server": "home",
+        "result": "server_won"
+      },
+      {
+        "id": 2134718749,
+        "type": "point",
+        "time": "2025-09-07T20:46:00+00:00",
+        "competitor": "home",
+        "home_score": 50,
+        "away_score": 40,
+        "server": "home",
+        "result": "server_won"
+      },
+      {
+        "id": 2134719175,
+        "type": "point",
+        "time": "2025-09-07T20:46:43+00:00",
+        "competitor": "away",
+        "home_score": 40,
+        "away_score": 40,
+        "server": "home",
+        "result": "receiver_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134719607,
+        "type": "point",
+        "time": "2025-09-07T20:47:32+00:00",
+        "competitor": "away",
+        "home_score": 40,
+        "away_score": 50,
+        "server": "home",
+        "result": "double_fault",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134720041,
+        "type": "point",
+        "time": "2025-09-07T20:48:16+00:00",
+        "competitor": "home",
+        "home_score": 40,
+        "away_score": 40,
+        "server": "home",
+        "result": "server_won"
+      },
+      {
+        "id": 2134720535,
+        "type": "point",
+        "time": "2025-09-07T20:49:11+00:00",
+        "competitor": "home",
+        "home_score": 50,
+        "away_score": 40,
+        "server": "home",
+        "result": "server_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134720901,
+        "type": "point",
+        "time": "2025-09-07T20:49:54+00:00",
+        "competitor": "away",
+        "home_score": 40,
+        "away_score": 40,
+        "server": "home",
+        "result": "receiver_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134721239,
+        "type": "point",
+        "time": "2025-09-07T20:50:30+00:00",
+        "competitor": "home",
+        "home_score": 50,
+        "away_score": 40,
+        "server": "home",
+        "result": "server_won"
+      },
+      {
+        "id": 2134721735,
+        "type": "period_score",
+        "time": "2025-09-07T20:51:17+00:00",
+        "period": "4",
+        "home_score": 1,
+        "away_score": 0,
+        "server": "home",
+        "result": "server_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134722523,
+        "type": "point",
+        "time": "2025-09-07T20:52:39+00:00",
+        "competitor": "away",
+        "home_score": 0,
+        "away_score": 15,
+        "server": "away",
+        "result": "server_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134722879,
+        "type": "point",
+        "time": "2025-09-07T20:53:18+00:00",
+        "competitor": "away",
+        "home_score": 0,
+        "away_score": 30,
+        "server": "away",
+        "result": "server_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134723227,
+        "type": "point",
+        "time": "2025-09-07T20:53:58+00:00",
+        "competitor": "home",
+        "home_score": 15,
+        "away_score": 30,
+        "server": "away",
+        "result": "receiver_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134723555,
+        "type": "point",
+        "time": "2025-09-07T20:54:39+00:00",
+        "competitor": "away",
+        "home_score": 15,
+        "away_score": 40,
+        "server": "away",
+        "result": "server_won"
+      },
+      {
+        "id": 2134723881,
+        "type": "period_score",
+        "time": "2025-09-07T20:55:20+00:00",
+        "period": "4",
+        "home_score": 1,
+        "away_score": 1,
+        "server": "away",
+        "result": "server_won"
+      },
+      {
+        "id": 2134724387,
+        "type": "point",
+        "time": "2025-09-07T20:56:22+00:00",
+        "competitor": "home",
+        "home_score": 15,
+        "away_score": 0,
+        "server": "home",
+        "result": "server_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134724787,
+        "type": "point",
+        "time": "2025-09-07T20:57:09+00:00",
+        "competitor": "away",
+        "home_score": 15,
+        "away_score": 15,
+        "server": "home",
+        "result": "receiver_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134725223,
+        "type": "point",
+        "time": "2025-09-07T20:58:00+00:00",
+        "competitor": "home",
+        "home_score": 30,
+        "away_score": 15,
+        "server": "home",
+        "result": "server_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134725665,
+        "type": "point",
+        "time": "2025-09-07T20:58:47+00:00",
+        "competitor": "home",
+        "home_score": 40,
+        "away_score": 15,
+        "server": "home",
+        "result": "server_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134725913,
+        "type": "period_score",
+        "time": "2025-09-07T20:59:12+00:00",
+        "period": "4",
+        "home_score": 2,
+        "away_score": 1,
+        "server": "home",
+        "result": "server_won"
+      },
+      {
+        "id": 2134727107,
+        "type": "point",
+        "time": "2025-09-07T21:01:17+00:00",
+        "competitor": "away",
+        "home_score": 0,
+        "away_score": 15,
+        "server": "away",
+        "result": "server_won"
+      },
+      {
+        "id": 2134727535,
+        "type": "point",
+        "time": "2025-09-07T21:01:56+00:00",
+        "competitor": "home",
+        "home_score": 15,
+        "away_score": 15,
+        "server": "away",
+        "result": "receiver_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134727789,
+        "type": "point",
+        "time": "2025-09-07T21:02:22+00:00",
+        "competitor": "away",
+        "home_score": 15,
+        "away_score": 30,
+        "server": "away",
+        "result": "ace"
+      },
+      {
+        "id": 2134728191,
+        "type": "point",
+        "time": "2025-09-07T21:03:05+00:00",
+        "competitor": "away",
+        "home_score": 15,
+        "away_score": 40,
+        "server": "away",
+        "result": "server_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134728515,
+        "type": "point",
+        "time": "2025-09-07T21:03:40+00:00",
+        "competitor": "home",
+        "home_score": 30,
+        "away_score": 40,
+        "server": "away",
+        "result": "receiver_won"
+      },
+      {
+        "id": 2134728927,
+        "type": "period_score",
+        "time": "2025-09-07T21:04:24+00:00",
+        "period": "4",
+        "home_score": 2,
+        "away_score": 2,
+        "server": "away",
+        "result": "server_won"
+      },
+      {
+        "id": 2134729233,
+        "type": "point",
+        "time": "2025-09-07T21:05:00+00:00",
+        "competitor": "home",
+        "home_score": 15,
+        "away_score": 0,
+        "server": "home",
+        "result": "server_won"
+      },
+      {
+        "id": 2134729553,
+        "type": "point",
+        "time": "2025-09-07T21:05:39+00:00",
+        "competitor": "away",
+        "home_score": 15,
+        "away_score": 15,
+        "server": "home",
+        "result": "receiver_won"
+      },
+      {
+        "id": 2134729935,
+        "type": "point",
+        "time": "2025-09-07T21:06:21+00:00",
+        "competitor": "home",
+        "home_score": 30,
+        "away_score": 15,
+        "server": "home",
+        "result": "server_won"
+      },
+      {
+        "id": 2134730371,
+        "type": "point",
+        "time": "2025-09-07T21:07:03+00:00",
+        "competitor": "away",
+        "home_score": 30,
+        "away_score": 30,
+        "server": "home",
+        "result": "receiver_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134730829,
+        "type": "point",
+        "time": "2025-09-07T21:07:53+00:00",
+        "competitor": "away",
+        "home_score": 30,
+        "away_score": 40,
+        "server": "home",
+        "result": "double_fault",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134731753,
+        "type": "period_score",
+        "time": "2025-09-07T21:08:47+00:00",
+        "period": "4",
+        "home_score": 2,
+        "away_score": 3,
+        "server": "home",
+        "result": "receiver_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134732695,
+        "type": "point",
+        "time": "2025-09-07T21:10:42+00:00",
+        "competitor": "away",
+        "home_score": 0,
+        "away_score": 15,
+        "server": "away",
+        "result": "server_won"
+      },
+      {
+        "id": 2134732965,
+        "type": "point",
+        "time": "2025-09-07T21:11:09+00:00",
+        "competitor": "home",
+        "home_score": 15,
+        "away_score": 15,
+        "server": "away",
+        "result": "receiver_won"
+      },
+      {
+        "id": 2134733219,
+        "type": "point",
+        "time": "2025-09-07T21:11:40+00:00",
+        "competitor": "home",
+        "home_score": 30,
+        "away_score": 15,
+        "server": "away",
+        "result": "receiver_won"
+      },
+      {
+        "id": 2134733539,
+        "type": "point",
+        "time": "2025-09-07T21:12:12+00:00",
+        "competitor": "away",
+        "home_score": 30,
+        "away_score": 30,
+        "server": "away",
+        "result": "server_won"
+      },
+      {
+        "id": 2134733787,
+        "type": "point",
+        "time": "2025-09-07T21:12:42+00:00",
+        "competitor": "away",
+        "home_score": 30,
+        "away_score": 40,
+        "server": "away",
+        "result": "server_won"
+      },
+      {
+        "id": 2134734069,
+        "type": "period_score",
+        "time": "2025-09-07T21:13:11+00:00",
+        "period": "4",
+        "home_score": 2,
+        "away_score": 4,
+        "server": "away",
+        "result": "ace"
+      },
+      {
+        "id": 2134734619,
+        "type": "point",
+        "time": "2025-09-07T21:14:05+00:00",
+        "competitor": "home",
+        "home_score": 15,
+        "away_score": 0,
+        "server": "home",
+        "result": "server_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134734843,
+        "type": "point",
+        "time": "2025-09-07T21:14:35+00:00",
+        "competitor": "home",
+        "home_score": 30,
+        "away_score": 0,
+        "server": "home",
+        "result": "server_won"
+      },
+      {
+        "id": 2134735149,
+        "type": "point",
+        "time": "2025-09-07T21:15:17+00:00",
+        "competitor": "home",
+        "home_score": 40,
+        "away_score": 0,
+        "server": "home",
+        "result": "server_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134735467,
+        "type": "point",
+        "time": "2025-09-07T21:15:52+00:00",
+        "competitor": "away",
+        "home_score": 40,
+        "away_score": 15,
+        "server": "home",
+        "result": "receiver_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134735827,
+        "type": "period_score",
+        "time": "2025-09-07T21:16:35+00:00",
+        "period": "4",
+        "home_score": 3,
+        "away_score": 4,
+        "server": "home",
+        "result": "server_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134736743,
+        "type": "point",
+        "time": "2025-09-07T21:18:36+00:00",
+        "competitor": "away",
+        "home_score": 0,
+        "away_score": 15,
+        "server": "away",
+        "result": "server_won"
+      },
+      {
+        "id": 2134736937,
+        "type": "point",
+        "time": "2025-09-07T21:19:00+00:00",
+        "competitor": "away",
+        "home_score": 0,
+        "away_score": 30,
+        "server": "away",
+        "result": "server_won"
+      },
+      {
+        "id": 2134737145,
+        "type": "point",
+        "time": "2025-09-07T21:19:26+00:00",
+        "competitor": "away",
+        "home_score": 0,
+        "away_score": 40,
+        "server": "away",
+        "result": "ace"
+      },
+      {
+        "id": 2134737329,
+        "type": "period_score",
+        "time": "2025-09-07T21:19:49+00:00",
+        "period": "4",
+        "home_score": 3,
+        "away_score": 5,
+        "server": "away",
+        "result": "server_won"
+      },
+      {
+        "id": 2134737719,
+        "type": "point",
+        "time": "2025-09-07T21:20:39+00:00",
+        "competitor": "away",
+        "home_score": 0,
+        "away_score": 15,
+        "server": "home",
+        "result": "receiver_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134737991,
+        "type": "point",
+        "time": "2025-09-07T21:21:11+00:00",
+        "competitor": "home",
+        "home_score": 15,
+        "away_score": 15,
+        "server": "home",
+        "result": "server_won"
+      },
+      {
+        "id": 2134738311,
+        "type": "point",
+        "time": "2025-09-07T21:21:50+00:00",
+        "competitor": "home",
+        "home_score": 30,
+        "away_score": 15,
+        "server": "home",
+        "result": "server_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134738639,
+        "type": "point",
+        "time": "2025-09-07T21:22:31+00:00",
+        "competitor": "home",
+        "home_score": 40,
+        "away_score": 15,
+        "server": "home",
+        "result": "server_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134739021,
+        "type": "point",
+        "time": "2025-09-07T21:23:16+00:00",
+        "competitor": "away",
+        "home_score": 40,
+        "away_score": 30,
+        "server": "home",
+        "result": "receiver_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134739353,
+        "type": "period_score",
+        "time": "2025-09-07T21:24:00+00:00",
+        "period": "4",
+        "home_score": 4,
+        "away_score": 5,
+        "server": "home",
+        "result": "server_won"
+      },
+      {
+        "id": 2134740425,
+        "type": "point",
+        "time": "2025-09-07T21:26:27+00:00",
+        "competitor": "away",
+        "home_score": 0,
+        "away_score": 15,
+        "server": "away",
+        "result": "server_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134740669,
+        "type": "point",
+        "time": "2025-09-07T21:27:06+00:00",
+        "competitor": "away",
+        "home_score": 0,
+        "away_score": 30,
+        "server": "away",
+        "result": "server_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134740945,
+        "type": "point",
+        "time": "2025-09-07T21:27:46+00:00",
+        "competitor": "home",
+        "home_score": 15,
+        "away_score": 30,
+        "server": "away",
+        "result": "receiver_won"
+      },
+      {
+        "id": 2134741199,
+        "type": "point",
+        "time": "2025-09-07T21:28:21+00:00",
+        "competitor": "away",
+        "home_score": 15,
+        "away_score": 40,
+        "server": "away",
+        "result": "server_won"
+      },
+      {
+        "id": 2134741419,
+        "type": "point",
+        "time": "2025-09-07T21:28:59+00:00",
+        "competitor": "home",
+        "home_score": 30,
+        "away_score": 40,
+        "server": "away",
+        "result": "receiver_won"
+      },
+      {
+        "id": 2134741717,
+        "type": "point",
+        "time": "2025-09-07T21:29:41+00:00",
+        "competitor": "home",
+        "home_score": 40,
+        "away_score": 40,
+        "server": "away",
+        "result": "receiver_won",
+        "first_serve_fault": true
+      },
+      {
+        "id": 2134742051,
+        "type": "point",
+        "time": "2025-09-07T21:30:17+00:00",
+        "competitor": "away",
+        "home_score": 40,
+        "away_score": 50,
+        "server": "away",
+        "result": "server_won"
+      },
+      {
+        "id": 2134742327,
+        "type": "period_score",
+        "time": "2025-09-07T21:30:50+00:00",
+        "period": "4",
+        "home_score": 4,
+        "away_score": 6,
+        "server": "away",
+        "result": "server_won"
+      },
+      {
+        "id": 2134742335,
+        "type": "match_ended",
+        "time": "2025-09-07T21:30:51+00:00"
+      }
+    ]
+  }

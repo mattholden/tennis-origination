@@ -15,6 +15,9 @@ TABLE_ID_ENV = {
     "competitors": "BIGQUERY_SR_COMPETITORS_TABLE_ID",
     "surface_stats": "BIGQUERY_SR_SURFACE_STATS_TABLE_ID",
     "season_brackets": "BIGQUERY_SR_SEASON_BRACKETS_TABLE_ID",
+    "event_summary": "BIGQUERY_SR_EVENT_SUMMARY_TABLE_ID",
+    "event_statistics": "BIGQUERY_SR_EVENT_STATISTICS_TABLE_ID",
+    "event_timeline": "BIGQUERY_SR_EVENT_TIMELINE_TABLE_ID",
 }
 
 

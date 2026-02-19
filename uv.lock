@@ -1716,7 +1716,7 @@ dev = [
 
 [[package]]
 name = "prizepicks-originations-models"
-version = "1.45.0"
+version = "1.46.0"
 source = { editable = "../prizepicks-originations-models" }
 dependencies = [
     { name = "alembic" },

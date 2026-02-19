@@ -93,3 +93,13 @@ def get_competitor_ids_from_season_competitors_table(season_competitors_table_id
     sql = f'SELECT DISTINCT competitor_id FROM `{season_competitors_table_id}`'
     job = client.query(sql)
     return [row["competitor_id"] for row in job.result() if row["competitor_id"] is not None]
+
+def get_sport_event_ids_from_season_brackets_table(season_brackets_table_id: str) -> list[str]:
+    """
+    Return the list of sport event ids stored in the season brackets table.
+    Used by the event summaries pipeline to fetch summaries for a test subset.
+    """
+    client = get_client()
+    sql = f'SELECT DISTINCT sport_event_id FROM `{season_brackets_table_id}`'
+    job = client.query(sql)
+    return [row["sport_event_id"] for row in job.result() if row["sport_event_id"] is not None]

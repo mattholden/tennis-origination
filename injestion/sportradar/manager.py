@@ -16,7 +16,10 @@ from injestion.sportradar.fetch import competitors as fetch_competitors
 from injestion.sportradar.schema import surface_stats as schema_surface_stats
 from injestion.sportradar.fetch import season_brackets as fetch_season_brackets
 from injestion.sportradar.schema import season_brackets as schema_season_brackets
-
+from injestion.sportradar.fetch import event_summary as fetch_event_summary
+from injestion.sportradar.schema import event_summary as schema_event_summary
+from injestion.sportradar.schema import event_statistics as schema_event_statistics
+from injestion.sportradar.schema import event_timeline as schema_event_timeline
 
 _REGISTRY = {
     "competitions": {
@@ -47,6 +50,19 @@ _REGISTRY = {
         "fetch": fetch_season_brackets.fetch_season_brackets,
         "payload_to_rows": schema_season_brackets.payload_to_rows,
         "get_schema": schema_season_brackets.get_schema,
+    },
+    "event_summary": {
+        "fetch": fetch_event_summary.fetch_event_summary,
+        "payload_to_rows": schema_event_summary.payload_to_rows,
+        "get_schema": schema_event_summary.get_schema,
+    },
+    "event_statistics": {
+        "payload_to_rows": schema_event_statistics.payload_to_rows,
+        "get_schema": schema_event_statistics.get_schema,
+    },
+    "event_timeline": {
+        "payload_to_rows": schema_event_timeline.payload_to_rows,
+        "get_schema": schema_event_timeline.get_schema,
     },
 }
 
