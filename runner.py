@@ -63,8 +63,30 @@ def create_sportradar_runner() -> Runner:
     return runner
 
 
+def create_oddsjam_runner() -> Runner:
+    """Build a Runner with OpticOdds client, OddsJam manager, and BQ; registers OddsJam pipelines."""
+    from injestion.oddsjam import OpticOddsClient, OddsJamManager
+    from injestion.oddsjam.pipelines.registry import PIPELINES
+
+    import core.bq as bq
+
+    client = OpticOddsClient()
+    manager = OddsJamManager()
+    runner = Runner(client, manager, bq)
+    for name, fn in PIPELINES.items():
+        runner.register(name, fn)
+    return runner
+
+
 if __name__ == "__main__":
-    runner = create_sportradar_runner()
-    print("Pipelines:", runner.list_pipelines())
-    # Run one in isolation, e.g.:
-    runner.run("rankings")
+    import sys
+    if len(sys.argv) > 1 and sys.argv[1] == "oddsjam":
+        runner = create_oddsjam_runner()
+        print("OddsJam pipelines:", runner.list_pipelines())
+        pipeline_name = sys.argv[2] if len(sys.argv) > 2 else "seasons"
+        runner.run(pipeline_name)
+    else:
+        runner = create_sportradar_runner()
+        print("Pipelines:", runner.list_pipelines())
+        name = sys.argv[1] if len(sys.argv) > 1 else "rankings"
+        runner.run(name)

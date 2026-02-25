@@ -93,14 +93,6 @@ class SportradarManager:
         """BigQuery table ID for the given resource (from config/env)."""
         return config.get_table_id(name)
 
-    def get_raw(self, name: str, client, **kwargs) -> dict:
-        """
-        Fetch from API and return raw payload (sync). Use for sync pipelines.
-        """
-        self._check(name)
-        fetch_fn = _REGISTRY[name]["fetch"]
-        return fetch_fn(client, **kwargs)
-
     async def get_raw_async(self, name: str, client, **kwargs) -> dict:
         """
         Fetch from API and return raw payload (async). Use for async pipelines
