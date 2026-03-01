@@ -5,7 +5,7 @@ API calls -> schema transforms -> BQ upload. Saves first page per league as samp
 
 import asyncio
 
-import core.raw_store
+import injestion.core.raw_store
 from injestion.oddsjam.schema import seasons as schema_seasons
 
 
@@ -28,7 +28,7 @@ async def run(client, manager, bq) -> None:
             raw = await manager.get_raw_async("oddsjam_fixtures", client, league=league, page=page)
             if page == 1:
                 total_pages = raw.get("total_pages", 1)
-                path = core.raw_store.save_raw_to_json(
+                path = injestion.core.raw_store.save_raw_to_json(
                     raw,
                     f"fixtures_{league}_page1_sample",
                     source="oddsjam",

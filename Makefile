@@ -1,16 +1,34 @@
 .PHONY: run sportradar-pipeline oddsjam-pipeline
 
 run:
-	uv run python -m runner
+	uv run python -m injestion.runner
 
-# Sportradar: run a pipeline by name (default: rankings).
-# Example: make sportradar-pipeline PIPELINE=event_summary
-PIPELINE ?= rankings
-sportradar-pipeline:
-	uv run python -m runner $(PIPELINE)
+# Sportradar: run a pipeline by name
 
-# OddsJam: run a pipeline by name (default: fixtures).
-# Example: make oddsjam-pipeline ODDSJAM_PIPELINE=odds
-ODDSJAM_PIPELINE ?= fixtures
-oddsjam-pipeline:
-	uv run python -m runner oddsjam $(ODDSJAM_PIPELINE)
+sr-pipeline-event_summary:
+	uv run python -m injestion.runner sportradar event_summary
+
+sr-pipeline-rankings:
+	uv run python -m injestion.runner sportradar rankings
+
+sr-pipeline-seasons:
+	uv run python -m injestion.runner sportradar seasons
+
+sr-pipeline-season_competitors:
+	uv run python -m injestion.runner sportradar season_competitors
+
+sr-pipeline-competitors:
+	uv run python -m injestion.runner sportradar competitors
+
+sr-pipeline-season_brackets:
+	uv run python -m injestion.runner sportradar season_brackets
+
+sr-pipeline-event_summary:
+	uv run python -m injestion.runner sportradar event_summary
+	
+# OddsJam: run a pipeline by name
+oj-pipeline-fixtures:
+	uv run python -m injestion.runner oddsjam fixtures
+
+oj-pipeline-odds:
+	uv run python -m injestion.runner oddsjam odds

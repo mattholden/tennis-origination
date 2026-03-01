@@ -58,7 +58,7 @@ Davis Cup and Billie Jean King Cup do not have a `level` in this file; include t
 
 ---
 
-## Categories to EXCLUDE (do not use for “big players” focus)
+## Categories to EXCLUDE (do not use for "big players" focus)
 
 These are in **sr_competitions.json** but are not the main ATP/WTA/team circuits:
 

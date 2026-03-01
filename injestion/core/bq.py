@@ -21,13 +21,16 @@ def get_client() -> bigquery.Client:
 
 
 def write_rows(table_id: str, rows: list[dict[str, Any]]) -> int:
-    """Stream insert rows into the given table. Returns number of rows."""
+    """Stream insert rows into the given table. Returns number of rows. Raises on any insert error."""
     if not rows:
         return 0
     client = get_client()
     errors = client.insert_rows_json(table_id, rows)
     if errors:
-        raise RuntimeError(f"BigQuery insert_rows_json failed: {errors}")
+        sample = errors[:3] if len(errors) > 3 else errors
+        raise RuntimeError(
+            f"BigQuery insert_rows_json failed (table={table_id}, {len(errors)} errors): {sample}"
+        )
     return len(rows)
 
 
@@ -52,6 +55,15 @@ def get_competition_ids_from_competitions_table(competitions_table_id: str) -> f
     """
     client = get_client()
     sql = f'SELECT DISTINCT id FROM `{competitions_table_id}`'
+    job = client.query(sql)
+    return frozenset(row["id"] for row in job.result() if row["id"] is not None)
+
+def get_seasons_from_seasons_table(seasons_table_id: str) -> frozenset[str]:
+    """
+    Return the set of season ids stored in the seasons table.
+    """
+    client = get_client()
+    sql = f'SELECT DISTINCT id FROM `{seasons_table_id}`'
     job = client.query(sql)
     return frozenset(row["id"] for row in job.result() if row["id"] is not None)
 
@@ -101,5 +113,36 @@ def get_sport_event_ids_from_season_brackets_table(season_brackets_table_id: str
     """
     client = get_client()
     sql = f'SELECT DISTINCT sport_event_id FROM `{season_brackets_table_id}`'
+    job = client.query(sql)
+    return [row["sport_event_id"] for row in job.result() if row["sport_event_id"] is not None]
+
+
+def get_fixture_ids_from_oddsjam_fixtures_table(fixtures_table_id: str) -> list[str]:
+    """
+    Return the list of fixture ids from the OddsJam fixtures table.
+    Used by the odds pipeline to fetch odds for all fixtures in parallel.
+    """
+    client = get_client()
+    sql = f'SELECT DISTINCT id FROM `{fixtures_table_id}`'
+    job = client.query(sql)
+    return [row["id"] for row in job.result() if row["id"] is not None]
+
+def get_existing_season_ids_from_season_brackets_table(season_brackets_table_id: str) -> list[str]:
+    """
+    Return the list of season ids from the season brackets table.
+    Used by the season_brackets pipeline to skip already-fetched seasons.
+    """
+    client = get_client()
+    sql = f'SELECT DISTINCT season_id FROM `{season_brackets_table_id}`'
+    job = client.query(sql)
+    return [row["season_id"] for row in job.result() if row["season_id"] is not None]
+
+def get_existing_sport_event_ids_from_event_summary_table(event_summary_table_id: str) -> list[str]:
+    """
+    Return the list of sport event ids from the event summary table.
+    Used by the event summaries pipeline to skip already-fetched sport events.
+    """
+    client = get_client()
+    sql = f'SELECT DISTINCT sport_event_id FROM `{event_summary_table_id}`'
     job = client.query(sql)
     return [row["sport_event_id"] for row in job.result() if row["sport_event_id"] is not None]

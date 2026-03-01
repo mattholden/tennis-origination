@@ -1,0 +1,1344 @@
+{
+    "generated_at": "2026-02-27T18:47:27+00:00",
+    "stages": [
+      {
+        "order": 1,
+        "type": "cup",
+        "phase": "qualification",
+        "start_date": "2025-02-09",
+        "end_date": "2025-02-10",
+        "year": "2025",
+        "groups": [
+          {
+            "id": "sr:cup:172155",
+            "group_name": "2025 Marseille, France, Qualifying",
+            "cup_rounds": [
+              {
+                "id": "sr:cup_round:2313179",
+                "sport_events": [
+                  {
+                    "id": "sr:sport_event:57913995",
+                    "start_time": "2025-02-09T13:30:00+00:00",
+                    "start_time_confirmed": true,
+                    "order": 1
+                  }
+                ],
+                "linked_cup_rounds": [
+                  {
+                    "id": "sr:cup_round:2313615",
+                    "type": "parent",
+                    "name": "qualification_final",
+                    "order": 1,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:44553"
+                  }
+                ],
+                "name": "qualification_round_1",
+                "order": 1,
+                "state": "winner",
+                "winner_id": "sr:competitor:121182"
+              },
+              {
+                "id": "sr:cup_round:2313181",
+                "sport_events": [
+                  {
+                    "id": "sr:sport_event:57913993",
+                    "start_time": "2025-02-09T15:20:00+00:00",
+                    "start_time_confirmed": true,
+                    "order": 1
+                  }
+                ],
+                "linked_cup_rounds": [
+                  {
+                    "id": "sr:cup_round:2313615",
+                    "type": "parent",
+                    "name": "qualification_final",
+                    "order": 1,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:44553"
+                  }
+                ],
+                "name": "qualification_round_1",
+                "order": 2,
+                "state": "winner",
+                "winner_id": "sr:competitor:44553"
+              },
+              {
+                "id": "sr:cup_round:2313183",
+                "sport_events": [
+                  {
+                    "id": "sr:sport_event:57913991",
+                    "start_time": "2025-02-09T11:50:00+00:00",
+                    "start_time_confirmed": true,
+                    "order": 1
+                  }
+                ],
+                "linked_cup_rounds": [
+                  {
+                    "id": "sr:cup_round:2313617",
+                    "type": "parent",
+                    "name": "qualification_final",
+                    "order": 2,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:801374"
+                  }
+                ],
+                "name": "qualification_round_1",
+                "order": 3,
+                "state": "winner",
+                "winner_id": "sr:competitor:157302"
+              },
+              {
+                "id": "sr:cup_round:2313185",
+                "sport_events": [
+                  {
+                    "id": "sr:sport_event:57913989",
+                    "start_time": "2025-02-09T12:10:00+00:00",
+                    "start_time_confirmed": true,
+                    "order": 1
+                  }
+                ],
+                "linked_cup_rounds": [
+                  {
+                    "id": "sr:cup_round:2313617",
+                    "type": "parent",
+                    "name": "qualification_final",
+                    "order": 2,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:801374"
+                  }
+                ],
+                "name": "qualification_round_1",
+                "order": 4,
+                "state": "winner",
+                "winner_id": "sr:competitor:801374"
+              },
+              {
+                "id": "sr:cup_round:2313187",
+                "sport_events": [
+                  {
+                    "id": "sr:sport_event:57913987",
+                    "start_time": "2025-02-09T15:20:00+00:00",
+                    "start_time_confirmed": true,
+                    "order": 1
+                  }
+                ],
+                "linked_cup_rounds": [
+                  {
+                    "id": "sr:cup_round:2313619",
+                    "type": "parent",
+                    "name": "qualification_final",
+                    "order": 3,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:283759"
+                  }
+                ],
+                "name": "qualification_round_1",
+                "order": 5,
+                "state": "winner",
+                "winner_id": "sr:competitor:283759"
+              },
+              {
+                "id": "sr:cup_round:2313189",
+                "sport_events": [
+                  {
+                    "id": "sr:sport_event:57913985",
+                    "start_time": "2025-02-09T13:10:00+00:00",
+                    "start_time_confirmed": true,
+                    "order": 1
+                  }
+                ],
+                "linked_cup_rounds": [
+                  {
+                    "id": "sr:cup_round:2313619",
+                    "type": "parent",
+                    "name": "qualification_final",
+                    "order": 3,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:283759"
+                  }
+                ],
+                "name": "qualification_round_1",
+                "order": 6,
+                "state": "winner",
+                "winner_id": "sr:competitor:658475"
+              },
+              {
+                "id": "sr:cup_round:2313191",
+                "sport_events": [
+                  {
+                    "id": "sr:sport_event:57913983",
+                    "start_time": "2025-02-09T10:00:00+00:00",
+                    "start_time_confirmed": true,
+                    "order": 1
+                  }
+                ],
+                "linked_cup_rounds": [
+                  {
+                    "id": "sr:cup_round:2313621",
+                    "type": "parent",
+                    "name": "qualification_final",
+                    "order": 4,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:107357"
+                  }
+                ],
+                "name": "qualification_round_1",
+                "order": 7,
+                "state": "winner",
+                "winner_id": "sr:competitor:107357"
+              },
+              {
+                "id": "sr:cup_round:2313193",
+                "sport_events": [
+                  {
+                    "id": "sr:sport_event:57913981",
+                    "start_time": "2025-02-09T10:00:00+00:00",
+                    "start_time_confirmed": true,
+                    "order": 1
+                  }
+                ],
+                "linked_cup_rounds": [
+                  {
+                    "id": "sr:cup_round:2313621",
+                    "type": "parent",
+                    "name": "qualification_final",
+                    "order": 4,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:107357"
+                  }
+                ],
+                "name": "qualification_round_1",
+                "order": 8,
+                "state": "winner",
+                "winner_id": "sr:competitor:163636"
+              },
+              {
+                "id": "sr:cup_round:2313615",
+                "sport_events": [
+                  {
+                    "id": "sr:sport_event:57938737",
+                    "start_time": "2025-02-10T13:35:00+00:00",
+                    "start_time_confirmed": true,
+                    "order": 1
+                  }
+                ],
+                "linked_cup_rounds": [
+                  {
+                    "id": "sr:cup_round:2313179",
+                    "type": "child",
+                    "name": "qualification_round_1",
+                    "order": 1,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:121182"
+                  },
+                  {
+                    "id": "sr:cup_round:2313181",
+                    "type": "child",
+                    "name": "qualification_round_1",
+                    "order": 2,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:44553"
+                  }
+                ],
+                "name": "qualification_final",
+                "order": 1,
+                "state": "winner",
+                "winner_id": "sr:competitor:44553"
+              },
+              {
+                "id": "sr:cup_round:2313617",
+                "sport_events": [
+                  {
+                    "id": "sr:sport_event:57937451",
+                    "start_time": "2025-02-10T11:00:00+00:00",
+                    "start_time_confirmed": true,
+                    "order": 1
+                  }
+                ],
+                "linked_cup_rounds": [
+                  {
+                    "id": "sr:cup_round:2313183",
+                    "type": "child",
+                    "name": "qualification_round_1",
+                    "order": 3,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:157302"
+                  },
+                  {
+                    "id": "sr:cup_round:2313185",
+                    "type": "child",
+                    "name": "qualification_round_1",
+                    "order": 4,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:801374"
+                  }
+                ],
+                "name": "qualification_final",
+                "order": 2,
+                "state": "winner",
+                "winner_id": "sr:competitor:801374"
+              },
+              {
+                "id": "sr:cup_round:2313619",
+                "sport_events": [
+                  {
+                    "id": "sr:sport_event:57938789",
+                    "start_time": "2025-02-10T13:05:00+00:00",
+                    "start_time_confirmed": true,
+                    "order": 1
+                  }
+                ],
+                "linked_cup_rounds": [
+                  {
+                    "id": "sr:cup_round:2313187",
+                    "type": "child",
+                    "name": "qualification_round_1",
+                    "order": 5,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:283759"
+                  },
+                  {
+                    "id": "sr:cup_round:2313189",
+                    "type": "child",
+                    "name": "qualification_round_1",
+                    "order": 6,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:658475"
+                  }
+                ],
+                "name": "qualification_final",
+                "order": 3,
+                "state": "winner",
+                "winner_id": "sr:competitor:283759"
+              },
+              {
+                "id": "sr:cup_round:2313621",
+                "sport_events": [
+                  {
+                    "id": "sr:sport_event:57937343",
+                    "start_time": "2025-02-10T11:00:00+00:00",
+                    "start_time_confirmed": true,
+                    "order": 1
+                  }
+                ],
+                "linked_cup_rounds": [
+                  {
+                    "id": "sr:cup_round:2313191",
+                    "type": "child",
+                    "name": "qualification_round_1",
+                    "order": 7,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:107357"
+                  },
+                  {
+                    "id": "sr:cup_round:2313193",
+                    "type": "child",
+                    "name": "qualification_round_1",
+                    "order": 8,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:163636"
+                  }
+                ],
+                "name": "qualification_final",
+                "order": 4,
+                "state": "winner",
+                "winner_id": "sr:competitor:107357"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "order": 2,
+        "type": "cup",
+        "phase": "stage_1_playoff",
+        "start_date": "2025-02-10",
+        "end_date": "2025-02-16",
+        "year": "2025",
+        "groups": [
+          {
+            "id": "sr:cup:172153",
+            "group_name": "2025 Marseille, France",
+            "cup_rounds": [
+              {
+                "id": "sr:cup_round:2310859",
+                "linked_cup_rounds": [
+                  {
+                    "id": "sr:cup_round:2310891",
+                    "type": "parent",
+                    "name": "round_of_16",
+                    "order": 1,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:163504"
+                  }
+                ],
+                "name": "round_of_32",
+                "order": 1,
+                "state": "winner",
+                "winner_id": "sr:competitor:163504"
+              },
+              {
+                "id": "sr:cup_round:2310861",
+                "sport_events": [
+                  {
+                    "id": "sr:sport_event:57970517",
+                    "start_time": "2025-02-12T12:30:00+00:00",
+                    "start_time_confirmed": true,
+                    "order": 1
+                  }
+                ],
+                "linked_cup_rounds": [
+                  {
+                    "id": "sr:cup_round:2310891",
+                    "type": "parent",
+                    "name": "round_of_16",
+                    "order": 1,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:163504"
+                  }
+                ],
+                "name": "round_of_32",
+                "order": 2,
+                "state": "winner",
+                "winner_id": "sr:competitor:44553"
+              },
+              {
+                "id": "sr:cup_round:2310863",
+                "sport_events": [
+                  {
+                    "id": "sr:sport_event:57970515",
+                    "start_time": "2025-02-11T15:25:00+00:00",
+                    "start_time_confirmed": true,
+                    "order": 1
+                  }
+                ],
+                "linked_cup_rounds": [
+                  {
+                    "id": "sr:cup_round:2310893",
+                    "type": "parent",
+                    "name": "round_of_16",
+                    "order": 2,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:46391"
+                  }
+                ],
+                "name": "round_of_32",
+                "order": 3,
+                "state": "winner",
+                "winner_id": "sr:competitor:46391"
+              },
+              {
+                "id": "sr:cup_round:2310865",
+                "sport_events": [
+                  {
+                    "id": "sr:sport_event:57970513",
+                    "start_time": "2025-02-12T11:55:00+00:00",
+                    "start_time_confirmed": true,
+                    "order": 1
+                  }
+                ],
+                "linked_cup_rounds": [
+                  {
+                    "id": "sr:cup_round:2310893",
+                    "type": "parent",
+                    "name": "round_of_16",
+                    "order": 2,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:46391"
+                  }
+                ],
+                "name": "round_of_32",
+                "order": 4,
+                "state": "winner",
+                "winner_id": "sr:competitor:107357"
+              },
+              {
+                "id": "sr:cup_round:2310867",
+                "linked_cup_rounds": [
+                  {
+                    "id": "sr:cup_round:2310895",
+                    "type": "parent",
+                    "name": "round_of_16",
+                    "order": 3,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:601146"
+                  }
+                ],
+                "name": "round_of_32",
+                "order": 5,
+                "state": "winner",
+                "winner_id": "sr:competitor:90080"
+              },
+              {
+                "id": "sr:cup_round:2310869",
+                "sport_events": [
+                  {
+                    "id": "sr:sport_event:57911669",
+                    "start_time": "2025-02-10T15:55:00+00:00",
+                    "start_time_confirmed": true,
+                    "order": 1
+                  }
+                ],
+                "linked_cup_rounds": [
+                  {
+                    "id": "sr:cup_round:2310895",
+                    "type": "parent",
+                    "name": "round_of_16",
+                    "order": 3,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:601146"
+                  }
+                ],
+                "name": "round_of_32",
+                "order": 6,
+                "state": "winner",
+                "winner_id": "sr:competitor:601146"
+              },
+              {
+                "id": "sr:cup_round:2310871",
+                "sport_events": [
+                  {
+                    "id": "sr:sport_event:57911667",
+                    "start_time": "2025-02-11T10:30:00+00:00",
+                    "start_time_confirmed": true,
+                    "order": 1
+                  }
+                ],
+                "linked_cup_rounds": [
+                  {
+                    "id": "sr:cup_round:2310897",
+                    "type": "parent",
+                    "name": "round_of_16",
+                    "order": 4,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:127208"
+                  }
+                ],
+                "name": "round_of_32",
+                "order": 7,
+                "state": "winner",
+                "winner_id": "sr:competitor:127208"
+              },
+              {
+                "id": "sr:cup_round:2310873",
+                "sport_events": [
+                  {
+                    "id": "sr:sport_event:57911665",
+                    "start_time": "2025-02-10T17:40:00+00:00",
+                    "start_time_confirmed": true,
+                    "order": 1
+                  }
+                ],
+                "linked_cup_rounds": [
+                  {
+                    "id": "sr:cup_round:2310897",
+                    "type": "parent",
+                    "name": "round_of_16",
+                    "order": 4,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:127208"
+                  }
+                ],
+                "name": "round_of_32",
+                "order": 8,
+                "state": "winner",
+                "winner_id": "sr:competitor:276563"
+              },
+              {
+                "id": "sr:cup_round:2310875",
+                "sport_events": [
+                  {
+                    "id": "sr:sport_event:57911663",
+                    "start_time": "2025-02-11T17:00:00+00:00",
+                    "start_time_confirmed": true,
+                    "order": 1
+                  }
+                ],
+                "linked_cup_rounds": [
+                  {
+                    "id": "sr:cup_round:2310899",
+                    "type": "parent",
+                    "name": "round_of_16",
+                    "order": 5,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:170946"
+                  }
+                ],
+                "name": "round_of_32",
+                "order": 9,
+                "state": "winner",
+                "winner_id": "sr:competitor:125006"
+              },
+              {
+                "id": "sr:cup_round:2310877",
+                "sport_events": [
+                  {
+                    "id": "sr:sport_event:57970511",
+                    "start_time": "2025-02-11T17:35:00+00:00",
+                    "start_time_confirmed": true,
+                    "order": 1
+                  }
+                ],
+                "linked_cup_rounds": [
+                  {
+                    "id": "sr:cup_round:2310899",
+                    "type": "parent",
+                    "name": "round_of_16",
+                    "order": 5,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:170946"
+                  }
+                ],
+                "name": "round_of_32",
+                "order": 10,
+                "state": "winner",
+                "winner_id": "sr:competitor:170946"
+              },
+              {
+                "id": "sr:cup_round:2310879",
+                "sport_events": [
+                  {
+                    "id": "sr:sport_event:57911661",
+                    "start_time": "2025-02-11T19:50:00+00:00",
+                    "start_time_confirmed": true,
+                    "order": 1
+                  }
+                ],
+                "linked_cup_rounds": [
+                  {
+                    "id": "sr:cup_round:2310901",
+                    "type": "parent",
+                    "name": "round_of_16",
+                    "order": 6,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:75813"
+                  }
+                ],
+                "name": "round_of_32",
+                "order": 11,
+                "state": "winner",
+                "winner_id": "sr:competitor:75813"
+              },
+              {
+                "id": "sr:cup_round:2310881",
+                "linked_cup_rounds": [
+                  {
+                    "id": "sr:cup_round:2310901",
+                    "type": "parent",
+                    "name": "round_of_16",
+                    "order": 6,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:75813"
+                  }
+                ],
+                "name": "round_of_32",
+                "order": 12,
+                "state": "winner",
+                "winner_id": "sr:competitor:158896"
+              },
+              {
+                "id": "sr:cup_round:2310883",
+                "sport_events": [
+                  {
+                    "id": "sr:sport_event:57911659",
+                    "start_time": "2025-02-10T20:30:00+00:00",
+                    "start_time_confirmed": true,
+                    "order": 1
+                  }
+                ],
+                "linked_cup_rounds": [
+                  {
+                    "id": "sr:cup_round:2310903",
+                    "type": "parent",
+                    "name": "round_of_16",
+                    "order": 7,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:104847"
+                  }
+                ],
+                "name": "round_of_32",
+                "order": 13,
+                "state": "winner",
+                "winner_id": "sr:competitor:104847"
+              },
+              {
+                "id": "sr:cup_round:2310885",
+                "sport_events": [
+                  {
+                    "id": "sr:sport_event:57970509",
+                    "start_time": "2025-02-11T14:10:00+00:00",
+                    "start_time_confirmed": true,
+                    "order": 1
+                  }
+                ],
+                "linked_cup_rounds": [
+                  {
+                    "id": "sr:cup_round:2310903",
+                    "type": "parent",
+                    "name": "round_of_16",
+                    "order": 7,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:104847"
+                  }
+                ],
+                "name": "round_of_32",
+                "order": 14,
+                "state": "winner",
+                "winner_id": "sr:competitor:658475"
+              },
+              {
+                "id": "sr:cup_round:2310887",
+                "sport_events": [
+                  {
+                    "id": "sr:sport_event:57911655",
+                    "start_time": "2025-02-11T12:30:00+00:00",
+                    "start_time_confirmed": true,
+                    "order": 1
+                  }
+                ],
+                "linked_cup_rounds": [
+                  {
+                    "id": "sr:cup_round:2310905",
+                    "type": "parent",
+                    "name": "round_of_16",
+                    "order": 8,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:185388"
+                  }
+                ],
+                "name": "round_of_32",
+                "order": 15,
+                "state": "winner",
+                "winner_id": "sr:competitor:163480"
+              },
+              {
+                "id": "sr:cup_round:2310889",
+                "linked_cup_rounds": [
+                  {
+                    "id": "sr:cup_round:2310905",
+                    "type": "parent",
+                    "name": "round_of_16",
+                    "order": 8,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:185388"
+                  }
+                ],
+                "name": "round_of_32",
+                "order": 16,
+                "state": "winner",
+                "winner_id": "sr:competitor:185388"
+              },
+              {
+                "id": "sr:cup_round:2310891",
+                "sport_events": [
+                  {
+                    "id": "sr:sport_event:57826761",
+                    "start_time": "2025-02-13T17:30:00+00:00",
+                    "start_time_confirmed": true,
+                    "order": 1
+                  }
+                ],
+                "linked_cup_rounds": [
+                  {
+                    "id": "sr:cup_round:2310859",
+                    "type": "child",
+                    "name": "round_of_32",
+                    "order": 1,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:163504"
+                  },
+                  {
+                    "id": "sr:cup_round:2310861",
+                    "type": "child",
+                    "name": "round_of_32",
+                    "order": 2,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:44553"
+                  },
+                  {
+                    "id": "sr:cup_round:2310907",
+                    "type": "parent",
+                    "name": "quarterfinal",
+                    "order": 1,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:163504"
+                  }
+                ],
+                "name": "round_of_16",
+                "order": 1,
+                "state": "winner",
+                "winner_id": "sr:competitor:163504"
+              },
+              {
+                "id": "sr:cup_round:2310893",
+                "sport_events": [
+                  {
+                    "id": "sr:sport_event:57826765",
+                    "start_time": "2025-02-13T19:00:00+00:00",
+                    "start_time_confirmed": true,
+                    "order": 1
+                  }
+                ],
+                "linked_cup_rounds": [
+                  {
+                    "id": "sr:cup_round:2310863",
+                    "type": "child",
+                    "name": "round_of_32",
+                    "order": 3,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:46391"
+                  },
+                  {
+                    "id": "sr:cup_round:2310865",
+                    "type": "child",
+                    "name": "round_of_32",
+                    "order": 4,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:107357"
+                  },
+                  {
+                    "id": "sr:cup_round:2310907",
+                    "type": "parent",
+                    "name": "quarterfinal",
+                    "order": 1,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:163504"
+                  }
+                ],
+                "name": "round_of_16",
+                "order": 2,
+                "state": "winner",
+                "winner_id": "sr:competitor:46391"
+              },
+              {
+                "id": "sr:cup_round:2310895",
+                "sport_events": [
+                  {
+                    "id": "sr:sport_event:57826763",
+                    "start_time": "2025-02-12T17:15:00+00:00",
+                    "start_time_confirmed": true,
+                    "order": 1
+                  }
+                ],
+                "linked_cup_rounds": [
+                  {
+                    "id": "sr:cup_round:2310867",
+                    "type": "child",
+                    "name": "round_of_32",
+                    "order": 5,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:90080"
+                  },
+                  {
+                    "id": "sr:cup_round:2310869",
+                    "type": "child",
+                    "name": "round_of_32",
+                    "order": 6,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:601146"
+                  },
+                  {
+                    "id": "sr:cup_round:2310909",
+                    "type": "parent",
+                    "name": "quarterfinal",
+                    "order": 2,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:601146"
+                  }
+                ],
+                "name": "round_of_16",
+                "order": 3,
+                "state": "winner",
+                "winner_id": "sr:competitor:601146"
+              },
+              {
+                "id": "sr:cup_round:2310897",
+                "sport_events": [
+                  {
+                    "id": "sr:sport_event:57826769",
+                    "start_time": "2025-02-12T15:25:00+00:00",
+                    "start_time_confirmed": true,
+                    "order": 1
+                  }
+                ],
+                "linked_cup_rounds": [
+                  {
+                    "id": "sr:cup_round:2310871",
+                    "type": "child",
+                    "name": "round_of_32",
+                    "order": 7,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:127208"
+                  },
+                  {
+                    "id": "sr:cup_round:2310873",
+                    "type": "child",
+                    "name": "round_of_32",
+                    "order": 8,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:276563"
+                  },
+                  {
+                    "id": "sr:cup_round:2310909",
+                    "type": "parent",
+                    "name": "quarterfinal",
+                    "order": 2,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:601146"
+                  }
+                ],
+                "name": "round_of_16",
+                "order": 4,
+                "state": "winner",
+                "winner_id": "sr:competitor:127208"
+              },
+              {
+                "id": "sr:cup_round:2310899",
+                "sport_events": [
+                  {
+                    "id": "sr:sport_event:57826767",
+                    "start_time": "2025-02-13T12:30:00+00:00",
+                    "start_time_confirmed": true,
+                    "order": 1
+                  }
+                ],
+                "linked_cup_rounds": [
+                  {
+                    "id": "sr:cup_round:2310875",
+                    "type": "child",
+                    "name": "round_of_32",
+                    "order": 9,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:125006"
+                  },
+                  {
+                    "id": "sr:cup_round:2310877",
+                    "type": "child",
+                    "name": "round_of_32",
+                    "order": 10,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:170946"
+                  },
+                  {
+                    "id": "sr:cup_round:2310911",
+                    "type": "parent",
+                    "name": "quarterfinal",
+                    "order": 3,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:170946"
+                  }
+                ],
+                "name": "round_of_16",
+                "order": 5,
+                "state": "winner",
+                "winner_id": "sr:competitor:170946"
+              },
+              {
+                "id": "sr:cup_round:2310901",
+                "sport_events": [
+                  {
+                    "id": "sr:sport_event:57826773",
+                    "start_time": "2025-02-13T15:00:00+00:00",
+                    "start_time_confirmed": true,
+                    "order": 1
+                  }
+                ],
+                "linked_cup_rounds": [
+                  {
+                    "id": "sr:cup_round:2310879",
+                    "type": "child",
+                    "name": "round_of_32",
+                    "order": 11,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:75813"
+                  },
+                  {
+                    "id": "sr:cup_round:2310881",
+                    "type": "child",
+                    "name": "round_of_32",
+                    "order": 12,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:158896"
+                  },
+                  {
+                    "id": "sr:cup_round:2310911",
+                    "type": "parent",
+                    "name": "quarterfinal",
+                    "order": 3,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:170946"
+                  }
+                ],
+                "name": "round_of_16",
+                "order": 6,
+                "state": "winner",
+                "winner_id": "sr:competitor:75813"
+              },
+              {
+                "id": "sr:cup_round:2310903",
+                "sport_events": [
+                  {
+                    "id": "sr:sport_event:57826771",
+                    "start_time": "2025-02-12T10:30:00+00:00",
+                    "start_time_confirmed": true,
+                    "order": 1
+                  }
+                ],
+                "linked_cup_rounds": [
+                  {
+                    "id": "sr:cup_round:2310883",
+                    "type": "child",
+                    "name": "round_of_32",
+                    "order": 13,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:104847"
+                  },
+                  {
+                    "id": "sr:cup_round:2310885",
+                    "type": "child",
+                    "name": "round_of_32",
+                    "order": 14,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:658475"
+                  },
+                  {
+                    "id": "sr:cup_round:2310913",
+                    "type": "parent",
+                    "name": "quarterfinal",
+                    "order": 4,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:185388"
+                  }
+                ],
+                "name": "round_of_16",
+                "order": 7,
+                "state": "winner",
+                "winner_id": "sr:competitor:104847"
+              },
+              {
+                "id": "sr:cup_round:2310905",
+                "sport_events": [
+                  {
+                    "id": "sr:sport_event:57826777",
+                    "start_time": "2025-02-12T18:45:00+00:00",
+                    "start_time_confirmed": true,
+                    "order": 1
+                  }
+                ],
+                "linked_cup_rounds": [
+                  {
+                    "id": "sr:cup_round:2310887",
+                    "type": "child",
+                    "name": "round_of_32",
+                    "order": 15,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:163480"
+                  },
+                  {
+                    "id": "sr:cup_round:2310889",
+                    "type": "child",
+                    "name": "round_of_32",
+                    "order": 16,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:185388"
+                  },
+                  {
+                    "id": "sr:cup_round:2310913",
+                    "type": "parent",
+                    "name": "quarterfinal",
+                    "order": 4,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:185388"
+                  }
+                ],
+                "name": "round_of_16",
+                "order": 8,
+                "state": "winner",
+                "winner_id": "sr:competitor:185388"
+              },
+              {
+                "id": "sr:cup_round:2310907",
+                "sport_events": [
+                  {
+                    "id": "sr:sport_event:57826775",
+                    "start_time": "2025-02-14T17:00:00+00:00",
+                    "start_time_confirmed": true,
+                    "order": 1
+                  }
+                ],
+                "linked_cup_rounds": [
+                  {
+                    "id": "sr:cup_round:2310891",
+                    "type": "child",
+                    "name": "round_of_16",
+                    "order": 1,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:163504"
+                  },
+                  {
+                    "id": "sr:cup_round:2310893",
+                    "type": "child",
+                    "name": "round_of_16",
+                    "order": 2,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:46391"
+                  },
+                  {
+                    "id": "sr:cup_round:2310915",
+                    "type": "parent",
+                    "name": "semifinal",
+                    "order": 1,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:601146"
+                  }
+                ],
+                "name": "quarterfinal",
+                "order": 1,
+                "state": "winner",
+                "winner_id": "sr:competitor:163504"
+              },
+              {
+                "id": "sr:cup_round:2310909",
+                "sport_events": [
+                  {
+                    "id": "sr:sport_event:57826781",
+                    "start_time": "2025-02-14T18:35:00+00:00",
+                    "start_time_confirmed": true,
+                    "order": 1
+                  }
+                ],
+                "linked_cup_rounds": [
+                  {
+                    "id": "sr:cup_round:2310895",
+                    "type": "child",
+                    "name": "round_of_16",
+                    "order": 3,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:601146"
+                  },
+                  {
+                    "id": "sr:cup_round:2310897",
+                    "type": "child",
+                    "name": "round_of_16",
+                    "order": 4,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:127208"
+                  },
+                  {
+                    "id": "sr:cup_round:2310915",
+                    "type": "parent",
+                    "name": "semifinal",
+                    "order": 1,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:601146"
+                  }
+                ],
+                "name": "quarterfinal",
+                "order": 2,
+                "state": "winner",
+                "winner_id": "sr:competitor:601146"
+              },
+              {
+                "id": "sr:cup_round:2310911",
+                "sport_events": [
+                  {
+                    "id": "sr:sport_event:57826779",
+                    "start_time": "2025-02-14T13:25:00+00:00",
+                    "start_time_confirmed": true,
+                    "order": 1
+                  }
+                ],
+                "linked_cup_rounds": [
+                  {
+                    "id": "sr:cup_round:2310899",
+                    "type": "child",
+                    "name": "round_of_16",
+                    "order": 5,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:170946"
+                  },
+                  {
+                    "id": "sr:cup_round:2310901",
+                    "type": "child",
+                    "name": "round_of_16",
+                    "order": 6,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:75813"
+                  },
+                  {
+                    "id": "sr:cup_round:2310917",
+                    "type": "parent",
+                    "name": "semifinal",
+                    "order": 2,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:185388"
+                  }
+                ],
+                "name": "quarterfinal",
+                "order": 3,
+                "state": "winner",
+                "winner_id": "sr:competitor:170946"
+              },
+              {
+                "id": "sr:cup_round:2310913",
+                "sport_events": [
+                  {
+                    "id": "sr:sport_event:57826753",
+                    "start_time": "2025-02-14T14:45:00+00:00",
+                    "start_time_confirmed": true,
+                    "order": 1
+                  }
+                ],
+                "linked_cup_rounds": [
+                  {
+                    "id": "sr:cup_round:2310903",
+                    "type": "child",
+                    "name": "round_of_16",
+                    "order": 7,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:104847"
+                  },
+                  {
+                    "id": "sr:cup_round:2310905",
+                    "type": "child",
+                    "name": "round_of_16",
+                    "order": 8,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:185388"
+                  },
+                  {
+                    "id": "sr:cup_round:2310917",
+                    "type": "parent",
+                    "name": "semifinal",
+                    "order": 2,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:185388"
+                  }
+                ],
+                "name": "quarterfinal",
+                "order": 4,
+                "state": "winner",
+                "winner_id": "sr:competitor:185388"
+              },
+              {
+                "id": "sr:cup_round:2310915",
+                "sport_events": [
+                  {
+                    "id": "sr:sport_event:57826751",
+                    "start_time": "2025-02-15T18:05:00+00:00",
+                    "start_time_confirmed": true,
+                    "order": 1
+                  }
+                ],
+                "linked_cup_rounds": [
+                  {
+                    "id": "sr:cup_round:2310907",
+                    "type": "child",
+                    "name": "quarterfinal",
+                    "order": 1,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:163504"
+                  },
+                  {
+                    "id": "sr:cup_round:2310909",
+                    "type": "child",
+                    "name": "quarterfinal",
+                    "order": 2,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:601146"
+                  },
+                  {
+                    "id": "sr:cup_round:2310919",
+                    "type": "parent",
+                    "name": "final",
+                    "order": 1,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:185388"
+                  }
+                ],
+                "name": "semifinal",
+                "order": 1,
+                "state": "winner",
+                "winner_id": "sr:competitor:601146"
+              },
+              {
+                "id": "sr:cup_round:2310917",
+                "sport_events": [
+                  {
+                    "id": "sr:sport_event:57826759",
+                    "start_time": "2025-02-15T16:15:00+00:00",
+                    "start_time_confirmed": true,
+                    "order": 1
+                  }
+                ],
+                "linked_cup_rounds": [
+                  {
+                    "id": "sr:cup_round:2310911",
+                    "type": "child",
+                    "name": "quarterfinal",
+                    "order": 3,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:170946"
+                  },
+                  {
+                    "id": "sr:cup_round:2310913",
+                    "type": "child",
+                    "name": "quarterfinal",
+                    "order": 4,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:185388"
+                  },
+                  {
+                    "id": "sr:cup_round:2310919",
+                    "type": "parent",
+                    "name": "final",
+                    "order": 1,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:185388"
+                  }
+                ],
+                "name": "semifinal",
+                "order": 2,
+                "state": "winner",
+                "winner_id": "sr:competitor:185388"
+              },
+              {
+                "id": "sr:cup_round:2310919",
+                "sport_events": [
+                  {
+                    "id": "sr:sport_event:57826755",
+                    "start_time": "2025-02-16T14:30:00+00:00",
+                    "start_time_confirmed": true,
+                    "order": 1
+                  }
+                ],
+                "linked_cup_rounds": [
+                  {
+                    "id": "sr:cup_round:2310915",
+                    "type": "child",
+                    "name": "semifinal",
+                    "order": 1,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:601146"
+                  },
+                  {
+                    "id": "sr:cup_round:2310917",
+                    "type": "child",
+                    "name": "semifinal",
+                    "order": 2,
+                    "state": "winner",
+                    "winner_id": "sr:competitor:185388"
+                  }
+                ],
+                "name": "final",
+                "order": 1,
+                "state": "winner",
+                "winner_id": "sr:competitor:185388"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }

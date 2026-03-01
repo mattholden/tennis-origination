@@ -7,7 +7,7 @@ Run one pipeline in isolation with Runner.run(name). All pipelines are async and
 
 import asyncio
 
-from core.env import load_env
+from injestion.core.env import load_env
 
 # Load .env from project root so client, config, etc. can use os.environ
 load_env()
@@ -53,7 +53,7 @@ def create_sportradar_runner() -> Runner:
     from injestion.sportradar import SportradarClient, SportradarManager
     from injestion.sportradar.pipelines.registry import PIPELINES
 
-    import core.bq as bq
+    import injestion.core.bq as bq
 
     client = SportradarClient()
     manager = SportradarManager()
@@ -68,7 +68,7 @@ def create_oddsjam_runner() -> Runner:
     from injestion.oddsjam import OpticOddsClient, OddsJamManager
     from injestion.oddsjam.pipelines.registry import PIPELINES
 
-    import core.bq as bq
+    import injestion.core.bq as bq
 
     client = OpticOddsClient()
     manager = OddsJamManager()
@@ -82,11 +82,30 @@ if __name__ == "__main__":
     import sys
     if len(sys.argv) > 1 and sys.argv[1] == "oddsjam":
         runner = create_oddsjam_runner()
-        print("OddsJam pipelines:", runner.list_pipelines())
-        pipeline_name = sys.argv[2] if len(sys.argv) > 2 else "seasons"
-        runner.run(pipeline_name)
-    else:
+        pipelines = runner.list_pipelines()
+        print("OddsJam pipelines:", pipelines)
+        if len(sys.argv) > 2:
+            pipeline_name = sys.argv[2]
+            if pipeline_name not in pipelines:
+                print(f"Unknown pipeline: {pipeline_name}")
+                sys.exit(1)
+            runner.run(pipeline_name)
+        else:
+            print("Usage: python -m injestion.runner oddsjam [pipeline_name]")
+            sys.exit(1)
+    elif len(sys.argv) > 1 and sys.argv[1] == "sportradar":
         runner = create_sportradar_runner()
-        print("Pipelines:", runner.list_pipelines())
-        name = sys.argv[1] if len(sys.argv) > 1 else "rankings"
-        runner.run(name)
+        pipelines = runner.list_pipelines()
+        print("SportRadar pipelines:", pipelines)
+        if len(sys.argv) > 2:
+            pipeline_name = sys.argv[2]
+            if pipeline_name not in pipelines:
+                print(f"Unknown pipeline: {pipeline_name}")
+                sys.exit(1)
+            runner.run(pipeline_name)
+        else:
+            print("Usage: python -m injestion.runner sportradar [pipeline_name]")
+            sys.exit(1)
+    else:
+        print("Usage: python -m injestion.runner [oddsjam | sportradar] [pipeline_name]")
+        sys.exit(1)

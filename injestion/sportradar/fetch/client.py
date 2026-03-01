@@ -2,7 +2,7 @@
 Sportradar Tennis API client.
 
 Uses SPORTRADAR_API_KEY and optional SPORTRADAR_BASE_URL from environment.
-Ensure the entry point (e.g. runner) calls core.env.load_env() so .env is loaded.
+Ensure the entry point (e.g. injestion.runner) calls injestion.core.env.load_env() so .env is loaded.
 
 All pipelines use get_async() for non-blocking requests (enables parallel fetches where used).
 """

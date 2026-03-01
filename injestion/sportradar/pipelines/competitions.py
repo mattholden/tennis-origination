@@ -3,7 +3,7 @@ Competitions pipeline: fetch -> (save raw for review) -> transform -> upload.
 No parameters from BQ. Closed loop: run in isolation via Runner.run("competitions").
 """
 
-import core.raw_store
+import injestion.core.raw_store
 
 
 async def run(client, manager, bq) -> None:

@@ -3,7 +3,7 @@ Seasons pipeline: pull allowed competition_ids from BQ -> fetch -> filter -> tra
 Closed loop: run in isolation via Runner.run("seasons"). Depends on competitions table being populated.
 """
 
-import core.raw_store
+import injestion.core.raw_store
 
 
 async def run(client, manager, bq) -> None:

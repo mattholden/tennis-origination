@@ -1,7 +1,7 @@
 """
 OddsJam table IDs and resource config.
 
-Reads from environment; ensure the entry point calls core.env.load_env() so .env is loaded.
+Reads from environment; ensure the entry point calls injestion.core.env.load_env() so .env is loaded.
 API key and base URL are used by the OpticOdds client (OpticOdds API v3).
 """
 

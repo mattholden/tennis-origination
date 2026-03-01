@@ -1,7 +1,7 @@
 """
 Sportradar table IDs and resource config.
 
-Reads from environment; ensure the entry point calls core.env.load_env() so .env is loaded.
+Reads from environment; ensure the entry point calls injestion.core.env.load_env() so .env is loaded.
 """
 
 import os

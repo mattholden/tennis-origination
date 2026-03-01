@@ -14,8 +14,7 @@ async def fetch_fixtures_page(
     sport: str = "tennis",
 ) -> dict:
     """
-    Fetch one page of fixtures from the OpticOdds API.
-    Returns full response: {"data": [...], "total_pages": N}.
+    Fetch odds for a given fixture from the OddsJam API.
     """
     params = {
         "sport": sport,

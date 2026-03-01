@@ -2,7 +2,7 @@
 OpticOdds API v3 client (used for OddsJam/OpticOdds data).
 
 Uses OPTICODDS_API_KEY and optional OPTICODDS_BASE_URL from environment.
-Ensure the entry point (e.g. runner) calls core.env.load_env() so .env is loaded.
+Ensure the entry point (e.g. injestion.runner) calls injestion.core.env.load_env() so .env is loaded.
 
 All requests use GET with query parameters and x-api-key header.
 Pipelines use get_async() for non-blocking requests.

@@ -17,14 +17,14 @@ def _find_project_root() -> Path:
         if parent == path:
             break
         path = parent
-    # Fallback: assume project root is parent of core/
-    return Path(__file__).resolve().parent.parent
+    # Fallback: project root is parent of injestion/ (this file is injestion/core/env.py)
+    return Path(__file__).resolve().parent.parent.parent
 
 
 def load_env() -> None:
     """
     Load .env from project root. Safe to call multiple times.
-    Call this at the start of runner.py (or any entry point) so ingestion and
+    Call this at the start of the runner (or any entry point) so ingestion and
     other code can use os.environ without each module finding the root.
     """
     try:
