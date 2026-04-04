@@ -1666,7 +1666,7 @@ wheels = [
 
 [[package]]
 name = "prizepicks-internal-fixtures"
-version = "2.4.0"
+version = "2.6.0"
 source = { registry = "https://us-east4-python.pkg.dev/dataverse-analytics-kh8ff/us-east4-python/simple" }
 dependencies = [
     { name = "faker" },
@@ -1676,9 +1676,9 @@ dependencies = [
     { name = "pydantic-settings" },
     { name = "python-dotenv" },
 ]
-sdist = { url = "https://us-east4-python.pkg.dev/dataverse-analytics-kh8ff/us-east4-python/prizepicks-internal-fixtures/prizepicks_internal_fixtures-2.4.0.tar.gz", hash = "sha256:474f3c948dd05b828e2ade034d80d31a1c130533fe8d6a325324dd9faefd16d0" }
+sdist = { url = "https://us-east4-python.pkg.dev/dataverse-analytics-kh8ff/us-east4-python/prizepicks-internal-fixtures/prizepicks_internal_fixtures-2.6.0.tar.gz", hash = "sha256:4f2097b9d634e593a1c8ba257953e301ef83b774413cca2cae1be081b1a5188b" }
 wheels = [
-    { url = "https://us-east4-python.pkg.dev/dataverse-analytics-kh8ff/us-east4-python/prizepicks-internal-fixtures/prizepicks_internal_fixtures-2.4.0-py3-none-any.whl", hash = "sha256:1493c7f3ce48c9870be2a219f18613fd36eca2b22f4655a1fb11470b5ae408ea" },
+    { url = "https://us-east4-python.pkg.dev/dataverse-analytics-kh8ff/us-east4-python/prizepicks-internal-fixtures/prizepicks_internal_fixtures-2.6.0-py3-none-any.whl", hash = "sha256:0bfaf336ec53f93504ae2357f2f583c8d3e81b217b1d6e38b1f6934a59fd4dfe" },
 ]
 
 [[package]]
@@ -1716,7 +1716,7 @@ dev = [
 
 [[package]]
 name = "prizepicks-originations-models"
-version = "1.46.0"
+version = "1.52.0"
 source = { editable = "../prizepicks-originations-models" }
 dependencies = [
     { name = "alembic" },
@@ -1765,7 +1765,7 @@ requires-dist = [
     { name = "pandas", specifier = "==2.3.2" },
     { name = "pandera", specifier = ">=0.26.1" },
     { name = "prizepicks-builtins", specifier = ">=1.0.0", index = "https://us-east4-python.pkg.dev/dataverse-analytics-kh8ff/us-east4-python/simple" },
-    { name = "prizepicks-internal-fixtures", specifier = ">=1.2.0", index = "https://us-east4-python.pkg.dev/dataverse-analytics-kh8ff/us-east4-python/simple" },
+    { name = "prizepicks-internal-fixtures", specifier = ">=2.5.0", index = "https://us-east4-python.pkg.dev/dataverse-analytics-kh8ff/us-east4-python/simple" },
     { name = "prizepicks-sklearn", specifier = ">=1.9.0", index = "https://us-east4-python.pkg.dev/dataverse-analytics-kh8ff/us-east4-python/simple" },
     { name = "psycopg", specifier = "==3.2.10" },
     { name = "psycopg2-binary", specifier = "==2.9.10" },
