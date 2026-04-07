@@ -1,8 +1,14 @@
 """
 Initial Elo-style ratings (0–100 scale) from ranking points, with shrinkage toward the mean.
 
-Pipeline: concave log transform of points → affine to [elo_init_min, elo_init_max]
-→ shrink toward μ → optional clip → elo_init.
+**Ranked** (``build_initial_elo_table``): log1p(points) scaled to a unit in [0,1] using
+p_lo/p_hi from the snapshot → affine to ``elo_raw`` in [elo_init_min, elo_init_max] →
+shrink toward median/mean → ``elo_init``; optional clip to [elo_init_min, elo_init_max]
+after shrinkage (``clip_after_shrink``).
+
+**Unranked** (``sample_unranked_elo_init``): single draw from
+``N(unranked_mean, unranked_std)``; optional clip to [unranked_clip_low, unranked_clip_high]
+(``unranked_clip_after_sample``). No log mapping and no shrinkage—separate from the ranked path.
 """
 
 from __future__ import annotations
@@ -45,10 +51,12 @@ class EloInitConfig:
     clip_after_shrink: bool = True
     """Clip elo_init to [elo_init_min, elo_init_max] after shrinkage."""
 
-    unranked_mean: float = 25.0
+    unranked_mean: float = 31.0
     unranked_std: float = 3.0
-    unranked_clip_low: float = 19.0
-    unranked_clip_high: float = 31.0
+    unranked_clip_low: float = 21.0
+    unranked_clip_high: float = 33.0
+    unranked_clip_after_sample: bool = False
+    """If True, clip unranked draws to [unranked_clip_low, unranked_clip_high] (boundary spikes in histograms)."""
 
     random_seed: int | None = None
 
@@ -140,11 +148,13 @@ def sample_unranked_elo_init(
     config: EloInitConfig | None = None,
     rng: np.random.Generator | None = None,
 ) -> float:
-    """Random prior for players not in the rankings table (clipped Gaussian)."""
+    """Random prior for players not in the rankings table: Gaussian unless clipping is enabled."""
     cfg = config or EloInitConfig()
     gen = rng if rng is not None else cfg.make_rng()
     x = float(gen.normal(cfg.unranked_mean, cfg.unranked_std))
-    return float(np.clip(x, cfg.unranked_clip_low, cfg.unranked_clip_high))
+    if cfg.unranked_clip_after_sample:
+        return float(np.clip(x, cfg.unranked_clip_low, cfg.unranked_clip_high))
+    return x
 
 
 def lookup_points_by_competitor_id(
@@ -199,3 +209,69 @@ def points_for_competitor_id(
     return lookup_points_by_competitor_id(
         rankings_df, competitor_id, id_col=id_col, points_col=points_col
     )
+
+
+def competitors_with_elo_init(
+    competitors_df: pd.DataFrame,
+    initialized_rankings_df: pd.DataFrame,
+    *,
+    config: EloInitConfig | None = None,
+    competitor_id_col: str = "competitor_id",
+    id_col: str = "competitor_id",
+    rng: np.random.Generator | None = None,
+    include_ranking_columns: bool = True,
+) -> pd.DataFrame:
+    """
+    Left-join all competitors to the output of ``build_initial_elo_table``.
+
+    Ranked players get ``elo_init`` (and optional ranking detail columns) from the snapshot.
+    Missing IDs get the same unranked prior as ``sample_unranked_elo_init`` / ``elo_init_for_competitor_id``,
+    using sequential draws from ``rng`` (or ``config.make_rng()``).
+
+    Adds ``elo_init_source``: ``\"ranked\"`` or ``\"unranked\"``. Ranking ``points`` is merged as
+    ``ranking_points`` to avoid clashing with any ``points`` column on the competitors frame.
+    """
+    cfg = config or EloInitConfig()
+    gen = rng if rng is not None else cfg.make_rng()
+
+    rank = initialized_rankings_df.copy()
+    if "elo_init" not in rank.columns:
+        raise KeyError(
+            "initialized_rankings_df must include 'elo_init' (output of build_initial_elo_table)"
+        )
+    rank["_elo_join"] = rank[id_col].map(_normalize_competitor_id)
+    rank = rank.drop_duplicates(subset="_elo_join", keep="first")
+
+    detail = (
+        "points",
+        "p_lo_used",
+        "p_hi_used",
+        "points_score_u",
+        "elo_raw",
+        "shrink_mu_used",
+        "elo_after_shrink",
+        "elo_init",
+    )
+    if not include_ranking_columns:
+        cols = ["_elo_join", "elo_init"]
+    else:
+        cols = ["_elo_join"] + [c for c in detail if c in rank.columns]
+
+    right = rank[cols].copy()
+    if "points" in right.columns:
+        right = right.rename(columns={"points": "ranking_points"})
+
+    out = competitors_df.copy()
+    out["_elo_join"] = out[competitor_id_col].map(_normalize_competitor_id)
+    merged = out.merge(right, on="_elo_join", how="left")
+    merged = merged.drop(columns=["_elo_join"])
+
+    unranked = merged["elo_init"].isna()
+    n = int(unranked.sum())
+    if n:
+        merged.loc[unranked, "elo_init"] = [
+            sample_unranked_elo_init(cfg, gen) for _ in range(n)
+        ]
+
+    merged["elo_init_source"] = np.where(unranked, "unranked", "ranked")
+    return merged
