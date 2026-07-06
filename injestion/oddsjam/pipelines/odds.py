@@ -1,6 +1,9 @@
 """
 OddsJam odds pipeline: pull fixture_ids from BQ fixtures table, fetch odds in parallel (async),
 transform and batch-upload to BigQuery. Throttled to avoid OpticOdds 429 rate limits.
+
+After all inserts, removes stale no-odds sentinel rows for fixtures that received
+at least one real odds row in this run.
 """
 
 import asyncio
@@ -79,6 +82,7 @@ async def run(client, manager, bq) -> None:
     total = len(fixture_ids)
     skipped_after_retries: list[str] = []
     batch: list = []
+    fixtures_with_real_odds: set[str] = set()
 
     work_queue: asyncio.Queue[tuple[str, int] | None] = asyncio.Queue()
     result_queue: asyncio.Queue[tuple[str, dict] | None] = asyncio.Queue()
@@ -131,6 +135,11 @@ async def run(client, manager, bq) -> None:
                 break
             fixture_id, raw = item
             rows = manager.raw_to_rows("oddsjam_odds", raw, fixture_id=fixture_id)
+            fixtures_with_real_odds.update(
+                str(row["fixture_id"])
+                for row in rows
+                if row.get("odds_id") is not None and row.get("fixture_id") is not None
+            )
             batch.extend(rows)
             if len(batch) >= ODDS_BATCH_SIZE:
                 flush(batch)
@@ -144,6 +153,15 @@ async def run(client, manager, bq) -> None:
     await asyncio.gather(sentinel_task_handle, *worker_tasks)
     result_queue.put_nowait(None)  # signal collector no more results
     await collector_task
+    if fixtures_with_real_odds:
+        deleted = bq.delete_stale_no_odds_rows_for_fixtures(
+            odds_table_id,
+            list(fixtures_with_real_odds),
+        )
+        print(
+            f"  Cleanup removed {deleted} stale no-odds rows across {len(fixtures_with_real_odds)} fixtures",
+            flush=True,
+        )
     if skipped_after_retries:
         out_path = Path(ODDS_FAILED_FIXTURE_IDS_JSON)
         out_path.parent.mkdir(parents=True, exist_ok=True)

@@ -164,6 +164,59 @@ WHEN NOT MATCHED BY TARGET THEN
     }
 
 
+def delete_stale_no_odds_rows_for_fixtures(
+    table_id: str,
+    fixture_ids: list[str],
+    *,
+    chunk_size: int = 5000,
+) -> int:
+    """
+    Delete stale no-odds sentinel rows for the given fixtures.
+
+    A row is considered stale when:
+    - odds_id is NULL
+    - no_odds is true
+    - the same fixture_id now has at least one row with non-null odds_id
+
+    The delete is scoped to the fixture_ids passed in and chunked to avoid
+    oversized query parameters. Returns total deleted rows across all chunks.
+    """
+    if chunk_size <= 0:
+        raise ValueError(f"chunk_size must be > 0, got {chunk_size}")
+
+    normalized_ids = [str(fid) for fid in fixture_ids if fid]
+    if not normalized_ids:
+        return 0
+    # Preserve order while deduping.
+    deduped_ids = list(dict.fromkeys(normalized_ids))
+
+    client = get_client()
+    total_deleted = 0
+    sql = f"""
+DELETE FROM `{table_id}` T
+WHERE T.fixture_id IN UNNEST(@fixture_ids)
+  AND T.odds_id IS NULL
+  AND IFNULL(T.no_odds, FALSE) = TRUE
+  AND EXISTS (
+    SELECT 1
+    FROM `{table_id}` R
+    WHERE R.fixture_id = T.fixture_id
+      AND R.odds_id IS NOT NULL
+  )
+"""
+    for i in range(0, len(deduped_ids), chunk_size):
+        chunk = deduped_ids[i : i + chunk_size]
+        job_config = bigquery.QueryJobConfig(
+            query_parameters=[
+                bigquery.ArrayQueryParameter("fixture_ids", "STRING", chunk),
+            ]
+        )
+        job = client.query(sql, job_config=job_config)
+        job.result()
+        total_deleted += int(job.num_dml_affected_rows or 0)
+    return total_deleted
+
+
 def get_param_list(table_id: str, column: str) -> list[Any]:
     """
     Query the table for distinct values of one column. Use for parameterized
