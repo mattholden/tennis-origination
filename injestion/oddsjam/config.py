@@ -30,6 +30,7 @@ def get_base_url() -> str:
 # Env var names for each resource's BigQuery table
 TABLE_ID_ENV = {
     "oddsjam_odds": "BIGQUERY_ODDSJAM_ODDS_TABLE_ID",
+    "oddsjam_results": "BIGQUERY_ODDSJAM_RESULTS_TABLE_ID",
     "oddsjam_fixtures": "BIGQUERY_ODDSJAM_FIXTURES_TABLE_ID",
     "oddsjam_seasons": "BIGQUERY_ODDSJAM_SEASONS_TABLE_ID",
 }

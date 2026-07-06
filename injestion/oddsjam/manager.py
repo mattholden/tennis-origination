@@ -5,6 +5,8 @@ OddsJam manager: single entry point for schema, table_id, fetch, and load_resour
 from injestion.oddsjam import config
 from injestion.oddsjam.fetch import odds as fetch_oddsjam_odds
 from injestion.oddsjam.schema import odds as schema_oddsjam_odds  
+from injestion.oddsjam.fetch import results as fetch_oddsjam_results
+from injestion.oddsjam.schema import results as schema_oddsjam_results
 from injestion.oddsjam.fetch import fixtures as fetch_oddsjam_fixtures
 from injestion.oddsjam.schema import fixtures as schema_oddsjam_fixtures
 from injestion.oddsjam.schema import seasons as schema_oddsjam_seasons
@@ -15,6 +17,11 @@ _REGISTRY = {
         "fetch": fetch_oddsjam_odds.fetch_odds,
         "payload_to_rows": schema_oddsjam_odds.payload_to_rows,
         "get_schema": schema_oddsjam_odds.get_schema,
+    },
+    "oddsjam_results": {
+        "fetch": fetch_oddsjam_results.fetch_results,
+        "payload_to_rows": schema_oddsjam_results.payload_to_rows,
+        "get_schema": schema_oddsjam_results.get_schema,
     },
     "oddsjam_fixtures": {
         "fetch": fetch_oddsjam_fixtures.fetch_fixtures_page,

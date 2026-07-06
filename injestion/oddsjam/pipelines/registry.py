@@ -3,10 +3,12 @@ Registry of pipeline names to run functions. Each pipeline is a closed loop.
 """
 
 from injestion.oddsjam.pipelines.odds import run as odds_run
+from injestion.oddsjam.pipelines.results import run as results_run
 from injestion.oddsjam.pipelines.fixtures import run as fixtures_run
 
 PIPELINES = {
     "odds": odds_run,
+    "results": results_run,
     "fixtures": fixtures_run,
 }
 

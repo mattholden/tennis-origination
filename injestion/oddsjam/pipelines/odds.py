@@ -57,8 +57,20 @@ async def run(client, manager, bq) -> None:
             return
         n = len(buffer)
         try:
-            bq.write_rows(odds_table_id, buffer)
-            print(f"\n  Flushed {n} rows to {odds_table_id}", flush=True)
+            merge_stats = bq.merge_odds_rows_by_odds_id(odds_table_id, buffer)
+            print(
+                (
+                    f"\n  Processed {n} odds rows to {odds_table_id} "
+                    f"(inserted={merge_stats['total_inserted_rows']}, "
+                    f"inserted_keyed={merge_stats['inserted_keyed_rows']}, "
+                    f"inserted_non_key={merge_stats['inserted_non_key_rows']}, "
+                    f"inserted_non_key_fixture={merge_stats['inserted_non_key_rows_with_fixture_id']}, "
+                    f"inserted_non_key_no_fixture={merge_stats['inserted_non_key_rows_without_fixture_id']}, "
+                    f"deduped_source_keyed={merge_stats['source_keyed_rows_deduped']}, "
+                    f"deduped_source_non_key_fixture={merge_stats['source_non_key_rows_with_fixture_id_deduped']})"
+                ),
+                flush=True,
+            )
         except Exception as e:
             print(f"\nBigQuery write failed (table={odds_table_id}, rows={n}): {e}", flush=True)
             raise

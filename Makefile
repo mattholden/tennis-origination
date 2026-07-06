@@ -32,3 +32,6 @@ oj-pipeline-fixtures:
 
 oj-pipeline-odds:
 	uv run python -m injestion.runner oddsjam odds
+
+oj-pipeline-results:
+	uv run python -m injestion.runner oddsjam results

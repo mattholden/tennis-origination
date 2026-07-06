@@ -7,6 +7,8 @@ GOOGLE_APPLICATION_CREDENTIALS or Application Default Credentials.
 """
 
 import os
+import uuid
+from datetime import datetime, timedelta, timezone
 from typing import Any
 
 from google.cloud import bigquery
@@ -32,6 +34,134 @@ def write_rows(table_id: str, rows: list[dict[str, Any]]) -> int:
             f"BigQuery insert_rows_json failed (table={table_id}, {len(errors)} errors): {sample}"
         )
     return len(rows)
+
+
+def merge_odds_rows_by_odds_id(table_id: str, rows: list[dict[str, Any]]) -> dict[str, int]:
+    """
+    Insert OddsJam odds rows with dedupe on odds_id.
+
+    Behavior:
+    - rows with non-null odds_id are merged on odds_id (insert when not matched)
+    - rows with null odds_id and non-null fixture_id are merged on fixture_id
+      (insert when fixture_id not already present in target)
+    - rows with null odds_id and null fixture_id are inserted as-is
+
+    Returns counts for observability.
+    """
+    if not rows:
+        return {
+            "input_rows": 0,
+            "source_keyed_rows": 0,
+            "source_non_key_rows": 0,
+            "source_keyed_rows_deduped": 0,
+            "source_non_key_rows_with_fixture_id": 0,
+            "source_non_key_rows_with_fixture_id_deduped": 0,
+            "source_non_key_rows_without_fixture_id": 0,
+            "inserted_keyed_rows": 0,
+            "inserted_non_key_rows_with_fixture_id": 0,
+            "inserted_non_key_rows_without_fixture_id": 0,
+            "inserted_non_key_rows": 0,
+            "total_inserted_rows": 0,
+        }
+
+    keyed_rows: list[dict[str, Any]] = []
+    non_key_rows: list[dict[str, Any]] = []
+    for row in rows:
+        if row.get("odds_id") is None:
+            non_key_rows.append(row)
+        else:
+            keyed_rows.append(row)
+
+    # Dedupe incoming keyed rows by odds_id so MERGE source has unique keys.
+    deduped_by_odds_id: dict[str, dict[str, Any]] = {}
+    for row in keyed_rows:
+        deduped_by_odds_id[str(row["odds_id"])] = row
+    keyed_rows_deduped = list(deduped_by_odds_id.values())
+
+    non_key_rows_with_fixture_id = [row for row in non_key_rows if row.get("fixture_id") is not None]
+    non_key_rows_without_fixture_id = [row for row in non_key_rows if row.get("fixture_id") is None]
+
+    deduped_non_key_by_fixture_id: dict[str, dict[str, Any]] = {}
+    for row in non_key_rows_with_fixture_id:
+        deduped_non_key_by_fixture_id[str(row["fixture_id"])] = row
+    non_key_rows_with_fixture_id_deduped = list(deduped_non_key_by_fixture_id.values())
+
+    client: bigquery.Client | None = None
+    target_table: bigquery.Table | None = None
+    target_cols: list[str] | None = None
+
+    def _get_target_metadata() -> tuple[bigquery.Client, bigquery.Table, list[str]]:
+        nonlocal client, target_table, target_cols
+        if client is None or target_table is None or target_cols is None:
+            client = get_client()
+            target_table = client.get_table(table_id)
+            target_cols = [field.name for field in target_table.schema]
+        return client, target_table, target_cols
+
+    def _merge_insert_only(source_rows: list[dict[str, Any]], key_column: str, temp_suffix: str) -> int:
+        if not source_rows:
+            return 0
+        merge_client, merge_target_table, merge_target_cols = _get_target_metadata()
+        temp_table_id = (
+            f"{merge_target_table.project}.{merge_target_table.dataset_id}."
+            f"_tmp_odds_merge_{temp_suffix}_{uuid.uuid4().hex[:12]}"
+        )
+
+        temp_table = bigquery.Table(temp_table_id, schema=merge_target_table.schema)
+        temp_table.expires = datetime.now(timezone.utc) + timedelta(hours=1)
+
+        try:
+            merge_client.create_table(temp_table)
+
+            errors = merge_client.insert_rows_json(temp_table_id, source_rows)
+            if errors:
+                sample = errors[:3] if len(errors) > 3 else errors
+                raise RuntimeError(
+                    "BigQuery insert_rows_json failed for odds merge staging "
+                    f"(table={temp_table_id}, {len(errors)} errors): {sample}"
+                )
+
+            insert_cols_sql = ", ".join(f"`{c}`" for c in merge_target_cols)
+            insert_vals_sql = ", ".join(f"S.`{c}`" for c in merge_target_cols)
+            merge_sql = f"""
+MERGE `{table_id}` T
+USING `{temp_table_id}` S
+ON T.`{key_column}` = S.`{key_column}`
+WHEN NOT MATCHED BY TARGET THEN
+  INSERT ({insert_cols_sql})
+  VALUES ({insert_vals_sql})
+"""
+            job = merge_client.query(merge_sql)
+            job.result()
+            return int(job.num_dml_affected_rows or 0)
+        finally:
+            merge_client.delete_table(temp_table_id, not_found_ok=True)
+
+    inserted_keyed_rows = _merge_insert_only(keyed_rows_deduped, "odds_id", "odds_id")
+    inserted_non_key_rows_with_fixture_id = _merge_insert_only(
+        non_key_rows_with_fixture_id_deduped, "fixture_id", "fixture_id"
+    )
+    inserted_non_key_rows_without_fixture_id = (
+        write_rows(table_id, non_key_rows_without_fixture_id) if non_key_rows_without_fixture_id else 0
+    )
+    inserted_non_key_rows = (
+        inserted_non_key_rows_with_fixture_id + inserted_non_key_rows_without_fixture_id
+    )
+    total_inserted_rows = inserted_keyed_rows + inserted_non_key_rows
+    return {
+        "input_rows": len(rows),
+        "source_keyed_rows": len(keyed_rows),
+        "source_non_key_rows": len(non_key_rows),
+        "source_keyed_rows_deduped": len(keyed_rows_deduped),
+        "source_non_key_rows_with_fixture_id": len(non_key_rows_with_fixture_id),
+        "source_non_key_rows_with_fixture_id_deduped": len(non_key_rows_with_fixture_id_deduped),
+        "source_non_key_rows_without_fixture_id": len(non_key_rows_without_fixture_id),
+        "inserted_keyed_rows": inserted_keyed_rows,
+        "inserted_non_key_rows_with_fixture_id": inserted_non_key_rows_with_fixture_id,
+        "inserted_non_key_rows_without_fixture_id": inserted_non_key_rows_without_fixture_id,
+        "inserted_non_key_rows": inserted_non_key_rows,
+        "total_inserted_rows": total_inserted_rows,
+    }
 
 
 def get_param_list(table_id: str, column: str) -> list[Any]:

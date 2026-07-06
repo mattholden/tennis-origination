@@ -1,0 +1,110 @@
+{
+    "data": [
+      {
+        "sport": {
+          "id": "tennis",
+          "name": "Tennis",
+          "numerical_id": 25
+        },
+        "league": {
+          "id": "atp",
+          "name": "ATP",
+          "numerical_id": 20
+        },
+        "fixture": {
+          "id": "6FFBBE61E533",
+          "numerical_id": null,
+          "game_id": "48101-24114-2024-51",
+          "is_live": false,
+          "start_date": "2024-12-18T11:10:00Z",
+          "home_competitors": [
+            {
+              "id": "99F7614E9B2E",
+              "numerical_id": 1079,
+              "base_id": 1056,
+              "name": "Juncheng Shang",
+              "abbreviation": "",
+              "logo": "https://cdn.opticodds.com/team-logos/tennis/1056.png"
+            }
+          ],
+          "home_team_display": "Juncheng Shang",
+          "away_competitors": [
+            {
+              "id": "9F510576E2CD",
+              "numerical_id": 1105,
+              "base_id": 1082,
+              "name": "Luca Van Assche",
+              "abbreviation": "",
+              "logo": "https://cdn.opticodds.com/team-logos/tennis/1082.png"
+            }
+          ],
+          "away_team_display": "Luca Van Assche",
+          "tournament": null,
+          "tournament_stage": null,
+          "status": "completed",
+          "season_type": "Next Gen ATP Finals presented by PIF 2024",
+          "season_year": "ATP World Tour 2024",
+          "season_week": "group stage",
+          "venue_location": "Jeddah, Saudi Arabia",
+          "venue_name": null,
+          "venue_neutral": true
+        },
+        "scores": {
+          "home": {
+            "total": 1,
+            "periods": {
+              "period_1": 3,
+              "period_2": 4,
+              "period_3": 1,
+              "period_4": 3
+            },
+            "aggregate": null
+          },
+          "away": {
+            "total": 3,
+            "periods": {
+              "period_1": 4,
+              "period_2": 2,
+              "period_3": 4,
+              "period_4": 4
+            },
+            "aggregate": null
+          }
+        },
+        "in_play": {
+          "period": "4",
+          "period_number": null,
+          "clock": null,
+          "last_play": null,
+          "time_min": null,
+          "time_sec": null,
+          "balls": null,
+          "outs": null,
+          "strikes": null,
+          "runners": null,
+          "batter": null,
+          "pitcher": null,
+          "possession": null,
+          "down": null,
+          "distance_to_go": null,
+          "field_position": null,
+          "game_score": null,
+          "is_clock_stopped": false
+        },
+        "events": [],
+        "stats": null,
+        "market_stats": null,
+        "sub_scores": null,
+        "extra": {
+          "decision": null,
+          "decision_method": null,
+          "duration": null,
+          "toss_decision": null,
+          "attendance": null,
+          "capacity": null
+        },
+        "retirement_info": null,
+        "last_checked_at": "2024-12-18T23:10:01.218827Z"
+      }
+    ]
+  }
