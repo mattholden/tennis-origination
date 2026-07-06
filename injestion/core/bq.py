@@ -217,6 +217,94 @@ WHERE T.fixture_id IN UNNEST(@fixture_ids)
     return total_deleted
 
 
+def merge_fixture_rows_by_fixture_id(table_id: str, rows: list[dict[str, Any]]) -> dict[str, int]:
+    """
+    Insert fixture rows with dedupe on fixture id.
+
+    Behavior:
+    - rows with non-null id are merged on id (insert when not matched)
+    - rows with null id are inserted as-is
+
+    Returns counts for observability.
+    """
+    if not rows:
+        return {
+            "input_rows": 0,
+            "source_keyed_rows": 0,
+            "source_non_key_rows": 0,
+            "source_keyed_rows_deduped": 0,
+            "inserted_keyed_rows": 0,
+            "inserted_non_key_rows": 0,
+            "total_inserted_rows": 0,
+        }
+
+    keyed_rows: list[dict[str, Any]] = []
+    non_key_rows: list[dict[str, Any]] = []
+    for row in rows:
+        if row.get("id") is None:
+            non_key_rows.append(row)
+        else:
+            keyed_rows.append(row)
+
+    # Dedupe incoming keyed rows by fixture id so MERGE source has unique keys.
+    deduped_by_fixture_id: dict[str, dict[str, Any]] = {}
+    for row in keyed_rows:
+        deduped_by_fixture_id[str(row["id"])] = row
+    keyed_rows_deduped = list(deduped_by_fixture_id.values())
+
+    inserted_keyed_rows = 0
+    if keyed_rows_deduped:
+        client = get_client()
+        target_table = client.get_table(table_id)
+        temp_table_id = (
+            f"{target_table.project}.{target_table.dataset_id}."
+            f"_tmp_fixture_merge_{uuid.uuid4().hex[:12]}"
+        )
+
+        temp_table = bigquery.Table(temp_table_id, schema=target_table.schema)
+        temp_table.expires = datetime.now(timezone.utc) + timedelta(hours=1)
+
+        try:
+            client.create_table(temp_table)
+
+            errors = client.insert_rows_json(temp_table_id, keyed_rows_deduped)
+            if errors:
+                sample = errors[:3] if len(errors) > 3 else errors
+                raise RuntimeError(
+                    "BigQuery insert_rows_json failed for fixture merge staging "
+                    f"(table={temp_table_id}, {len(errors)} errors): {sample}"
+                )
+
+            target_cols = [field.name for field in target_table.schema]
+            insert_cols_sql = ", ".join(f"`{c}`" for c in target_cols)
+            insert_vals_sql = ", ".join(f"S.`{c}`" for c in target_cols)
+            merge_sql = f"""
+MERGE `{table_id}` T
+USING `{temp_table_id}` S
+ON T.id = S.id
+WHEN NOT MATCHED BY TARGET THEN
+  INSERT ({insert_cols_sql})
+  VALUES ({insert_vals_sql})
+"""
+            job = client.query(merge_sql)
+            job.result()
+            inserted_keyed_rows = int(job.num_dml_affected_rows or 0)
+        finally:
+            client.delete_table(temp_table_id, not_found_ok=True)
+
+    inserted_non_key_rows = write_rows(table_id, non_key_rows) if non_key_rows else 0
+    total_inserted_rows = inserted_keyed_rows + inserted_non_key_rows
+    return {
+        "input_rows": len(rows),
+        "source_keyed_rows": len(keyed_rows),
+        "source_non_key_rows": len(non_key_rows),
+        "source_keyed_rows_deduped": len(keyed_rows_deduped),
+        "inserted_keyed_rows": inserted_keyed_rows,
+        "inserted_non_key_rows": inserted_non_key_rows,
+        "total_inserted_rows": total_inserted_rows,
+    }
+
+
 def get_param_list(table_id: str, column: str) -> list[Any]:
     """
     Query the table for distinct values of one column. Use for parameterized

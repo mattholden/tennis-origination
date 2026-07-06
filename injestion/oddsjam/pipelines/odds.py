@@ -31,7 +31,7 @@ ODDS_FAILED_FIXTURE_IDS_JSON = "raw_data/oddsjam/odds_failed_fixture_ids.json"
 
 # If set, load fixture IDs from this JSON file (list of strings) instead of the BQ fixtures table.
 # Use to process only missing fixtures, e.g. "raw_data/oddsjam/odds_missing_fixture_ids.json"
-ODDS_FIXTURE_IDS_JSON: str | None = "raw_data/oddsjam/odds_missing_fixture_ids.json"
+ODDS_FIXTURE_IDS_JSON: str | None = None
 
 _odds_semaphore = asyncio.Semaphore(ODDS_MAX_CONCURRENT)
 

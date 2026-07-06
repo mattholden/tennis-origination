@@ -87,7 +87,7 @@ def _fixture_row_to_bq(row: dict[str, Any]) -> dict[str, Any]:
 def payload_to_rows(raw: dict) -> list[dict]:
     """
     Transform one page response to fixture rows.
-    raw: {"data": [fixture_dict, ...], "page": N, "total_pages": N}
+    raw: {"data": [fixture_dict, ...], "page": N, "has_more": bool}
     """
     data = raw.get("data") or []
     return [_fixture_row_to_bq(row) for row in data]

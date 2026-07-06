@@ -2,7 +2,7 @@
 OpticOdds fixtures endpoint: API endpoint and fetch.
 
 Endpoint: GET /fixtures with query params (sport, league, page).
-Bulk import: no year or season_week; iterate all pages using total_pages from response.
+Bulk import: no year or season_week; iterate pages until has_more is false.
 """
 
 
