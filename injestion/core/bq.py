@@ -7,10 +7,12 @@ GOOGLE_APPLICATION_CREDENTIALS or Application Default Credentials.
 """
 
 import os
+import time
 import uuid
 from datetime import datetime, timedelta, timezone
 from typing import Any
 
+from google.api_core import exceptions as gapi_exceptions
 from google.cloud import bigquery
 
 
@@ -110,20 +112,9 @@ def merge_odds_rows_by_odds_id(table_id: str, rows: list[dict[str, Any]]) -> dic
         temp_table = bigquery.Table(temp_table_id, schema=merge_target_table.schema)
         temp_table.expires = datetime.now(timezone.utc) + timedelta(hours=1)
 
-        try:
-            merge_client.create_table(temp_table)
-
-            errors = merge_client.insert_rows_json(temp_table_id, source_rows)
-            if errors:
-                sample = errors[:3] if len(errors) > 3 else errors
-                raise RuntimeError(
-                    "BigQuery insert_rows_json failed for odds merge staging "
-                    f"(table={temp_table_id}, {len(errors)} errors): {sample}"
-                )
-
-            insert_cols_sql = ", ".join(f"`{c}`" for c in merge_target_cols)
-            insert_vals_sql = ", ".join(f"S.`{c}`" for c in merge_target_cols)
-            merge_sql = f"""
+        insert_cols_sql = ", ".join(f"`{c}`" for c in merge_target_cols)
+        insert_vals_sql = ", ".join(f"S.`{c}`" for c in merge_target_cols)
+        merge_sql = f"""
 MERGE `{table_id}` T
 USING `{temp_table_id}` S
 ON T.`{key_column}` = S.`{key_column}`
@@ -131,9 +122,36 @@ WHEN NOT MATCHED BY TARGET THEN
   INSERT ({insert_cols_sql})
   VALUES ({insert_vals_sql})
 """
-            job = merge_client.query(merge_sql)
-            job.result()
-            return int(job.num_dml_affected_rows or 0)
+        max_attempts = 3
+        try:
+            for attempt in range(1, max_attempts + 1):
+                try:
+                    # exists_ok handles rare retries where the table was created but timing/visibility lagged.
+                    merge_client.create_table(temp_table, exists_ok=True)
+
+                    errors = merge_client.insert_rows_json(temp_table_id, source_rows)
+                    if errors:
+                        sample = errors[:3] if len(errors) > 3 else errors
+                        raise RuntimeError(
+                            "BigQuery insert_rows_json failed for odds merge staging "
+                            f"(table={temp_table_id}, {len(errors)} errors): {sample}"
+                        )
+
+                    job = merge_client.query(merge_sql)
+                    job.result()
+                    return int(job.num_dml_affected_rows or 0)
+                except gapi_exceptions.NotFound as e:
+                    if attempt == max_attempts:
+                        raise
+                    print(
+                        (
+                            f"  Staging table not found for odds merge ({temp_table_id}) "
+                            f"on attempt {attempt}/{max_attempts}; retrying."
+                        ),
+                        flush=True,
+                    )
+                    merge_client.delete_table(temp_table_id, not_found_ok=True)
+                    time.sleep(0.5 * attempt)
         finally:
             merge_client.delete_table(temp_table_id, not_found_ok=True)
 
@@ -263,22 +281,10 @@ def merge_fixture_rows_by_fixture_id(table_id: str, rows: list[dict[str, Any]]) 
 
         temp_table = bigquery.Table(temp_table_id, schema=target_table.schema)
         temp_table.expires = datetime.now(timezone.utc) + timedelta(hours=1)
-
-        try:
-            client.create_table(temp_table)
-
-            errors = client.insert_rows_json(temp_table_id, keyed_rows_deduped)
-            if errors:
-                sample = errors[:3] if len(errors) > 3 else errors
-                raise RuntimeError(
-                    "BigQuery insert_rows_json failed for fixture merge staging "
-                    f"(table={temp_table_id}, {len(errors)} errors): {sample}"
-                )
-
-            target_cols = [field.name for field in target_table.schema]
-            insert_cols_sql = ", ".join(f"`{c}`" for c in target_cols)
-            insert_vals_sql = ", ".join(f"S.`{c}`" for c in target_cols)
-            merge_sql = f"""
+        target_cols = [field.name for field in target_table.schema]
+        insert_cols_sql = ", ".join(f"`{c}`" for c in target_cols)
+        insert_vals_sql = ", ".join(f"S.`{c}`" for c in target_cols)
+        merge_sql = f"""
 MERGE `{table_id}` T
 USING `{temp_table_id}` S
 ON T.id = S.id
@@ -286,9 +292,37 @@ WHEN NOT MATCHED BY TARGET THEN
   INSERT ({insert_cols_sql})
   VALUES ({insert_vals_sql})
 """
-            job = client.query(merge_sql)
-            job.result()
-            inserted_keyed_rows = int(job.num_dml_affected_rows or 0)
+        max_attempts = 3
+
+        try:
+            for attempt in range(1, max_attempts + 1):
+                try:
+                    client.create_table(temp_table, exists_ok=True)
+
+                    errors = client.insert_rows_json(temp_table_id, keyed_rows_deduped)
+                    if errors:
+                        sample = errors[:3] if len(errors) > 3 else errors
+                        raise RuntimeError(
+                            "BigQuery insert_rows_json failed for fixture merge staging "
+                            f"(table={temp_table_id}, {len(errors)} errors): {sample}"
+                        )
+
+                    job = client.query(merge_sql)
+                    job.result()
+                    inserted_keyed_rows = int(job.num_dml_affected_rows or 0)
+                    break
+                except gapi_exceptions.NotFound:
+                    if attempt == max_attempts:
+                        raise
+                    print(
+                        (
+                            f"  Staging table not found for fixture merge ({temp_table_id}) "
+                            f"on attempt {attempt}/{max_attempts}; retrying."
+                        ),
+                        flush=True,
+                    )
+                    client.delete_table(temp_table_id, not_found_ok=True)
+                    time.sleep(0.5 * attempt)
         finally:
             client.delete_table(temp_table_id, not_found_ok=True)
 

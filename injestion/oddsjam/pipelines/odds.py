@@ -30,10 +30,46 @@ ODDS_BATCH_SIZE = 2000
 ODDS_FAILED_FIXTURE_IDS_JSON = "raw_data/oddsjam/odds_failed_fixture_ids.json"
 
 # If set, load fixture IDs from this JSON file (list of strings) instead of the BQ fixtures table.
-# Use to process only missing fixtures, e.g. "raw_data/oddsjam/odds_missing_fixture_ids.json"
-ODDS_FIXTURE_IDS_JSON: str | None = None
+# Use to process a targeted fixture-id list, e.g. missing or failed fixtures.
+ODDS_FIXTURE_IDS_JSON: str | None = "raw_data/oddsjam/odds_failed_fixture_ids.json"
 
 _odds_semaphore = asyncio.Semaphore(ODDS_MAX_CONCURRENT)
+
+
+def _describe_fetch_exception(exc: Exception) -> str:
+    """Return concise one-line exception details for terminal prints."""
+    parts = [type(exc).__name__]
+    response = getattr(exc, "response", None)
+    if response is not None:
+        status_code = getattr(response, "status_code", None)
+        if status_code is not None:
+            parts.append(f"status={status_code}")
+        error_message = None
+        try:
+            payload = response.json()
+        except Exception:
+            payload = None
+        if isinstance(payload, dict):
+            for key in ("error", "message", "detail"):
+                value = payload.get(key)
+                if value:
+                    error_message = value
+                    break
+        try:
+            body = response.text
+        except Exception:
+            body = None
+        snippet_source = error_message if error_message is not None else body
+        if snippet_source:
+            snippet = " ".join(str(snippet_source).split())
+            parts.append(f"error={snippet[:120]}")
+    else:
+        message = " ".join(str(exc).split())
+        if " for url " in message:
+            message = message.split(" for url ", 1)[0]
+        if message:
+            parts.append(f"error={message[:120]}")
+    return " | ".join(parts)
 
 
 async def run(client, manager, bq) -> None:
@@ -81,6 +117,20 @@ async def run(client, manager, bq) -> None:
 
     total = len(fixture_ids)
     skipped_after_retries: list[str] = []
+    skipped_after_retries_seen: set[str] = set()
+    failed_ids_out_path = Path(ODDS_FAILED_FIXTURE_IDS_JSON)
+
+    def persist_failed_fixture_ids() -> None:
+        """Persist failed fixture ids atomically so partial progress survives crashes."""
+        failed_ids_out_path.parent.mkdir(parents=True, exist_ok=True)
+        tmp_path = failed_ids_out_path.with_name(f"{failed_ids_out_path.name}.tmp")
+        with open(tmp_path, "w") as f:
+            json.dump(skipped_after_retries, f, indent=2)
+        tmp_path.replace(failed_ids_out_path)
+
+    # Reset checkpoint file at run start so it tracks this run's failures.
+    persist_failed_fixture_ids()
+    print(f"Checkpointing failed fixture IDs to {failed_ids_out_path}", flush=True)
     batch: list = []
     fixtures_with_real_odds: set[str] = set()
 
@@ -114,12 +164,24 @@ async def run(client, manager, bq) -> None:
                     try:
                         raw = await manager.get_raw_async("oddsjam_odds", client, fixture_id=fixture_id)
                         result_queue.put_nowait((fixture_id, raw))
-                    except Exception:
-                        print(f"\r  Fetch failed: {fixture_id}          ", flush=True)
+                    except Exception as e:
+                        print(
+                            f"\r  Fetch failed: {fixture_id} — {_describe_fetch_exception(e)}",
+                            flush=True,
+                        )
                         if attempt + 1 < ODDS_MAX_RETRIES:
                             work_queue.put_nowait((fixture_id, attempt + 1))
                         else:
-                            skipped_after_retries.append(fixture_id)
+                            if fixture_id not in skipped_after_retries_seen:
+                                skipped_after_retries_seen.add(fixture_id)
+                                skipped_after_retries.append(fixture_id)
+                                try:
+                                    persist_failed_fixture_ids()
+                                except Exception as write_exc:
+                                    print(
+                                        f"\n  Failed to checkpoint failed fixture IDs: {write_exc}",
+                                        flush=True,
+                                    )
                             print(f"\n  Skipped after {ODDS_MAX_RETRIES} retries: {fixture_id}", flush=True)
             finally:
                 workers_in_progress -= 1
@@ -150,9 +212,53 @@ async def run(client, manager, bq) -> None:
     collector_task = asyncio.create_task(collector())
     worker_tasks = [asyncio.create_task(worker()) for _ in range(ODDS_MAX_CONCURRENT)]
     sentinel_task_handle = asyncio.create_task(sentinel_task())
-    await asyncio.gather(sentinel_task_handle, *worker_tasks)
-    result_queue.put_nowait(None)  # signal collector no more results
-    await collector_task
+    worker_bundle_task = asyncio.gather(sentinel_task_handle, *worker_tasks)
+
+    try:
+        # Wait for whichever side completes first so we can react immediately.
+        # Using FIRST_EXCEPTION can deadlock here when workers finish cleanly,
+        # because the collector cannot finish until it receives its sentinel.
+        done, _ = await asyncio.wait(
+            {collector_task, worker_bundle_task},
+            return_when=asyncio.FIRST_COMPLETED,
+        )
+
+        if collector_task in done:
+            collector_exc = collector_task.exception()
+            if collector_exc is not None:
+                worker_bundle_task.cancel()
+                await asyncio.gather(worker_bundle_task, return_exceptions=True)
+                raise RuntimeError(
+                    "Collector task failed; cancelled workers and stopping odds pipeline."
+                ) from collector_exc
+
+            # Collector should normally finish only after we send a sentinel; if it
+            # exits early without error, still await workers and surface failures.
+            await worker_bundle_task
+            worker_exc = worker_bundle_task.exception()
+            if worker_exc is not None:
+                raise RuntimeError(
+                    "Worker/sentinel task failed after collector completed."
+                ) from worker_exc
+        else:
+            worker_exc = worker_bundle_task.exception()
+            if worker_exc is not None:
+                collector_task.cancel()
+                await asyncio.gather(collector_task, return_exceptions=True)
+                raise RuntimeError(
+                    "Worker/sentinel task failed; cancelled collector and stopping odds pipeline."
+                ) from worker_exc
+
+            if not collector_task.done():
+                result_queue.put_nowait(None)  # signal collector no more results
+                await collector_task
+    finally:
+        if not worker_bundle_task.done():
+            worker_bundle_task.cancel()
+            await asyncio.gather(worker_bundle_task, return_exceptions=True)
+        if not collector_task.done():
+            collector_task.cancel()
+            await asyncio.gather(collector_task, return_exceptions=True)
     if fixtures_with_real_odds:
         deleted = bq.delete_stale_no_odds_rows_for_fixtures(
             odds_table_id,
@@ -162,10 +268,13 @@ async def run(client, manager, bq) -> None:
             f"  Cleanup removed {deleted} stale no-odds rows across {len(fixtures_with_real_odds)} fixtures",
             flush=True,
         )
+    try:
+        persist_failed_fixture_ids()
+    except Exception as write_exc:
+        print(f"  Failed to write final failed fixture IDs checkpoint: {write_exc}", flush=True)
     if skipped_after_retries:
-        out_path = Path(ODDS_FAILED_FIXTURE_IDS_JSON)
-        out_path.parent.mkdir(parents=True, exist_ok=True)
-        with open(out_path, "w") as f:
-            json.dump(skipped_after_retries, f, indent=2)
-        print(f"  Wrote {len(skipped_after_retries)} failed fixture IDs to {out_path}", flush=True)
+        print(
+            f"  Checkpointed {len(skipped_after_retries)} failed fixture IDs to {failed_ids_out_path}",
+            flush=True,
+        )
     print()
