@@ -51,7 +51,14 @@ async def run(client, manager, bq) -> None:
             )
         print(f"Using {len(fixture_ids)} fixture IDs from {RESULTS_FIXTURE_IDS_JSON}")
     else:
-        fixture_ids = bq.get_param_list(odds_table_id, "fixture_id")
+        fixture_ids = bq.get_fixture_ids_missing_results_rows(odds_table_id, results_table_id)
+        print(
+            (
+                "Incremental results mode: using fixture IDs missing from results table "
+                f"({len(fixture_ids)} fixtures)"
+            ),
+            flush=True,
+        )
 
     fixture_ids = [str(fid) for fid in fixture_ids if fid]
     fixture_ids = list(dict.fromkeys(fixture_ids))

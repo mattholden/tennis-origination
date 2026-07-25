@@ -1,6 +1,6 @@
 """
-OddsJam odds pipeline: pull fixture_ids from BQ fixtures table, fetch odds in parallel (async),
-transform and batch-upload to BigQuery. Throttled to avoid OpticOdds 429 rate limits.
+OddsJam odds pipeline: pull fixture_ids from BQ fixtures table, fetch odds in
+parallel (async), transform and batch-upload to BigQuery.
 
 After all inserts, removes stale no-odds sentinel rows for fixtures that received
 at least one real odds row in this run.
@@ -31,7 +31,10 @@ ODDS_FAILED_FIXTURE_IDS_JSON = "raw_data/oddsjam/odds_failed_fixture_ids.json"
 
 # If set, load fixture IDs from this JSON file (list of strings) instead of the BQ fixtures table.
 # Use to process a targeted fixture-id list, e.g. missing or failed fixtures.
-ODDS_FIXTURE_IDS_JSON: str | None = "raw_data/oddsjam/odds_failed_fixture_ids.json"
+ODDS_FIXTURE_IDS_JSON: str | None = None
+
+# By default, run incrementally and fetch odds only for fixtures missing odds rows.
+ODDS_ONLY_MISSING_FIXTURES = True
 
 _odds_semaphore = asyncio.Semaphore(ODDS_MAX_CONCURRENT)
 
@@ -85,8 +88,21 @@ async def run(client, manager, bq) -> None:
         if not isinstance(fixture_ids, list):
             raise TypeError(f"ODDS_FIXTURE_IDS_JSON must be a JSON list of fixture IDs, got {type(fixture_ids)}")
         print(f"Using {len(fixture_ids)} fixture IDs from {ODDS_FIXTURE_IDS_JSON}")
+    elif ODDS_ONLY_MISSING_FIXTURES:
+        fixture_ids = bq.get_fixture_ids_missing_odds_rows(fixtures_table_id, odds_table_id)
+        print(
+            (
+                "Incremental odds mode: using fixture IDs missing from odds table "
+                f"({len(fixture_ids)} fixtures)"
+            ),
+            flush=True,
+        )
     else:
         fixture_ids = bq.get_fixture_ids_from_oddsjam_fixtures_table(fixtures_table_id)
+        print(
+            f"Full odds mode: using all fixture IDs from fixtures table ({len(fixture_ids)} fixtures)",
+            flush=True,
+        )
     if ODDS_TEST_LIMIT is not None:
         fixture_ids = fixture_ids[:ODDS_TEST_LIMIT]
         print(f"Test run: limiting to {ODDS_TEST_LIMIT} fixtures")
