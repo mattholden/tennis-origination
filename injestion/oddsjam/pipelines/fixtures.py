@@ -1,30 +1,70 @@
 """
-OddsJam fixtures pipeline: bulk import all fixtures by league (ATP, WTA).
+OddsJam fixtures pipeline: incremental fixture import by league (ATP, WTA).
 API calls -> schema transforms -> BQ upload. Saves first page per league as sample JSON.
 """
 
 import asyncio
+from datetime import timedelta
 
 import injestion.core.raw_store
+from injestion.oddsjam.fetch.fixtures import DEFAULT_START_DATE_AFTER
 from injestion.oddsjam.schema import seasons as schema_seasons
 
 
 LEAGUES = ("ATP", "WTA")
 # LEAGUES = ("davis_cup", "laver_cup", "united_cup", "atp_challenger")
 PAGE_DELAY_SECONDS = 0.5
+FIXTURES_LOOKBACK_DAYS = 7
+
+
+def _resolve_start_date_after(
+    bq,
+    fixtures_table_id: str,
+    *,
+    league: str,
+) -> str:
+    """
+    Return an incremental lower bound for fixture fetches.
+
+    Uses league-specific MAX(start_date) from BQ minus a small lookback window.
+    Falls back to DEFAULT_START_DATE_AFTER when no historical rows exist.
+    """
+    max_start_date = bq.get_max_start_date_from_oddsjam_fixtures_table(
+        fixtures_table_id,
+        league_name=league,
+    )
+    if max_start_date is None:
+        return DEFAULT_START_DATE_AFTER
+
+    incremental_start = (max_start_date - timedelta(days=FIXTURES_LOOKBACK_DAYS)).date().isoformat()
+    return max(incremental_start, DEFAULT_START_DATE_AFTER)
 
 
 async def run(client, manager, bq) -> None:
-    """Bulk fetch fixture pages per league until has_more is false; transform via schema; write fixtures and seasons to BQ."""
+    """Fetch fixture pages incrementally per league; transform and write fixtures and seasons to BQ."""
     fixtures_table_id = manager.get_table_id("oddsjam_fixtures")
     seasons_table_id = manager.get_table_id("oddsjam_seasons")
 
     for league in LEAGUES:
         season_rows: list[dict] = []
         page = 1
+        start_date_after = _resolve_start_date_after(bq, fixtures_table_id, league=league)
+        print(
+            (
+                f"Fixtures incremental window for {league}: "
+                f"start_date_after={start_date_after} (lookback_days={FIXTURES_LOOKBACK_DAYS})"
+            ),
+            flush=True,
+        )
 
         while True:
-            raw = await manager.get_raw_async("oddsjam_fixtures", client, league=league, page=page)
+            raw = await manager.get_raw_async(
+                "oddsjam_fixtures",
+                client,
+                league=league,
+                page=page,
+                start_date_after=start_date_after,
+            )
             if page == 1:
                 path = injestion.core.raw_store.save_raw_to_json(
                     raw,

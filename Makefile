@@ -1,4 +1,4 @@
-.PHONY: run sportradar-pipeline oddsjam-pipeline
+.PHONY: run sportradar-pipeline oddsjam-pipeline oj-pipeline-fixtures oj-pipeline-odds oj-pipeline-results oj-pipeline-incremental
 
 run:
 	uv run python -m injestion.runner
@@ -35,3 +35,6 @@ oj-pipeline-odds:
 
 oj-pipeline-results:
 	uv run python -m injestion.runner oddsjam results
+
+oj-pipeline-incremental:
+	uv run python -m injestion.runner oddsjam fixtures && uv run python -m injestion.runner oddsjam odds && uv run python -m injestion.runner oddsjam results

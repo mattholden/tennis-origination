@@ -432,6 +432,91 @@ def get_fixture_ids_from_oddsjam_fixtures_table(fixtures_table_id: str) -> list[
     job = client.query(sql)
     return [row["id"] for row in job.result() if row["id"] is not None]
 
+
+def get_fixture_ids_missing_odds_rows(fixtures_table_id: str, odds_table_id: str) -> list[str]:
+    """
+    Return fixture ids present in fixtures table but missing from odds table.
+
+    A fixture is considered "already processed" if any odds-table row exists for it
+    (including a no-odds sentinel row).
+    """
+    client = get_client()
+    sql = f"""
+SELECT DISTINCT f.id
+FROM `{fixtures_table_id}` f
+LEFT JOIN (
+  SELECT DISTINCT fixture_id
+  FROM `{odds_table_id}`
+  WHERE fixture_id IS NOT NULL
+) o
+ON f.id = o.fixture_id
+WHERE f.id IS NOT NULL
+  AND o.fixture_id IS NULL
+"""
+    job = client.query(sql)
+    return [row["id"] for row in job.result() if row["id"] is not None]
+
+
+def get_fixture_ids_missing_results_rows(odds_table_id: str, results_table_id: str) -> list[str]:
+    """
+    Return fixture ids present in odds table but missing from results table.
+    """
+    client = get_client()
+    sql = f"""
+SELECT DISTINCT o.fixture_id
+FROM `{odds_table_id}` o
+LEFT JOIN (
+  SELECT DISTINCT fixture_id
+  FROM `{results_table_id}`
+  WHERE fixture_id IS NOT NULL
+) r
+ON o.fixture_id = r.fixture_id
+WHERE o.fixture_id IS NOT NULL
+  AND r.fixture_id IS NULL
+"""
+    job = client.query(sql)
+    return [row["fixture_id"] for row in job.result() if row["fixture_id"] is not None]
+
+
+def get_max_start_date_from_oddsjam_fixtures_table(
+    fixtures_table_id: str,
+    *,
+    league_name: str | None = None,
+) -> datetime | None:
+    """
+    Return MAX(start_date) from the fixtures table, optionally scoped by league.
+
+    Returns None when the table is empty or does not exist yet.
+    """
+    client = get_client()
+    if league_name:
+        sql = f"""
+SELECT MAX(start_date) AS max_start_date
+FROM `{fixtures_table_id}`
+WHERE UPPER(league_name) = UPPER(@league_name)
+"""
+        job_config = bigquery.QueryJobConfig(
+            query_parameters=[
+                bigquery.ScalarQueryParameter("league_name", "STRING", league_name),
+            ]
+        )
+    else:
+        sql = f"SELECT MAX(start_date) AS max_start_date FROM `{fixtures_table_id}`"
+        job_config = None
+
+    try:
+        job = client.query(sql, job_config=job_config)
+        rows = list(job.result())
+    except gapi_exceptions.NotFound:
+        return None
+
+    if not rows:
+        return None
+    max_start_date = rows[0]["max_start_date"]
+    if max_start_date is None:
+        return None
+    return max_start_date
+
 def get_existing_season_ids_from_season_brackets_table(season_brackets_table_id: str) -> list[str]:
     """
     Return the list of season ids from the season brackets table.
