@@ -10,6 +10,7 @@ import os
 # Env var name -> logical resource key is inverted: we map logical key -> env var
 TABLE_ID_ENV: dict[str, str] = {
     "cleaned_pbp_with_server": "BIGQUERY_REFINED_CLEANED_PBP_WITH_SERVER_TABLE_ID",
+    "consensus": "BIGQUERY_REFINED_CONSENSUS_TABLE_ID",
     "serve_stats": "BIGQUERY_REFINED_SERVE_STATS_TABLE_ID",
 }
 
