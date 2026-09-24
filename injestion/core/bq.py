@@ -668,6 +668,63 @@ def get_existing_season_ids_from_season_brackets_table(season_brackets_table_id:
     job = client.query(sql)
     return [row["season_id"] for row in job.result() if row["season_id"] is not None]
 
+
+def get_completed_season_ids_from_season_brackets_table(season_brackets_table_id: str) -> list[str]:
+    """
+    Return season ids that have at least one actual bracket row.
+
+    A season is considered completed when it has at least one row with
+    non-null cup_round_id. Placeholder rows (all-null bracket fields) do not
+    mark the season as completed.
+    """
+    client = get_client()
+    sql = f"""
+SELECT DISTINCT season_id
+FROM `{season_brackets_table_id}`
+WHERE season_id IS NOT NULL
+  AND cup_round_id IS NOT NULL
+"""
+    job = client.query(sql)
+    return [row["season_id"] for row in job.result() if row["season_id"] is not None]
+
+
+def replace_season_brackets_rows_for_season(
+    table_id: str,
+    season_id: str,
+    rows: list[dict[str, Any]],
+) -> dict[str, int]:
+    """
+    Replace all season_brackets rows for one season with the provided rows.
+
+    Intended for seasons that are not yet completed (e.g. placeholder rows).
+    """
+    if not season_id:
+        raise ValueError("season_id is required to replace season_brackets rows.")
+
+    normalized_rows: list[dict[str, Any]] = []
+    for row in rows:
+        row_copy = dict(row)
+        row_copy["season_id"] = season_id
+        normalized_rows.append(row_copy)
+
+    client = get_client()
+    delete_sql = f"DELETE FROM `{table_id}` WHERE season_id = @season_id"
+    job_config = bigquery.QueryJobConfig(
+        query_parameters=[
+            bigquery.ScalarQueryParameter("season_id", "STRING", season_id),
+        ]
+    )
+    delete_job = client.query(delete_sql, job_config=job_config)
+    delete_job.result()
+    deleted_rows = int(delete_job.num_dml_affected_rows or 0)
+
+    inserted_rows = write_rows(table_id, normalized_rows) if normalized_rows else 0
+    return {
+        "input_rows": len(rows),
+        "deleted_rows": deleted_rows,
+        "inserted_rows": inserted_rows,
+    }
+
 def get_existing_sport_event_ids_from_event_summary_table(event_summary_table_id: str) -> list[str]:
     """
     Return the list of sport event ids from the event summary table.

@@ -139,3 +139,72 @@ Apply this sequence pipeline-by-pipeline.
 - Share only low-level merge staging primitives where behavior is truly common.
 - Do not over-generalize dedupe semantics across resources with different key/row shapes.
 
+---
+
+## Season Brackets Variant (Implemented Pattern)
+
+`season_brackets` uses a variant of this template because placeholder rows are
+part of normal behavior and completion is season-level, not row-level.
+
+### Scope selector (completion-based)
+
+Instead of a date window, season selection is:
+
+- `all_season_ids` from `sr_seasons`
+- minus `completed_season_ids` from `sr_season_brackets` where:
+  - `cup_round_id IS NOT NULL`
+
+A season is considered completed once any actual bracket row exists.
+Seasons with only placeholder rows (null bracket fields) stay in process scope.
+
+**Code**
+- `injestion/core/bq.py`
+  - `get_completed_season_ids_from_season_brackets_table(...)`
+- `injestion/sportradar/pipelines/season_brackets.py`
+  - completion-based filtering logic
+
+### Write model (replace per season on success)
+
+For each successfully fetched season:
+
+1. delete existing rows for that `season_id`
+2. insert transformed rows for that season
+
+This model was chosen to:
+- replace placeholder/null-only rows with fresh data
+- avoid accumulating duplicate placeholder rows
+
+**Code**
+- `injestion/core/bq.py`
+  - `replace_season_brackets_rows_for_season(...)`
+
+### Retry + failed checkpoint + failed-only rerun
+
+Implemented exactly in the same style as `season_competitors`:
+
+- per-season retries:
+  - `SEASON_BRACKETS_MAX_RETRIES = 3`
+  - `SEASON_BRACKETS_RETRY_DELAY_SECONDS = 1.0`
+- failed ID checkpoint file:
+  - `raw_data/sportradar/failed_processes/season_brackets_failed_season_ids.json`
+- failed-only override env:
+  - `SR_SEASON_BRACKETS_IDS_JSON`
+- Makefile toggles:
+  - `SR_SEASON_BRACKETS_FAILED_ONLY ?= 0`
+  - `SR_SEASON_BRACKETS_FAILED_IDS_JSON ?= raw_data/sportradar/failed_processes/season_brackets_failed_season_ids.json`
+
+### Important caveats
+
+- **Delete-then-insert is not transactional** in current helper:
+  - if insert fails after delete, that season can be temporarily empty until rerun.
+- **Failed-only overrides bypass completion filter**:
+  - if a completed season ID is provided explicitly, it will still be re-fetched and replaced.
+
+### Downstream integration impact
+
+`event_summary` (and therefore `event_statistics` + `event_timeline`) sources
+`sport_event_id` from `sr_season_brackets`.
+
+This means season-brackets completeness directly controls event/timeline
+ingestion coverage.
+

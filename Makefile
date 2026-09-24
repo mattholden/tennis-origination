@@ -2,6 +2,8 @@
 
 SR_SEASON_COMPETITORS_FAILED_ONLY ?= 0
 SR_SEASON_COMPETITORS_FAILED_IDS_JSON ?= raw_data/sportradar/failed_processes/season_competitors_failed_season_ids.json
+SR_SEASON_BRACKETS_FAILED_ONLY ?= 0
+SR_SEASON_BRACKETS_FAILED_IDS_JSON ?= raw_data/sportradar/failed_processes/season_brackets_failed_season_ids.json
 
 run:
 	uv run python -m injestion.runner
@@ -29,7 +31,12 @@ sr-pipeline-competitors:
 	uv run python -m injestion.runner sportradar competitors
 
 sr-pipeline-season_brackets:
-	uv run python -m injestion.runner sportradar season_brackets
+	@if [ "$(SR_SEASON_BRACKETS_FAILED_ONLY)" = "1" ]; then \
+		echo "Running season_brackets in failed-only mode from $(SR_SEASON_BRACKETS_FAILED_IDS_JSON)"; \
+		SR_SEASON_BRACKETS_IDS_JSON="$(SR_SEASON_BRACKETS_FAILED_IDS_JSON)" uv run python -m injestion.runner sportradar season_brackets; \
+	else \
+		uv run python -m injestion.runner sportradar season_brackets; \
+	fi
 
 sr-pipeline-event_summary:
 	uv run python -m injestion.runner sportradar event_summary
