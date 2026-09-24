@@ -38,6 +38,25 @@ def write_rows(table_id: str, rows: list[dict[str, Any]]) -> int:
     return len(rows)
 
 
+def _write_rows_in_chunks(
+    table_id: str,
+    rows: list[dict[str, Any]],
+    *,
+    chunk_size: int = 2000,
+) -> int:
+    """Insert rows in bounded chunks to keep request payloads manageable."""
+    if not rows:
+        return 0
+    if chunk_size <= 0:
+        raise ValueError("chunk_size must be > 0")
+
+    inserted_rows = 0
+    for i in range(0, len(rows), chunk_size):
+        chunk = rows[i : i + chunk_size]
+        inserted_rows += write_rows(table_id, chunk)
+    return inserted_rows
+
+
 def merge_odds_rows_by_odds_id(table_id: str, rows: list[dict[str, Any]]) -> dict[str, int]:
     """
     Insert OddsJam odds rows with dedupe on odds_id.
@@ -718,12 +737,200 @@ def replace_season_brackets_rows_for_season(
     delete_job.result()
     deleted_rows = int(delete_job.num_dml_affected_rows or 0)
 
+    inserted_rows = _write_rows_in_chunks(table_id, normalized_rows, chunk_size=2000)
+    return {
+        "input_rows": len(rows),
+        "deleted_rows": deleted_rows,
+        "inserted_rows": inserted_rows,
+    }
+
+
+def get_sport_event_ids_for_event_summary_processing(
+    season_brackets_table_id: str,
+    event_summary_table_id: str,
+    *,
+    terminal_match_statuses: tuple[str, ...] = ("ended", "retired", "walkover"),
+) -> list[str]:
+    """
+    Return sport_event_ids that should be processed by the event_summary pipeline.
+
+    Candidate IDs come from season_brackets. An ID is selected when:
+    - no summary row exists yet, or
+    - at least one sparse summary row exists, or
+    - at least one non-terminal/unknown match_status row exists.
+    """
+    client = get_client()
+    sql = f"""
+WITH bracket_ids AS (
+  SELECT DISTINCT sport_event_id
+  FROM `{season_brackets_table_id}`
+  WHERE sport_event_id IS NOT NULL
+),
+summary_status AS (
+  SELECT
+    sport_event_id,
+    LOGICAL_OR(
+      generated_at IS NULL
+      AND competition_id IS NULL
+      AND season_id IS NULL
+      AND start_time IS NULL
+      AND match_status IS NULL
+    ) AS has_sparse_row,
+    LOGICAL_OR(
+      match_status IS NULL
+      OR LOWER(match_status) NOT IN UNNEST(@terminal_statuses)
+    ) AS has_non_terminal_row
+  FROM `{event_summary_table_id}`
+  WHERE sport_event_id IS NOT NULL
+  GROUP BY sport_event_id
+)
+SELECT b.sport_event_id
+FROM bracket_ids b
+LEFT JOIN summary_status s
+ON b.sport_event_id = s.sport_event_id
+WHERE s.sport_event_id IS NULL
+   OR s.has_sparse_row
+   OR s.has_non_terminal_row
+"""
+    job_config = bigquery.QueryJobConfig(
+        query_parameters=[
+            bigquery.ArrayQueryParameter(
+                "terminal_statuses",
+                "STRING",
+                [status.lower() for status in terminal_match_statuses],
+            ),
+        ]
+    )
+    job = client.query(sql, job_config=job_config)
+    return [row["sport_event_id"] for row in job.result() if row["sport_event_id"] is not None]
+
+
+def _replace_rows_for_sport_event_id(
+    table_id: str,
+    sport_event_id: str,
+    rows: list[dict[str, Any]],
+) -> dict[str, int]:
+    """Replace all rows for one sport_event_id with provided rows."""
+    if not sport_event_id:
+        raise ValueError("sport_event_id is required to replace rows.")
+
+    normalized_rows: list[dict[str, Any]] = []
+    for row in rows:
+        row_copy = dict(row)
+        row_copy["sport_event_id"] = sport_event_id
+        normalized_rows.append(row_copy)
+
+    client = get_client()
+    delete_sql = f"DELETE FROM `{table_id}` WHERE sport_event_id = @sport_event_id"
+    job_config = bigquery.QueryJobConfig(
+        query_parameters=[
+            bigquery.ScalarQueryParameter("sport_event_id", "STRING", sport_event_id),
+        ]
+    )
+    delete_job = client.query(delete_sql, job_config=job_config)
+    delete_job.result()
+    deleted_rows = int(delete_job.num_dml_affected_rows or 0)
+
     inserted_rows = write_rows(table_id, normalized_rows) if normalized_rows else 0
     return {
         "input_rows": len(rows),
         "deleted_rows": deleted_rows,
         "inserted_rows": inserted_rows,
     }
+
+
+def _replace_rows_for_sport_event_ids(
+    table_id: str,
+    sport_event_ids: list[str],
+    rows: list[dict[str, Any]],
+) -> dict[str, int]:
+    """Replace all rows for a cohort of sport_event_ids with provided rows."""
+    normalized_event_ids = [str(eid) for eid in sport_event_ids if eid]
+    # Preserve order while deduping.
+    normalized_event_ids = list(dict.fromkeys(normalized_event_ids))
+    if not normalized_event_ids:
+        raise ValueError("sport_event_ids is required to replace rows.")
+
+    client = get_client()
+    delete_sql = f"""
+DELETE FROM `{table_id}`
+WHERE sport_event_id IN UNNEST(@sport_event_ids)
+"""
+    job_config = bigquery.QueryJobConfig(
+        query_parameters=[
+            bigquery.ArrayQueryParameter(
+                "sport_event_ids",
+                "STRING",
+                normalized_event_ids,
+            ),
+        ]
+    )
+    delete_job = client.query(delete_sql, job_config=job_config)
+    delete_job.result()
+    deleted_rows = int(delete_job.num_dml_affected_rows or 0)
+
+    inserted_rows = _write_rows_in_chunks(table_id, rows, chunk_size=2000)
+    return {
+        "input_rows": len(rows),
+        "cohort_size": len(normalized_event_ids),
+        "deleted_rows": deleted_rows,
+        "inserted_rows": inserted_rows,
+    }
+
+
+def replace_event_summary_rows_for_event(
+    table_id: str,
+    sport_event_id: str,
+    rows: list[dict[str, Any]],
+) -> dict[str, int]:
+    """Replace event_summary rows for one sport_event_id."""
+    return _replace_rows_for_sport_event_id(table_id, sport_event_id, rows)
+
+
+def replace_event_statistics_rows_for_event(
+    table_id: str,
+    sport_event_id: str,
+    rows: list[dict[str, Any]],
+) -> dict[str, int]:
+    """Replace event_statistics rows for one sport_event_id."""
+    return _replace_rows_for_sport_event_id(table_id, sport_event_id, rows)
+
+
+def replace_event_timeline_rows_for_event(
+    table_id: str,
+    sport_event_id: str,
+    rows: list[dict[str, Any]],
+) -> dict[str, int]:
+    """Replace event_timeline rows for one sport_event_id."""
+    return _replace_rows_for_sport_event_id(table_id, sport_event_id, rows)
+
+
+def replace_event_summary_rows_for_events(
+    table_id: str,
+    sport_event_ids: list[str],
+    rows: list[dict[str, Any]],
+) -> dict[str, int]:
+    """Replace event_summary rows for a cohort of sport_event_ids."""
+    return _replace_rows_for_sport_event_ids(table_id, sport_event_ids, rows)
+
+
+def replace_event_statistics_rows_for_events(
+    table_id: str,
+    sport_event_ids: list[str],
+    rows: list[dict[str, Any]],
+) -> dict[str, int]:
+    """Replace event_statistics rows for a cohort of sport_event_ids."""
+    return _replace_rows_for_sport_event_ids(table_id, sport_event_ids, rows)
+
+
+def replace_event_timeline_rows_for_events(
+    table_id: str,
+    sport_event_ids: list[str],
+    rows: list[dict[str, Any]],
+) -> dict[str, int]:
+    """Replace event_timeline rows for a cohort of sport_event_ids."""
+    return _replace_rows_for_sport_event_ids(table_id, sport_event_ids, rows)
+
 
 def get_existing_sport_event_ids_from_event_summary_table(event_summary_table_id: str) -> list[str]:
     """

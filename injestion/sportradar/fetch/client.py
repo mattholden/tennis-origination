@@ -52,6 +52,8 @@ class SportradarClient:
     ) -> None:
         self._api_key = (api_key or get_api_key()).strip()
         self._base_url = (base_url or get_base_url()).rstrip("/")
+        self._headers = {"Accept": "application/json"}
+        self._async_client: httpx.AsyncClient | None = None
 
     def _url(self, path: str) -> str:
         return _build_url(self._base_url, self._api_key, path)
@@ -81,7 +83,19 @@ class SportradarClient:
         if path_params:
             path = path.format(**path_params)
         url = self._url(path)
-        async with httpx.AsyncClient(timeout=60.0) as client:
-            resp = await client.get(url, headers={"Accept": "application/json"})
-            resp.raise_for_status()
-            return resp.json()
+        client = await self._get_async_client()
+        resp = await client.get(url, headers=self._headers)
+        resp.raise_for_status()
+        return resp.json()
+
+    async def _get_async_client(self) -> httpx.AsyncClient:
+        """Return a lazily-created AsyncClient for connection reuse across requests."""
+        if self._async_client is None:
+            self._async_client = httpx.AsyncClient(timeout=60.0)
+        return self._async_client
+
+    async def aclose(self) -> None:
+        """Close the shared AsyncClient if it was created."""
+        if self._async_client is not None:
+            await self._async_client.aclose()
+            self._async_client = None

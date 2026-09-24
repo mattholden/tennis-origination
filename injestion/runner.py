@@ -41,7 +41,16 @@ class Runner:
                 f"Unknown pipeline: {name!r}. Known: {list(self._pipelines.keys())}"
             )
         fn = self._pipelines[name]
-        asyncio.run(fn(self._client, self._manager, self._bq))
+
+        async def _run_with_cleanup() -> None:
+            try:
+                await fn(self._client, self._manager, self._bq)
+            finally:
+                close_fn = getattr(self._client, "aclose", None)
+                if callable(close_fn):
+                    await close_fn()
+
+        asyncio.run(_run_with_cleanup())
 
     def list_pipelines(self) -> list[str]:
         """Return registered pipeline names."""

@@ -4,6 +4,11 @@ SR_SEASON_COMPETITORS_FAILED_ONLY ?= 0
 SR_SEASON_COMPETITORS_FAILED_IDS_JSON ?= raw_data/sportradar/failed_processes/season_competitors_failed_season_ids.json
 SR_SEASON_BRACKETS_FAILED_ONLY ?= 0
 SR_SEASON_BRACKETS_FAILED_IDS_JSON ?= raw_data/sportradar/failed_processes/season_brackets_failed_season_ids.json
+SR_EVENT_SUMMARY_FAILED_ONLY ?= 0
+SR_EVENT_SUMMARY_FAILED_IDS_JSON ?= raw_data/sportradar/failed_processes/event_summary_failed_sport_event_ids.json
+SR_EVENT_SUMMARY_MAX_CONCURRENT ?= 8
+SR_EVENT_SUMMARY_PROGRESS_LOG_EVERY ?= 100
+SR_EVENT_SUMMARY_WRITE_BATCH_EVENTS ?= 50
 
 run:
 	uv run python -m injestion.runner
@@ -11,7 +16,19 @@ run:
 # Sportradar: run a pipeline by name
 
 sr-pipeline-event_summary:
-	uv run python -m injestion.runner sportradar event_summary
+	@if [ "$(SR_EVENT_SUMMARY_FAILED_ONLY)" = "1" ]; then \
+		echo "Running event_summary in failed-only mode from $(SR_EVENT_SUMMARY_FAILED_IDS_JSON)"; \
+		SR_EVENT_SUMMARY_IDS_JSON="$(SR_EVENT_SUMMARY_FAILED_IDS_JSON)" \
+		SR_EVENT_SUMMARY_MAX_CONCURRENT="$(SR_EVENT_SUMMARY_MAX_CONCURRENT)" \
+		SR_EVENT_SUMMARY_PROGRESS_LOG_EVERY="$(SR_EVENT_SUMMARY_PROGRESS_LOG_EVERY)" \
+		SR_EVENT_SUMMARY_WRITE_BATCH_EVENTS="$(SR_EVENT_SUMMARY_WRITE_BATCH_EVENTS)" \
+		uv run python -m injestion.runner sportradar event_summary; \
+	else \
+		SR_EVENT_SUMMARY_MAX_CONCURRENT="$(SR_EVENT_SUMMARY_MAX_CONCURRENT)" \
+		SR_EVENT_SUMMARY_PROGRESS_LOG_EVERY="$(SR_EVENT_SUMMARY_PROGRESS_LOG_EVERY)" \
+		SR_EVENT_SUMMARY_WRITE_BATCH_EVENTS="$(SR_EVENT_SUMMARY_WRITE_BATCH_EVENTS)" \
+		uv run python -m injestion.runner sportradar event_summary; \
+	fi
 
 sr-pipeline-rankings:
 	uv run python -m injestion.runner sportradar rankings
@@ -38,9 +55,6 @@ sr-pipeline-season_brackets:
 		uv run python -m injestion.runner sportradar season_brackets; \
 	fi
 
-sr-pipeline-event_summary:
-	uv run python -m injestion.runner sportradar event_summary
-	
 # OddsJam: run a pipeline by name
 oj-pipeline-fixtures:
 	uv run python -m injestion.runner oddsjam fixtures
