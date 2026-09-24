@@ -492,7 +492,7 @@ def get_season_ids_from_seasons_table_by_min_start_date(
     min_start_date: str,
 ) -> list[str]:
     """
-    Return season ids whose start_date is on/after min_start_date.
+    Return season ids whose start_date is between min_start_date and today.
 
     min_start_date should be an ISO date string (YYYY-MM-DD).
     """
@@ -503,6 +503,7 @@ FROM `{seasons_table_id}`
 WHERE id IS NOT NULL
   AND start_date IS NOT NULL
   AND start_date >= @min_start_date
+  AND start_date <= CURRENT_DATE()
 """
     job_config = bigquery.QueryJobConfig(
         query_parameters=[

@@ -1,5 +1,8 @@
 .PHONY: run sportradar-pipeline oddsjam-pipeline oj-pipeline-fixtures oj-pipeline-odds oj-pipeline-results oj-pipeline-incremental
 
+SR_SEASON_COMPETITORS_FAILED_ONLY ?= 0
+SR_SEASON_COMPETITORS_FAILED_IDS_JSON ?= raw_data/sportradar/failed_processes/season_competitors_failed_season_ids.json
+
 run:
 	uv run python -m injestion.runner
 
@@ -15,7 +18,12 @@ sr-pipeline-seasons:
 	uv run python -m injestion.runner sportradar seasons
 
 sr-pipeline-season_competitors:
-	uv run python -m injestion.runner sportradar season_competitors
+	@if [ "$(SR_SEASON_COMPETITORS_FAILED_ONLY)" = "1" ]; then \
+		echo "Running season_competitors in failed-only mode from $(SR_SEASON_COMPETITORS_FAILED_IDS_JSON)"; \
+		SR_SEASON_COMPETITORS_IDS_JSON="$(SR_SEASON_COMPETITORS_FAILED_IDS_JSON)" uv run python -m injestion.runner sportradar season_competitors; \
+	else \
+		uv run python -m injestion.runner sportradar season_competitors; \
+	fi
 
 sr-pipeline-competitors:
 	uv run python -m injestion.runner sportradar competitors
