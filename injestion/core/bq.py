@@ -339,6 +339,119 @@ WHEN NOT MATCHED BY TARGET THEN
     }
 
 
+def merge_season_competitor_rows_by_season_and_competitor(
+    table_id: str,
+    rows: list[dict[str, Any]],
+) -> dict[str, int]:
+    """
+    Insert season competitor rows with dedupe on (season_id, competitor_id).
+
+    Behavior:
+    - rows with non-null season_id and competitor_id are merged on the composite key
+      (insert when not matched)
+    - rows missing either key are dropped
+
+    Returns counts for observability.
+    """
+    if not rows:
+        return {
+            "input_rows": 0,
+            "source_keyed_rows": 0,
+            "source_non_key_rows": 0,
+            "source_keyed_rows_deduped": 0,
+            "inserted_keyed_rows": 0,
+            "inserted_non_key_rows": 0,
+            "dropped_non_key_rows": 0,
+            "total_inserted_rows": 0,
+        }
+
+    keyed_rows: list[dict[str, Any]] = []
+    non_key_rows: list[dict[str, Any]] = []
+    for row in rows:
+        if row.get("season_id") is None or row.get("competitor_id") is None:
+            non_key_rows.append(row)
+        else:
+            keyed_rows.append(row)
+
+    # Dedupe incoming keyed rows by (season_id, competitor_id) so MERGE source has unique keys.
+    deduped_by_key: dict[tuple[str, str], dict[str, Any]] = {}
+    for row in keyed_rows:
+        key = (str(row["season_id"]), str(row["competitor_id"]))
+        deduped_by_key[key] = row
+    keyed_rows_deduped = list(deduped_by_key.values())
+
+    inserted_keyed_rows = 0
+    if keyed_rows_deduped:
+        client = get_client()
+        target_table = client.get_table(table_id)
+        temp_table_id = (
+            f"{target_table.project}.{target_table.dataset_id}."
+            f"_tmp_season_competitors_merge_{uuid.uuid4().hex[:12]}"
+        )
+
+        temp_table = bigquery.Table(temp_table_id, schema=target_table.schema)
+        temp_table.expires = datetime.now(timezone.utc) + timedelta(hours=1)
+        target_cols = [field.name for field in target_table.schema]
+        insert_cols_sql = ", ".join(f"`{c}`" for c in target_cols)
+        insert_vals_sql = ", ".join(f"S.`{c}`" for c in target_cols)
+        merge_sql = f"""
+MERGE `{table_id}` T
+USING `{temp_table_id}` S
+ON T.season_id = S.season_id
+AND T.competitor_id = S.competitor_id
+WHEN NOT MATCHED BY TARGET THEN
+  INSERT ({insert_cols_sql})
+  VALUES ({insert_vals_sql})
+"""
+        max_attempts = 3
+
+        try:
+            for attempt in range(1, max_attempts + 1):
+                try:
+                    client.create_table(temp_table, exists_ok=True)
+
+                    errors = client.insert_rows_json(temp_table_id, keyed_rows_deduped)
+                    if errors:
+                        sample = errors[:3] if len(errors) > 3 else errors
+                        raise RuntimeError(
+                            "BigQuery insert_rows_json failed for season competitors merge staging "
+                            f"(table={temp_table_id}, {len(errors)} errors): {sample}"
+                        )
+
+                    job = client.query(merge_sql)
+                    job.result()
+                    inserted_keyed_rows = int(job.num_dml_affected_rows or 0)
+                    break
+                except gapi_exceptions.NotFound:
+                    if attempt == max_attempts:
+                        raise
+                    print(
+                        (
+                            "  Staging table not found for season competitors merge "
+                            f"({temp_table_id}) on attempt {attempt}/{max_attempts}; retrying."
+                        ),
+                        flush=True,
+                    )
+                    client.delete_table(temp_table_id, not_found_ok=True)
+                    time.sleep(0.5 * attempt)
+        finally:
+            client.delete_table(temp_table_id, not_found_ok=True)
+
+    inserted_non_key_rows = 0
+    dropped_non_key_rows = len(non_key_rows)
+    total_inserted_rows = inserted_keyed_rows + inserted_non_key_rows
+    return {
+        "input_rows": len(rows),
+        "source_keyed_rows": len(keyed_rows),
+        "source_non_key_rows": len(non_key_rows),
+        "source_keyed_rows_deduped": len(keyed_rows_deduped),
+        "inserted_keyed_rows": inserted_keyed_rows,
+        "inserted_non_key_rows": inserted_non_key_rows,
+        "dropped_non_key_rows": dropped_non_key_rows,
+        "total_inserted_rows": total_inserted_rows,
+    }
+
+
 def get_param_list(table_id: str, column: str) -> list[Any]:
     """
     Query the table for distinct values of one column. Use for parameterized
@@ -371,6 +484,33 @@ def get_seasons_from_seasons_table(seasons_table_id: str) -> frozenset[str]:
     sql = f'SELECT DISTINCT id FROM `{seasons_table_id}`'
     job = client.query(sql)
     return frozenset(row["id"] for row in job.result() if row["id"] is not None)
+
+
+def get_season_ids_from_seasons_table_by_min_start_date(
+    seasons_table_id: str,
+    *,
+    min_start_date: str,
+) -> list[str]:
+    """
+    Return season ids whose start_date is on/after min_start_date.
+
+    min_start_date should be an ISO date string (YYYY-MM-DD).
+    """
+    client = get_client()
+    sql = f"""
+SELECT DISTINCT id
+FROM `{seasons_table_id}`
+WHERE id IS NOT NULL
+  AND start_date IS NOT NULL
+  AND start_date >= @min_start_date
+"""
+    job_config = bigquery.QueryJobConfig(
+        query_parameters=[
+            bigquery.ScalarQueryParameter("min_start_date", "DATE", min_start_date),
+        ]
+    )
+    job = client.query(sql, job_config=job_config)
+    return [row["id"] for row in job.result() if row["id"] is not None]
 
 def get_major_competition_ids() -> frozenset[str]:
     """
