@@ -12,6 +12,7 @@ TABLE_ID_ENV: dict[str, str] = {
     "cleaned_pbp_with_server": "BIGQUERY_REFINED_CLEANED_PBP_WITH_SERVER_TABLE_ID",
     "consensus": "BIGQUERY_REFINED_CONSENSUS_TABLE_ID",
     "fixture_stats": "BIGQUERY_REFINED_FIXTURE_STATS_TABLE_ID",
+    "fixture_id_mapping": "BIGQUERY_REFINED_FIXTURE_ID_MAPPING_TABLE_ID",
     "serve_stats": "BIGQUERY_REFINED_SERVE_STATS_TABLE_ID",
 }
 
