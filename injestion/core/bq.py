@@ -16,11 +16,38 @@ from google.api_core import exceptions as gapi_exceptions
 from google.cloud import bigquery
 
 
+def _infer_project_from_table_env() -> str | None:
+    """Infer GCP project from any BIGQUERY_* table id (project.dataset.table)."""
+    for key, value in os.environ.items():
+        if not key.startswith("BIGQUERY_") or not value:
+            continue
+        table_id = value.strip().strip('"').strip("'")
+        parts = table_id.split(".")
+        if len(parts) >= 3 and parts[0]:
+            return parts[0]
+    return None
+
+
 def get_client() -> bigquery.Client:
-    """Return a BigQuery client. Uses GOOGLE_APPLICATION_CREDENTIALS if set."""
-    creds_path = os.environ.get("GOOGLE_APPLICATION_CREDENTIALS")
-    if creds_path:
-        os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = creds_path
+    """
+    Return a BigQuery client.
+
+    Loads project-root `.env` (via load_env), then resolves project from
+    GOOGLE_CLOUD_PROJECT / GCLOUD_PROJECT, or by inferring from BIGQUERY_* table ids.
+    Credentials use GOOGLE_APPLICATION_CREDENTIALS if set, otherwise ADC.
+    """
+    from injestion.core.env import load_env
+
+    load_env()
+
+    project = (
+        os.environ.get("GOOGLE_CLOUD_PROJECT")
+        or os.environ.get("GCLOUD_PROJECT")
+        or _infer_project_from_table_env()
+    )
+    if project:
+        os.environ.setdefault("GOOGLE_CLOUD_PROJECT", project)
+        return bigquery.Client(project=project)
     return bigquery.Client()
 
 
