@@ -27,7 +27,6 @@ DEFAULT_SPORTSBOOKS = [
     "espn_bet",
     "betrivers",
     "underdog_sportsbook",
-    "betano",
 ]
 
 DEFAULT_MARKETS = [

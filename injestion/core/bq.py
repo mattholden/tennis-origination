@@ -16,11 +16,38 @@ from google.api_core import exceptions as gapi_exceptions
 from google.cloud import bigquery
 
 
+def _infer_project_from_table_env() -> str | None:
+    """Infer GCP project from any BIGQUERY_* table id (project.dataset.table)."""
+    for key, value in os.environ.items():
+        if not key.startswith("BIGQUERY_") or not value:
+            continue
+        table_id = value.strip().strip('"').strip("'")
+        parts = table_id.split(".")
+        if len(parts) >= 3 and parts[0]:
+            return parts[0]
+    return None
+
+
 def get_client() -> bigquery.Client:
-    """Return a BigQuery client. Uses GOOGLE_APPLICATION_CREDENTIALS if set."""
-    creds_path = os.environ.get("GOOGLE_APPLICATION_CREDENTIALS")
-    if creds_path:
-        os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = creds_path
+    """
+    Return a BigQuery client.
+
+    Loads project-root `.env` (via load_env), then resolves project from
+    GOOGLE_CLOUD_PROJECT / GCLOUD_PROJECT, or by inferring from BIGQUERY_* table ids.
+    Credentials use GOOGLE_APPLICATION_CREDENTIALS if set, otherwise ADC.
+    """
+    from injestion.core.env import load_env
+
+    load_env()
+
+    project = (
+        os.environ.get("GOOGLE_CLOUD_PROJECT")
+        or os.environ.get("GCLOUD_PROJECT")
+        or _infer_project_from_table_env()
+    )
+    if project:
+        os.environ.setdefault("GOOGLE_CLOUD_PROJECT", project)
+        return bigquery.Client(project=project)
     return bigquery.Client()
 
 
@@ -36,6 +63,25 @@ def write_rows(table_id: str, rows: list[dict[str, Any]]) -> int:
             f"BigQuery insert_rows_json failed (table={table_id}, {len(errors)} errors): {sample}"
         )
     return len(rows)
+
+
+def _write_rows_in_chunks(
+    table_id: str,
+    rows: list[dict[str, Any]],
+    *,
+    chunk_size: int = 2000,
+) -> int:
+    """Insert rows in bounded chunks to keep request payloads manageable."""
+    if not rows:
+        return 0
+    if chunk_size <= 0:
+        raise ValueError("chunk_size must be > 0")
+
+    inserted_rows = 0
+    for i in range(0, len(rows), chunk_size):
+        chunk = rows[i : i + chunk_size]
+        inserted_rows += write_rows(table_id, chunk)
+    return inserted_rows
 
 
 def merge_odds_rows_by_odds_id(table_id: str, rows: list[dict[str, Any]]) -> dict[str, int]:
@@ -339,6 +385,119 @@ WHEN NOT MATCHED BY TARGET THEN
     }
 
 
+def merge_season_competitor_rows_by_season_and_competitor(
+    table_id: str,
+    rows: list[dict[str, Any]],
+) -> dict[str, int]:
+    """
+    Insert season competitor rows with dedupe on (season_id, competitor_id).
+
+    Behavior:
+    - rows with non-null season_id and competitor_id are merged on the composite key
+      (insert when not matched)
+    - rows missing either key are dropped
+
+    Returns counts for observability.
+    """
+    if not rows:
+        return {
+            "input_rows": 0,
+            "source_keyed_rows": 0,
+            "source_non_key_rows": 0,
+            "source_keyed_rows_deduped": 0,
+            "inserted_keyed_rows": 0,
+            "inserted_non_key_rows": 0,
+            "dropped_non_key_rows": 0,
+            "total_inserted_rows": 0,
+        }
+
+    keyed_rows: list[dict[str, Any]] = []
+    non_key_rows: list[dict[str, Any]] = []
+    for row in rows:
+        if row.get("season_id") is None or row.get("competitor_id") is None:
+            non_key_rows.append(row)
+        else:
+            keyed_rows.append(row)
+
+    # Dedupe incoming keyed rows by (season_id, competitor_id) so MERGE source has unique keys.
+    deduped_by_key: dict[tuple[str, str], dict[str, Any]] = {}
+    for row in keyed_rows:
+        key = (str(row["season_id"]), str(row["competitor_id"]))
+        deduped_by_key[key] = row
+    keyed_rows_deduped = list(deduped_by_key.values())
+
+    inserted_keyed_rows = 0
+    if keyed_rows_deduped:
+        client = get_client()
+        target_table = client.get_table(table_id)
+        temp_table_id = (
+            f"{target_table.project}.{target_table.dataset_id}."
+            f"_tmp_season_competitors_merge_{uuid.uuid4().hex[:12]}"
+        )
+
+        temp_table = bigquery.Table(temp_table_id, schema=target_table.schema)
+        temp_table.expires = datetime.now(timezone.utc) + timedelta(hours=1)
+        target_cols = [field.name for field in target_table.schema]
+        insert_cols_sql = ", ".join(f"`{c}`" for c in target_cols)
+        insert_vals_sql = ", ".join(f"S.`{c}`" for c in target_cols)
+        merge_sql = f"""
+MERGE `{table_id}` T
+USING `{temp_table_id}` S
+ON T.season_id = S.season_id
+AND T.competitor_id = S.competitor_id
+WHEN NOT MATCHED BY TARGET THEN
+  INSERT ({insert_cols_sql})
+  VALUES ({insert_vals_sql})
+"""
+        max_attempts = 3
+
+        try:
+            for attempt in range(1, max_attempts + 1):
+                try:
+                    client.create_table(temp_table, exists_ok=True)
+
+                    errors = client.insert_rows_json(temp_table_id, keyed_rows_deduped)
+                    if errors:
+                        sample = errors[:3] if len(errors) > 3 else errors
+                        raise RuntimeError(
+                            "BigQuery insert_rows_json failed for season competitors merge staging "
+                            f"(table={temp_table_id}, {len(errors)} errors): {sample}"
+                        )
+
+                    job = client.query(merge_sql)
+                    job.result()
+                    inserted_keyed_rows = int(job.num_dml_affected_rows or 0)
+                    break
+                except gapi_exceptions.NotFound:
+                    if attempt == max_attempts:
+                        raise
+                    print(
+                        (
+                            "  Staging table not found for season competitors merge "
+                            f"({temp_table_id}) on attempt {attempt}/{max_attempts}; retrying."
+                        ),
+                        flush=True,
+                    )
+                    client.delete_table(temp_table_id, not_found_ok=True)
+                    time.sleep(0.5 * attempt)
+        finally:
+            client.delete_table(temp_table_id, not_found_ok=True)
+
+    inserted_non_key_rows = 0
+    dropped_non_key_rows = len(non_key_rows)
+    total_inserted_rows = inserted_keyed_rows + inserted_non_key_rows
+    return {
+        "input_rows": len(rows),
+        "source_keyed_rows": len(keyed_rows),
+        "source_non_key_rows": len(non_key_rows),
+        "source_keyed_rows_deduped": len(keyed_rows_deduped),
+        "inserted_keyed_rows": inserted_keyed_rows,
+        "inserted_non_key_rows": inserted_non_key_rows,
+        "dropped_non_key_rows": dropped_non_key_rows,
+        "total_inserted_rows": total_inserted_rows,
+    }
+
+
 def get_param_list(table_id: str, column: str) -> list[Any]:
     """
     Query the table for distinct values of one column. Use for parameterized
@@ -371,6 +530,34 @@ def get_seasons_from_seasons_table(seasons_table_id: str) -> frozenset[str]:
     sql = f'SELECT DISTINCT id FROM `{seasons_table_id}`'
     job = client.query(sql)
     return frozenset(row["id"] for row in job.result() if row["id"] is not None)
+
+
+def get_season_ids_from_seasons_table_by_min_start_date(
+    seasons_table_id: str,
+    *,
+    min_start_date: str,
+) -> list[str]:
+    """
+    Return season ids whose start_date is between min_start_date and today.
+
+    min_start_date should be an ISO date string (YYYY-MM-DD).
+    """
+    client = get_client()
+    sql = f"""
+SELECT DISTINCT id
+FROM `{seasons_table_id}`
+WHERE id IS NOT NULL
+  AND start_date IS NOT NULL
+  AND start_date >= @min_start_date
+  AND start_date <= CURRENT_DATE()
+"""
+    job_config = bigquery.QueryJobConfig(
+        query_parameters=[
+            bigquery.ScalarQueryParameter("min_start_date", "DATE", min_start_date),
+        ]
+    )
+    job = client.query(sql, job_config=job_config)
+    return [row["id"] for row in job.result() if row["id"] is not None]
 
 def get_major_competition_ids() -> frozenset[str]:
     """
@@ -526,6 +713,251 @@ def get_existing_season_ids_from_season_brackets_table(season_brackets_table_id:
     sql = f'SELECT DISTINCT season_id FROM `{season_brackets_table_id}`'
     job = client.query(sql)
     return [row["season_id"] for row in job.result() if row["season_id"] is not None]
+
+
+def get_completed_season_ids_from_season_brackets_table(season_brackets_table_id: str) -> list[str]:
+    """
+    Return season ids that have at least one actual bracket row.
+
+    A season is considered completed when it has at least one row with
+    non-null cup_round_id. Placeholder rows (all-null bracket fields) do not
+    mark the season as completed.
+    """
+    client = get_client()
+    sql = f"""
+SELECT DISTINCT season_id
+FROM `{season_brackets_table_id}`
+WHERE season_id IS NOT NULL
+  AND cup_round_id IS NOT NULL
+"""
+    job = client.query(sql)
+    return [row["season_id"] for row in job.result() if row["season_id"] is not None]
+
+
+def replace_season_brackets_rows_for_season(
+    table_id: str,
+    season_id: str,
+    rows: list[dict[str, Any]],
+) -> dict[str, int]:
+    """
+    Replace all season_brackets rows for one season with the provided rows.
+
+    Intended for seasons that are not yet completed (e.g. placeholder rows).
+    """
+    if not season_id:
+        raise ValueError("season_id is required to replace season_brackets rows.")
+
+    normalized_rows: list[dict[str, Any]] = []
+    for row in rows:
+        row_copy = dict(row)
+        row_copy["season_id"] = season_id
+        normalized_rows.append(row_copy)
+
+    client = get_client()
+    delete_sql = f"DELETE FROM `{table_id}` WHERE season_id = @season_id"
+    job_config = bigquery.QueryJobConfig(
+        query_parameters=[
+            bigquery.ScalarQueryParameter("season_id", "STRING", season_id),
+        ]
+    )
+    delete_job = client.query(delete_sql, job_config=job_config)
+    delete_job.result()
+    deleted_rows = int(delete_job.num_dml_affected_rows or 0)
+
+    inserted_rows = _write_rows_in_chunks(table_id, normalized_rows, chunk_size=2000)
+    return {
+        "input_rows": len(rows),
+        "deleted_rows": deleted_rows,
+        "inserted_rows": inserted_rows,
+    }
+
+
+def get_sport_event_ids_for_event_summary_processing(
+    season_brackets_table_id: str,
+    event_summary_table_id: str,
+    *,
+    terminal_match_statuses: tuple[str, ...] = ("ended", "retired", "walkover"),
+) -> list[str]:
+    """
+    Return sport_event_ids that should be processed by the event_summary pipeline.
+
+    Candidate IDs come from season_brackets. An ID is selected when:
+    - no summary row exists yet, or
+    - at least one sparse summary row exists, or
+    - at least one non-terminal/unknown match_status row exists.
+    """
+    client = get_client()
+    sql = f"""
+WITH bracket_ids AS (
+  SELECT DISTINCT sport_event_id
+  FROM `{season_brackets_table_id}`
+  WHERE sport_event_id IS NOT NULL
+),
+summary_status AS (
+  SELECT
+    sport_event_id,
+    LOGICAL_OR(
+      generated_at IS NULL
+      AND competition_id IS NULL
+      AND season_id IS NULL
+      AND start_time IS NULL
+      AND match_status IS NULL
+    ) AS has_sparse_row,
+    LOGICAL_OR(
+      match_status IS NULL
+      OR LOWER(match_status) NOT IN UNNEST(@terminal_statuses)
+    ) AS has_non_terminal_row
+  FROM `{event_summary_table_id}`
+  WHERE sport_event_id IS NOT NULL
+  GROUP BY sport_event_id
+)
+SELECT b.sport_event_id
+FROM bracket_ids b
+LEFT JOIN summary_status s
+ON b.sport_event_id = s.sport_event_id
+WHERE s.sport_event_id IS NULL
+   OR s.has_sparse_row
+   OR s.has_non_terminal_row
+"""
+    job_config = bigquery.QueryJobConfig(
+        query_parameters=[
+            bigquery.ArrayQueryParameter(
+                "terminal_statuses",
+                "STRING",
+                [status.lower() for status in terminal_match_statuses],
+            ),
+        ]
+    )
+    job = client.query(sql, job_config=job_config)
+    return [row["sport_event_id"] for row in job.result() if row["sport_event_id"] is not None]
+
+
+def _replace_rows_for_sport_event_id(
+    table_id: str,
+    sport_event_id: str,
+    rows: list[dict[str, Any]],
+) -> dict[str, int]:
+    """Replace all rows for one sport_event_id with provided rows."""
+    if not sport_event_id:
+        raise ValueError("sport_event_id is required to replace rows.")
+
+    normalized_rows: list[dict[str, Any]] = []
+    for row in rows:
+        row_copy = dict(row)
+        row_copy["sport_event_id"] = sport_event_id
+        normalized_rows.append(row_copy)
+
+    client = get_client()
+    delete_sql = f"DELETE FROM `{table_id}` WHERE sport_event_id = @sport_event_id"
+    job_config = bigquery.QueryJobConfig(
+        query_parameters=[
+            bigquery.ScalarQueryParameter("sport_event_id", "STRING", sport_event_id),
+        ]
+    )
+    delete_job = client.query(delete_sql, job_config=job_config)
+    delete_job.result()
+    deleted_rows = int(delete_job.num_dml_affected_rows or 0)
+
+    inserted_rows = write_rows(table_id, normalized_rows) if normalized_rows else 0
+    return {
+        "input_rows": len(rows),
+        "deleted_rows": deleted_rows,
+        "inserted_rows": inserted_rows,
+    }
+
+
+def _replace_rows_for_sport_event_ids(
+    table_id: str,
+    sport_event_ids: list[str],
+    rows: list[dict[str, Any]],
+) -> dict[str, int]:
+    """Replace all rows for a cohort of sport_event_ids with provided rows."""
+    normalized_event_ids = [str(eid) for eid in sport_event_ids if eid]
+    # Preserve order while deduping.
+    normalized_event_ids = list(dict.fromkeys(normalized_event_ids))
+    if not normalized_event_ids:
+        raise ValueError("sport_event_ids is required to replace rows.")
+
+    client = get_client()
+    delete_sql = f"""
+DELETE FROM `{table_id}`
+WHERE sport_event_id IN UNNEST(@sport_event_ids)
+"""
+    job_config = bigquery.QueryJobConfig(
+        query_parameters=[
+            bigquery.ArrayQueryParameter(
+                "sport_event_ids",
+                "STRING",
+                normalized_event_ids,
+            ),
+        ]
+    )
+    delete_job = client.query(delete_sql, job_config=job_config)
+    delete_job.result()
+    deleted_rows = int(delete_job.num_dml_affected_rows or 0)
+
+    inserted_rows = _write_rows_in_chunks(table_id, rows, chunk_size=2000)
+    return {
+        "input_rows": len(rows),
+        "cohort_size": len(normalized_event_ids),
+        "deleted_rows": deleted_rows,
+        "inserted_rows": inserted_rows,
+    }
+
+
+def replace_event_summary_rows_for_event(
+    table_id: str,
+    sport_event_id: str,
+    rows: list[dict[str, Any]],
+) -> dict[str, int]:
+    """Replace event_summary rows for one sport_event_id."""
+    return _replace_rows_for_sport_event_id(table_id, sport_event_id, rows)
+
+
+def replace_event_statistics_rows_for_event(
+    table_id: str,
+    sport_event_id: str,
+    rows: list[dict[str, Any]],
+) -> dict[str, int]:
+    """Replace event_statistics rows for one sport_event_id."""
+    return _replace_rows_for_sport_event_id(table_id, sport_event_id, rows)
+
+
+def replace_event_timeline_rows_for_event(
+    table_id: str,
+    sport_event_id: str,
+    rows: list[dict[str, Any]],
+) -> dict[str, int]:
+    """Replace event_timeline rows for one sport_event_id."""
+    return _replace_rows_for_sport_event_id(table_id, sport_event_id, rows)
+
+
+def replace_event_summary_rows_for_events(
+    table_id: str,
+    sport_event_ids: list[str],
+    rows: list[dict[str, Any]],
+) -> dict[str, int]:
+    """Replace event_summary rows for a cohort of sport_event_ids."""
+    return _replace_rows_for_sport_event_ids(table_id, sport_event_ids, rows)
+
+
+def replace_event_statistics_rows_for_events(
+    table_id: str,
+    sport_event_ids: list[str],
+    rows: list[dict[str, Any]],
+) -> dict[str, int]:
+    """Replace event_statistics rows for a cohort of sport_event_ids."""
+    return _replace_rows_for_sport_event_ids(table_id, sport_event_ids, rows)
+
+
+def replace_event_timeline_rows_for_events(
+    table_id: str,
+    sport_event_ids: list[str],
+    rows: list[dict[str, Any]],
+) -> dict[str, int]:
+    """Replace event_timeline rows for a cohort of sport_event_ids."""
+    return _replace_rows_for_sport_event_ids(table_id, sport_event_ids, rows)
+
 
 def get_existing_sport_event_ids_from_event_summary_table(event_summary_table_id: str) -> list[str]:
     """

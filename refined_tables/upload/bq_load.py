@@ -17,6 +17,59 @@ if TYPE_CHECKING:
 WriteDispositionName = Literal["WRITE_TRUNCATE", "WRITE_APPEND", "WRITE_EMPTY"]
 
 
+def _is_refined_fixture_stats_table(table_id: str) -> bool:
+    normalized = table_id.strip().lower()
+    return normalized.endswith(".refined_fixture_stats") or normalized == "refined_fixture_stats"
+
+
+def _prepare_special_case_dataframe(table_id: str, df):
+    """
+    Apply table-specific safeguards/transforms before upload.
+
+    For refined_fixture_stats:
+    - enforce one row per sport_event_id
+    - stamp updated_at for the current load
+    """
+    if not _is_refined_fixture_stats_table(table_id):
+        return df
+
+    if "sport_event_id" not in df.columns:
+        raise ValueError(
+            "refined_fixture_stats upload requires 'sport_event_id' column."
+        )
+
+    null_id_count = int(df["sport_event_id"].isna().sum())
+    if null_id_count > 0:
+        raise ValueError(
+            f"refined_fixture_stats has {null_id_count} rows with null sport_event_id."
+        )
+
+    dup_mask = df.duplicated(subset=["sport_event_id"], keep=False)
+    duplicate_count = int(dup_mask.sum())
+    if duplicate_count > 0:
+        sample_ids = (
+            df.loc[dup_mask, "sport_event_id"]
+            .astype(str)
+            .drop_duplicates()
+            .head(10)
+            .tolist()
+        )
+        raise ValueError(
+            "refined_fixture_stats uniqueness guard failed: "
+            f"{duplicate_count} duplicate rows on sport_event_id. "
+            f"Sample IDs: {sample_ids}"
+        )
+
+    if "updated_at" in df.columns:
+        import pandas as pd
+
+        run_ts = pd.Timestamp.now(tz="UTC")
+        df = df.copy()
+        df["updated_at"] = run_ts
+
+    return df
+
+
 def _job_config(
     *,
     write_disposition: WriteDispositionName,
@@ -84,12 +137,14 @@ def load_dataframe(
     if not isinstance(df, pd.DataFrame):
         raise TypeError(f"df must be a pandas DataFrame, got {type(df)!r}")
 
+    prepared_df = _prepare_special_case_dataframe(table_id, df)
+
     job_config = _job_config(
         write_disposition=write_disposition,
         schema=schema,
         autodetect=autodetect,
     )
-    job = client.load_table_from_dataframe(df, table_id, job_config=job_config)
+    job = client.load_table_from_dataframe(prepared_df, table_id, job_config=job_config)
     job.result()
     return job
 

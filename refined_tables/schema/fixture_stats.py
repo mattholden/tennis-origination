@@ -42,4 +42,5 @@ def get_schema() -> list[bigquery.SchemaField]:
         bigquery.SchemaField("serve_stats_rows", "INT64", mode="NULLABLE"),
         bigquery.SchemaField("non_null_ace_rows", "INT64", mode="NULLABLE"),
         bigquery.SchemaField("ace_rate", "FLOAT64", mode="NULLABLE"),
+        bigquery.SchemaField("updated_at", "TIMESTAMP", mode="NULLABLE"),
     ]
