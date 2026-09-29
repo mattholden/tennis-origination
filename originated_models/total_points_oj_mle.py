@@ -1067,6 +1067,52 @@ def _fit_hybrid_by_gender_best_of(
     return fits
 
 
+def fit_and_score_gender_best_of(
+    train_df: pd.DataFrame,
+    score_df: pd.DataFrame,
+    *,
+    gender_col: str = "competition_gender",
+    score_games_col: str = "projected_total_games",
+    points_col: str = "total_points",
+    best_of_col: str = "mode_best_of",
+    actual_games_col: str = "total_games_played",
+    segments: tuple[tuple[str, int], ...] = (("men", 3), ("men", 5), ("women", 3)),
+) -> tuple[dict[tuple[str, int], GamesOnlyGaussianMLE], pd.DataFrame]:
+    """
+    Fit hybrid (gender, best_of) models on train and score another frame.
+
+    Returns fits plus a scored copy with ``predicted_points`` (= μ at projected games).
+    """
+    fits = _fit_hybrid_by_gender_best_of(
+        train_df,
+        gender_col=gender_col,
+        score_games_col=score_games_col,
+        points_col=points_col,
+        best_of_col=best_of_col,
+        actual_games_col=actual_games_col,
+        segments=segments,
+    )
+    if not fits:
+        raise ValueError("Could not fit any gender × best_of hybrid segments on train.")
+    scored = _score_above_mu_by_gender_best_of(
+        score_df,
+        fits,
+        gender_col=gender_col,
+        score_games_col=score_games_col,
+        points_col=points_col,
+        best_of_col=best_of_col,
+    )
+    scored = scored.copy()
+    scored["predicted_points"] = scored["_mu"]
+    gender_norm = [_normalize_gender(v) for v in scored[gender_col]]
+    bo_vals = pd.to_numeric(scored[best_of_col], errors="coerce")
+    scored["model_segment"] = [
+        f"{g}_bo{int(bo)}" if g is not None and np.isfinite(bo) else "unknown"
+        for g, bo in zip(gender_norm, bo_vals, strict=True)
+    ]
+    return fits, scored
+
+
 def _score_above_mu(
     test_df: pd.DataFrame,
     fits_by_best_of: dict[int, GamesOnlyGaussianMLE],
