@@ -15,7 +15,7 @@ from google.cloud import bigquery
 from injestion.sportradar import SportradarManager
 from refined_tables import get_table_id
 
-DEFAULT_TEST_CUTOFF = pd.Timestamp("2026-06-06", tz="UTC")
+DEFAULT_TEST_CUTOFF = pd.Timestamp("2026-06-08", tz="UTC")
 KEEP_MATCH_STATUSES = frozenset({"ended"})
 # Drop bo3 rows with implausible OddsJam total-games lines (e.g. line ≥ 30).
 BO3_MAX_PROJECTED_TOTAL_GAMES = 30.0
